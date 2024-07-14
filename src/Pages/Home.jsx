@@ -1,3 +1,4 @@
+import Footer from "../components/Footer";
 import Intro from "../components/Intro";
 import LandingPageBar from "../components/LandingPageBar";
 import Projects from "../components/Projects";
@@ -65,6 +66,7 @@ function Home() {
           <MdEmail />
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }
