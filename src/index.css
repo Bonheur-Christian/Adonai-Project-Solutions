@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    overflow-x: hidden;
+}
+
+
+@layer components {
+    .underline-animation {
+        @apply relative
+    }
+
+    .underline-animation::after {
+        @apply absolute content-[''] w-full h-[1.5px] left-0 bottom-[-2px] bg-blue-500 scale-x-0 hover:scale-x-110 origin-bottom-left hover:origin-bottom-left transition-transform duration-300
+    }
+}
