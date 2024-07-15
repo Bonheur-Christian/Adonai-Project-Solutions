@@ -1,10 +1,28 @@
 import { useEffect, useState } from "react";
 import { FaMoon } from "react-icons/fa";
 import { IoIosSunny } from "react-icons/io";
+import { IoMdMenu } from "react-icons/io";
+import { IoCloseSharp } from "react-icons/io5";
 
 function LandingPageBar() {
   const [theme, setheme] = useState("light");
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
@@ -24,24 +42,46 @@ function LandingPageBar() {
     { link: "News", dest: "/news" },
     { link: "Contacts", dest: "/contacts" },
   ];
+
+  const toggleMenu = () => {
+    setOpen(!open);
+  };
   return (
-    <div className="p-4 sticky top-0 bg-white dark:bg-black dark:text-white dark:border-b-3 border-white z-10">
+    <div
+      className={`lg:p-4 md:p-4 sm:p-2  z-10 transition-all duration-300 dark:text-white ${
+        scrolled ? "bg-white dark:bg-gray-800 sticky top-0" : "bg-transparent"
+      }`}
+    >
+    
       <nav className="flex justify-between py-6 px-12">
         <div>LOGO</div>
-        <ul className="flex space-x-12 ">
-          {Links.map((link, index) => (
-            <li key={index}>
-              <a href={link.dest} className="font-lato underline-animation">
-                {link.link}
-              </a>
-            </li>
-          ))}
-          {theme === "dark" ? (
-            <FaMoon onClick={handleThemeSwitch} />
-          ) : (
-            <IoIosSunny onClick={handleThemeSwitch} />
-          )}
-        </ul>
+        <div className="flex sm:flex-col-reverse sm:justify-center">
+          <ul
+            className={`${
+              open ? "block" : "hidden"
+            } lg:flex lg:space-x-12  sm:space-y-4 lg:space-y-0 md:space-y-4 sm:top-[10vh] `}
+          >
+            {Links.map((link, index) => (
+              <li key={index}>
+                <a href={link.dest} className="font-lato underline-animation">
+                  {link.link}
+                </a>
+              </li>
+            ))}
+            {theme === "dark" ? (
+              <FaMoon onClick={handleThemeSwitch} />
+            ) : (
+              <IoIosSunny onClick={handleThemeSwitch} />
+            )}
+          </ul>
+          <div className="sm:block lg:hidden sm:pb-6" onClick={toggleMenu}>
+            {open ? (
+              <IoCloseSharp className="text-4xl" />
+            ) : (
+              <IoMdMenu className="text-4xl" />
+            )}
+          </div>
+        </div>
       </nav>
     </div>
   );

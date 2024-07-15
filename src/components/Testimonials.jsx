@@ -71,13 +71,13 @@ function Test() {
       >
         {Testimonials.map((item, index) => (
           <SwiperSlide key={index}>
-            <div key={index} className="py-12 flex items-center bg-[#F8F8F8] w-[90%] mx-auto my-12 dark:text-black rounded-xl">
+            <div key={index} className="py-12 flex sm:flex-col items-center bg-[#F8F8F8] w-[90%] mx-auto  my-12 dark:text-black rounded-xl">
               <div>
-                <img src={item.Image} alt="" width={200} height={200} className="ms-16"/>
+                <img src={item.Image} alt="" className="ms-6 sm:w-1/2 lg:w-1/3 sm:mx-auto "/>
               </div>
-              <div className="rounded-xl mx-auto w-[30vw]">
+              <div className="rounded-xl lg:mx-auto w-full">
                 <div className="flex text-xl pt-4">
-                  <p className="px-6 text-center">
+                  <p className="lg:px-6 sm:px-2 text-center">
                     <img
                       src="svg/quote.svg"
                       alt=""
@@ -91,7 +91,7 @@ function Test() {
                     />
                   </p>
                 </div>
-                <div className="py-6 px-10 flex gap-6">
+                <div className="py-6 px-10 flex gap-2">
                   <div>
                     <p className="text-3xl font-lato">{item.Name}</p>
                     <p className="text-3xl font-bold font-lato ">{item.role}</p>
@@ -124,7 +124,7 @@ function Test() {
           id="next-btn"
         >
           <svg
-            className="w-5 h-5"
+            className="w-5 h-5 z-[-10]"
             fill="#000000"
             viewBox="0 0 256 256"
             id="Flat"
