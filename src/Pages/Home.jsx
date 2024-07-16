@@ -8,7 +8,7 @@ import { MdEmail } from "react-icons/md";
 function Home() {
   return (
     <div className="dark:text-white px-0 mx-0">
-      <LandingPageBar />
+      {/* <LandingPageBar /> */}
       <Intro />
       <div className="py-12 space-y-6">
         <h2 className="text-2xl font-lato font-semibold text-center tracking-wider">
@@ -18,7 +18,7 @@ function Home() {
           SEE WHAT OUR CLIENT SAID{" "}
         </p>
       </div>
-      <div className="text-center w-[80vw] mx-auto text-xl">
+      <div className="lg:text-center sm:text-start w-[80vw] mx-auto lg:text-xl md:text-xl sm:text-lg  ">
         <p>
           At APS Ltd, we are committed to excellence, integrity, and customer
           satisfaction. Our team of professionals is dedicated to delivering
@@ -32,22 +32,22 @@ function Home() {
         <img src="svg/button.svg" alt="" className="w-auto h-auto" />
       </div>
       <Projects />
-      <div className="flex justify-between h-screen py-24 ps-12">
-        <div className="flex items-center">
+      <div className="flex lg:flex-row sm:flex-col-reverse lg:justify-between  lg:h-screen lg:py-24 sm:py-12 lg:ps-12 sm:ps-2">
+        <div className="lg:flex items-center ">
           <img src="svg/mission1.svg" alt="" />
         </div>
-        <div className="bg-[url('svg/mission.svg')] w-1/2 bg-no-repeat">
-          <div className="py-32">
-            <h1 className="font-lato font-bold text-white text-4xl text-center">
+        <div className="lg:bg-[url('svg/mission.svg')] lg:w-1/2 bg-no-repeat">
+          <div className="lg:py-32 sm:pt-32 sm:py-12">
+            <h1 className="font-lato font-bold lg:text-white sm:text-gray-900 text-4xl text-center sm:py-4">
               Our Vision
             </h1>
-            <p className="w-1/2 text-center text-white text-xl mx-auto">
+            <p className="lg:w-1/2 sm:w-full sm:text-wrap lg:text-white sm:text-gray-900 text-xl mx-auto sm:px-4">
               To be the leading engineering solutions provider in Rwanda and
               beyond, known for our commitment to quality, innovation, and
               sustainable practices.
             </p>
-            <div className="flex justify-center my-32">
-              <button className="bg-transparent border-2 border-blue-700 py-2 px-4 text-white hover:bg-blue-700 duration-500">
+            <div className="flex justify-center lg:my-32 sm:my-12">
+              <button className="bg-transparent border-2 border-blue-700 py-2 px-4 lg:text-white sm:font-lato sm:text-lg hover:bg-blue-700 sm:hover:text-white duration-500 dark:hover:bg-blue-400 dark:border-blue-400 rounded-xl">
                 View Our Work
               </button>
             </div>
@@ -66,7 +66,7 @@ function Home() {
           <MdEmail />
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

@@ -27,7 +27,7 @@ function Footer() {
 
   return (
     <div>
-        <div className="flex justify-evenly py-12 bg-[#D9D9D9]">
+        <div className="flex sm:flex-wrap sm:space-y-6 justify-evenly lg:py-12 bg-[#D9D9D9] dark:bg-gray-700">
           <div className="py-12">
             <h1 className="text-xl font-lato">LOGO</h1>
             <div className="flex gap-2">

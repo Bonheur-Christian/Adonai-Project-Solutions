@@ -33,7 +33,7 @@ function Projects() {
         {Projects.map((item, index) => (
           <SwiperSlide key={index}>
             <div className="mx-auto flex justify-center">
-              <img src={item.Image} alt="" width={400} height={100} />
+              <img src={item.Image} alt="" width={400} height={100} className="sm:w-1/2" />
             </div>
           </SwiperSlide>
         ))}
