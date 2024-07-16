@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import Intro from "../components/Intro";
 import LandingPageBar from "../components/LandingPageBar";
@@ -6,9 +7,26 @@ import Testimonials from "../components/Testimonials";
 import { MdEmail } from "react-icons/md";
 
 function Home() {
+  const [showNavbar, setShowNavbar] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setShowNavbar(true);
+      } else {
+        setShowNavbar(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className="dark:text-white px-0 mx-0">
-      {/* <LandingPageBar /> */}
+      {showNavbar && <LandingPageBar />}
       <Intro />
       <div className="py-12 space-y-6">
         <h2 className="text-2xl font-lato font-semibold text-center tracking-wider">

@@ -52,9 +52,8 @@ function LandingPageBar() {
         scrolled ? "bg-white dark:bg-gray-800 sticky top-0" : "bg-transparent"
       }`}
     >
-    
       <nav className="flex justify-between py-6 px-12">
-        <div>LOGO</div>
+        <div className="font-bold">LOGO</div>
         <div className="flex sm:flex-col-reverse sm:justify-center">
           <ul
             className={`${
@@ -69,9 +68,12 @@ function LandingPageBar() {
               </li>
             ))}
             {theme === "dark" ? (
-              <FaMoon onClick={handleThemeSwitch} />
+              <FaMoon onClick={handleThemeSwitch} className="cursor-pointer" />
             ) : (
-              <IoIosSunny onClick={handleThemeSwitch} />
+              <IoIosSunny
+                onClick={handleThemeSwitch}
+                className="cursor-pointer"
+              />
             )}
           </ul>
           <div className="sm:block lg:hidden sm:pb-6" onClick={toggleMenu}>

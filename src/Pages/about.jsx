@@ -1,9 +1,26 @@
 import LandingPageBar from "../components/LandingPageBar";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, Pagination } from "swiper/modules";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Footer from "../components/Footer";
 
 export default function About() {
+  const [showNavbar, setShowNavbar] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setShowNavbar(true);
+      } else {
+        setShowNavbar(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const team = [
     {
       name: "Rukundo David",
@@ -51,8 +68,9 @@ export default function About() {
   };
   return (
     <div>
-      <LandingPageBar />
+      {showNavbar && <LandingPageBar />}
       <div className="bg-[url('svg/Intro.svg')] h-[10rem] md:h-[20rem] bg-cover bg-center bg-no-repeat dark:text-black">
+      <LandingPageBar/>
         <div className="flex items-center justify-end h-full px-6 md:px-24">
           <h1 className="text-right text-[#424242] font-bold text-xl md:text-3xl lg:text-5xl">
             About Our Story
@@ -90,7 +108,7 @@ export default function About() {
             src="images/image.png"
             alt="aboutUs"
             className="rounded-lg shadow-lg max-w-full h-auto"
-            style={{ position: "relative" }} // Ensure the image is positioned relatively for proper z-index handling
+            style={{ position: "relative" }} 
           />
           <button className="absolute bottom-4 right-4 text-white  bg-blue-600 px-4 py-2 rounded-xl rounded-tr-none">
             Let&apos;s talk
@@ -177,6 +195,7 @@ export default function About() {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }
