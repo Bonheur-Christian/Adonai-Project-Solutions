@@ -5,16 +5,32 @@ import { useState } from "react";
 function Projects() {
   const Projects = [
     {
-      Image: "images/project1.png",
+      Image: "images/project1.jpg",
+      desc:"Residential Twin House At Kanombe."
     },
     {
-      Image: "images/project2.png",
+      Image: "images/project2.jpg",
+      desc:"Residential Twin House At Kanombe."
     },
     {
-      Image: "images/project3.png",
+      Image: "images/project3.jpg",
+      desc:"Hope Haven Christian School Secondary."
     },
     {
-      Image: "images/project4.png",
+      Image: "images/project4.jpg",
+      desc:"New Life Christian Academy."
+    },
+    {
+      Image: "images/project5.jpg",
+      desc:"New Life Christian Academy."
+    },
+    {
+      Image: "images/project6.jpg",
+      desc:"Potter's Hand Church."
+    },
+    {
+      Image: "images/project7.jpg",
+      desc:"Hope Haven Christian School Primary."
     },
   ];
 
@@ -22,7 +38,6 @@ function Projects() {
     <div className="mx-auto">
       <Swiper
         modules={[Navigation, Autoplay]}
-        navigation={{ prevEl: `#prev-btn`, nextEl: `#next-btn` }}
         autoplay={{ delay: 3000, disableOnInteraction: true }}
         loop={true}
         breakpoints={{
@@ -32,8 +47,15 @@ function Projects() {
       >
         {Projects.map((item, index) => (
           <SwiperSlide key={index}>
-            <div className="mx-auto flex justify-center">
-              <img src={item.Image} alt="" width={400} height={100} className="sm:w-1/2" />
+            <div className="flex gap-4 justify-evenly flex-wrap">
+              <img
+                src={item.Image}
+                alt=""
+                width={200}
+                height={10}
+                className="sm:w-1/2 lg:w-[30vw] lg:h-[50vh] rounded-3xl"
+              />
+              <p className="font-lato text-xl text-gray-600 shadow-2xl font-semibold">{item.desc}</p>
             </div>
           </SwiperSlide>
         ))}

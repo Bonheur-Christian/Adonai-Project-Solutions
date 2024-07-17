@@ -49,12 +49,15 @@ function LandingPageBar() {
   return (
     <div
       className={`lg:p-4 md:p-4 sm:p-2  z-10 transition-all duration-300 dark:text-white ${
-        scrolled ? "bg-white dark:bg-gray-800 sticky top-0" : "bg-transparent"
+        scrolled
+          ? "bg-white dark:bg-gray-800 sticky top-0"
+          : "bg-transparent sticky top-0"
       }`}
     >
-    
-      <nav className="flex justify-between py-6 px-12">
-        <div>LOGO</div>
+      <nav className="flex justify-between py- px-12 sticky top-0">
+        <div>
+          <img src="svg/logo.svg" alt="" width={90} height={10}/>
+        </div>
         <div className="flex sm:flex-col-reverse sm:justify-center">
           <ul
             className={`${

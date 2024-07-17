@@ -17,3 +17,13 @@ body {
         @apply absolute content-[''] w-full h-[1.5px] left-0 bottom-[-2px] bg-blue-500 scale-x-0 hover:scale-x-110 origin-bottom-left hover:origin-bottom-left transition-transform duration-300
     }
 }
+
+
+.fixed-bottom-right {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 40px;
+    color: #25D366; 
+  }
+  
