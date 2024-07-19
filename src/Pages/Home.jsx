@@ -1,15 +1,12 @@
 import Footer from "../components/Footer";
 import Intro from "../components/Intro";
-import LandingPageBar from "../components/LandingPageBar";
 import Projects from "../components/Projects";
 import Testimonials from "../components/Testimonials";
 import { MdEmail } from "react-icons/md";
-import { FaWhatsapp } from "react-icons/fa";
 
 function Home() {
   return (
     <div className="dark:text-white px-0 mx-0">
-      <FaWhatsapp className="fixed-bottom-right z-20"/>
       <Intro />
       <div className="py-12 space-y-6">
         <h2 className="text-2xl font-lato font-semibold text-center tracking-wider">

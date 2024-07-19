@@ -53,7 +53,7 @@ function Projects() {
                 alt=""
                 width={200}
                 height={10}
-                className="sm:w-1/2 lg:w-[30vw] lg:h-[50vh] rounded-3xl"
+                className="sm:w-1/2 lg:w-[30vw] lg:h-[50vh] rounded-2xl"
               />
               <p className="font-lato text-xl text-gray-600 shadow-2xl font-semibold">{item.desc}</p>
             </div>

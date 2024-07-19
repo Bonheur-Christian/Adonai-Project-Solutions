@@ -19,7 +19,7 @@ function Intro() {
           </div>
         </div>
         <button className="bg-blue-500 hover:bg-blue-700 px-4 py-3 rounded-lg text-white">
-          Why Aps?
+          Why APS?
         </button>
       </div>
     </div>

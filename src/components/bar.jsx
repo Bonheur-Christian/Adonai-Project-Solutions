@@ -4,25 +4,9 @@ import { IoIosSunny } from "react-icons/io";
 import { IoMdMenu } from "react-icons/io";
 import { IoCloseSharp } from "react-icons/io5";
 
-function LandingPageBar() {
+function Bar() {
   const [theme, setheme] = useState("light");
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
@@ -47,13 +31,7 @@ function LandingPageBar() {
     setOpen(!open);
   };
   return (
-    <div
-      className={`lg:p-4 md:p-4 sm:p-2  z-10 transition-all duration-500 dark:text-white sticky top-0 ${
-        scrolled
-          ? "bg-white dark:bg-gray-800 sticky top"
-          : "bg-transparent sticky top-0"
-      }`}
-    >
+    <div className="lg:p-4 md:p-4 sm:p-2  z-10 transition-all duration-300 dark:text-white bg-transparent sticky">
       <nav className="flex justify-between py- px-12 sticky top-0">
         <div>
           <img src="svg/logo.svg" alt="" width={90} height={10} />
@@ -90,4 +68,4 @@ function LandingPageBar() {
   );
 }
 
-export default LandingPageBar;
+export default Bar;
