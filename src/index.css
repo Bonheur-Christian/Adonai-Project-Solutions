@@ -27,3 +27,7 @@ body {
     color: #25D366; 
   }
   
+
+  .text-shadow{
+    text-shadow: 2px 2px 4px #000000;
+  }

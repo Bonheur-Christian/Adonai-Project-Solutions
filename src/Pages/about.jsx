@@ -23,9 +23,9 @@ export default function About() {
   }, []);
   const team = [
     {
-      name: "Rukundo David",
+      name: "Ndahiro Evode",
       role: "Co-Founder& CEO",
-      image: "/images/David.png",
+      image: "/images/Ndahiro.jpeg",
     },
     {
       name: "Uwineza Linda",
@@ -39,9 +39,9 @@ export default function About() {
       image: "/images/Bahati.png",
     },
     {
-      name: "Rukundo David",
+      name: "Ndahiro Evode",
       role: "Co-Founder& CEO",
-      image: "/images/David.png",
+      image: "/images/Ndahiro.jpeg",
     },
     {
       name: "Uwineza Linda",
