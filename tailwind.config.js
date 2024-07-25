@@ -11,7 +11,7 @@ export default {
       'md': '701px',
       'lg': '900px',
     },
-    extend: {
+    extend: { 
       
       fontFamily: {
         lato: ['lato', 'sans-serif'],
