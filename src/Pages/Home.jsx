@@ -1,7 +1,7 @@
 import Footer from "../components/Footer";
 import Intro from "../components/Intro";
 import Projects from "../components/Projects";
-import ServiceSwiper from "../components/services";
+import ServiceSwiper from "../components/servicesSwiper";
 import Testimonials from "../components/Testimonials";
 import { MdEmail } from "react-icons/md";
 

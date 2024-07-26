@@ -65,7 +65,7 @@ function ServiceSwiper() {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
   return (
-    <div className="relative group">
+    <div className="relative group my-12 mb-32">
       <Swiper
         modules={[Navigation, Autoplay, Pagination]}
         pagination={{
