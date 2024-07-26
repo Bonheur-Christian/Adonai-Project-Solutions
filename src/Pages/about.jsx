@@ -69,7 +69,7 @@ export default function About() {
   return (
     <div>
       {scrolled && <LandingPageBar />}
-      <div className="bg-[url('/svg/Intro.svg')] h-[10rem] md:h-[20rem] bg-cover bg-center bg-no-repeat dark:text-black">
+      <div className="bg-[url('/images/header.png')] h-[10rem] md:h-[20rem] bg-cover bg-center bg-no-repeat dark:text-black">
         <div className="flex items-center justify-end h-full px-6 md:px-24">
           <h1 className="text-right text-[#424242] font-bold text-xl md:text-3xl lg:text-5xl">
             About Our Story
