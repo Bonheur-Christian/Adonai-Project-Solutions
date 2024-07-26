@@ -40,7 +40,7 @@ function LandingPageBar() {
     { link: "Why APS?", dest: "/whyus" },
     { link: "Services", dest: "/services" },
     { link: "News", dest: "/news" },
-    { link: "Contacts", dest: "/contacts" },
+    { link: "Contacts", dest: "#contacts" },
   ];
 
   const toggleMenu = () => {

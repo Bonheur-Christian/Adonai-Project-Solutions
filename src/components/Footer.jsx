@@ -7,7 +7,7 @@ function Footer() {
     { link: "Home", dest: "/" },
     { link: "About", dest: "/about" },
     { link: "Services", dest: "/services" },
-    { link: "Contacts", dest: "/contacts" },
+    { link: "Contacts", dest: "#contacts" },
   ];
   const Services = [
     { link: "Construction", dest: "/services" },
@@ -21,8 +21,8 @@ function Footer() {
     { link: "News", dest: "/news" },
   ];
   const ContactUS = [
-    { link: " Reach Us", dest: "/contacts" },
-    { link: "Projects", dest: "/" },
+    { link: " Reach Us", dest: "#contacts" },
+    { link: "Projects", dest: "/#projects" },
   ];
 
   return (
@@ -78,7 +78,7 @@ function Footer() {
             ))}
           </ul>
         </div>
-        <div className="space-y-3">
+        <div className="space-y-3" id="contacts">
             <h1 className="font-semibold font-lato">Address</h1>
              <address className="space-y-2">
               <p><span className="font-lato text-lg">Tel</span>:0788348991</p>

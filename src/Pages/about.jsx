@@ -119,7 +119,7 @@ export default function About() {
           Meet Our Team
         </h1>
       </div>
-      <div className="relative group">
+      <div className="relative group" id="team">
         <Swiper
           modules={[Navigation, Autoplay, Pagination]}
           pagination={{

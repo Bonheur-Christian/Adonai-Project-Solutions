@@ -18,9 +18,11 @@ function Intro() {
             </h1>
           </div>
         </div>
-        <button className="bg-blue-500 hover:bg-blue-700 px-4 py-3 rounded-lg text-white">
-          Why APS?
-        </button>
+        <a href="/whyus">
+          <button className="bg-blue-500 hover:bg-blue-700 px-4 py-3 rounded-lg text-white">
+            Why APS?
+          </button>
+        </a>
       </div>
     </div>
   );

@@ -27,7 +27,9 @@ function Home() {
       </div>
       <Testimonials />
       <div className="flex justify-center my-12">
-        <img src="svg/button.svg" alt="" className="w-auto h-auto" />
+        <a href="#projects">
+          <img src="svg/button.svg" alt="" className="w-auto h-auto" />
+        </a>
       </div>
       <Projects />
       <div className="flex lg:flex-row sm:flex-col-reverse lg:justify-between  lg:h-screen lg:py-24 sm:py-12 lg:ps-12 sm:ps-2">
@@ -45,9 +47,11 @@ function Home() {
               sustainable practices.
             </p>
             <div className="flex justify-center lg:my-32 sm:my-12">
-              <button className="bg-transparent border-2 border-blue-700 py-2 px-4 lg:text-white sm:font-lato sm:text-lg hover:bg-blue-700 sm:hover:text-white duration-500 dark:hover:bg-blue-400 dark:border-blue-400 rounded-xl">
-                View Our Work
-              </button>
+              <a href="/services">
+                <button className="bg-transparent border-2 border-blue-700 py-2 px-4 lg:text-white sm:font-lato sm:text-lg hover:bg-blue-700 sm:hover:text-white duration-500 dark:hover:bg-blue-400 dark:border-blue-400 rounded-xl">
+                  View Our Work
+                </button>
+              </a>
             </div>
           </div>
         </div>
@@ -60,7 +64,9 @@ function Home() {
           <img src="svg/downArrow.svg" alt="" className="w-auto h-auto" />
         </div>
         <div className="w-full bg-blue-700 flex justify-center items-center gap-4 text-2xl text-white py-4">
-          <p>Reach Out To Our Team. </p>
+          <a href="/about#team">
+            <p>Reach Out To Our Team. </p>
+          </a>
           <MdEmail />
         </div>
       </div>

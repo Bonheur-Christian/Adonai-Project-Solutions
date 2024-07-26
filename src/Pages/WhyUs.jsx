@@ -67,8 +67,8 @@ function WhyUs() {
           </h1>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row p-6 md:p-12">
-        <div className="md:w-1/2 md:pr-6 mb-8 md:mb-0 pt-32">
+      <div className="flex flex-col md:flex-row">
+        <div className="md:w-1/2 md:pr-6 mb-8 md:mb-0 pt-40 pl-12">
           <h1 className="font-semibold text-blue-500 text-lg mb-4">
             IT MATTERS ....
           </h1>
@@ -93,7 +93,6 @@ function WhyUs() {
             src="images/image.png"
             alt="aboutUs"
             className="rounded-lg max-w-full h-auto"
-            style={{ position: "relative" }}
           />
         </div>
       </div>

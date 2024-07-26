@@ -6,36 +6,36 @@ function Projects() {
   const Projects = [
     {
       Image: "images/project1.jpg",
-      desc:"Residential Twin House At Kanombe."
+      desc: "Residential Twin House At Kanombe.",
     },
     {
       Image: "images/project2.jpg",
-      desc:"Residential Twin House At Kanombe."
+      desc: "Residential Twin House At Kanombe.",
     },
     {
       Image: "images/project3.jpg",
-      desc:"Hope Haven Christian School Secondary."
+      desc: "Hope Haven Christian School Secondary.",
     },
     {
       Image: "images/project4.jpg",
-      desc:"New Life Christian Academy."
+      desc: "New Life Christian Academy.",
     },
     {
       Image: "images/project5.jpg",
-      desc:"New Life Christian Academy."
+      desc: "New Life Christian Academy.",
     },
     {
       Image: "images/project6.jpg",
-      desc:"Potter's Hand Church."
+      desc: "Potter's Hand Church.",
     },
     {
       Image: "images/project7.jpg",
-      desc:"Hope Haven Christian School Primary."
+      desc: "Hope Haven Christian School Primary.",
     },
   ];
 
   return (
-    <div className="mx-auto">
+    <div className="mx-auto" id="projects">
       <Swiper
         modules={[Navigation, Autoplay]}
         autoplay={{ delay: 3000, disableOnInteraction: true }}
@@ -55,7 +55,9 @@ function Projects() {
                 height={10}
                 className="sm:w-1/2 lg:w-[30vw] lg:h-[50vh] rounded-2xl"
               />
-              <p className="font-lato text-xl text-gray-600 shadow-2xl font-semibold">{item.desc}</p>
+              <p className="font-lato text-xl text-gray-600 shadow-2xl font-semibold">
+                {item.desc}
+              </p>
             </div>
           </SwiperSlide>
         ))}

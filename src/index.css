@@ -24,10 +24,10 @@ body {
     bottom: 20px;
     right: 20px;
     font-size: 40px;
-    color: #25D366; 
-  }
-  
+    color: #25D366;
+}
 
-  .text-shadow{
+
+.text-shadow {
     text-shadow: 2px 2px 4px #000000;
-  }
+}
