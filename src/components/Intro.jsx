@@ -2,7 +2,7 @@ import LandingPageBar from "./LandingPageBar";
 
 function Intro() {
   return (
-    <div className="bg-[url('svg/Intro.svg')] h-screen bg-cover bg-fit bg-no-repeat dark:text-black">
+    <div className="bg-[url('svg/Intro.png')] h-screen bg-cover bg-fit bg-no-repeat dark:text-black">
       <LandingPageBar />
       <div className="lg:ms-[60rem] sm:text-center lg:text-start sm:p-12">
         <div className=" flex gap-4 pt-44">
@@ -14,7 +14,10 @@ function Intro() {
               You Deserve a Different Kind of Engineering Firm.
             </h1>
             <h1 className="font-lato font-light text-3xl py-12">
-              ONE THAT <span className="text-gray-400 font-semibold">ANSWERS YOUR CALLS.</span>
+              ONE THAT{" "}
+              <span className="text-gray-400 font-semibold">
+                ANSWERS YOUR CALLS.
+              </span>
             </h1>
           </div>
         </div>
