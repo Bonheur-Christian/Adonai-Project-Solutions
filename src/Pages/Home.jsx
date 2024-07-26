@@ -43,7 +43,7 @@ function Home() {
         <div className="lg:flex items-center ">
           <img src="svg/mission1.svg" alt="" />
         </div>
-        <div className="lg:bg-[url('svg/mission.svg')] lg:w-1/2 bg-no-repeat">
+        <div className="lg:bg-[url('/images/mission.png')] lg:w-1/2 bg-no-repeat">
           <div className="ps-36 space-y-12 py-12">
             <div>
               <h1 className="font-lato font-bold lg:text-white sm:text-gray-900 text-4xl text-center sm:py-4">
