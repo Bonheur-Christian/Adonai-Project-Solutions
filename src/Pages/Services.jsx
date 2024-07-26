@@ -77,7 +77,7 @@ function Services() {
   return (
     <div>
       {scrolled && <LandingPageBar />}
-      <div className="bg-[url('svg/Intro.svg')] h-[10rem] md:h-[15rem] bg-cover bg-center bg-no-repeat dark:text-black">
+      <div className="bg-[url('/images/header.png')] h-[10rem] md:h-[15rem] bg-cover bg-center bg-no-repeat dark:text-black">
         <div className="flex items-center justify-end h-full px-6 md:px-24">
           <h1 className="text-right text-[#424242] font-bold text-xl md:text-3xl lg:text-5xl">
             Services ....
@@ -113,7 +113,12 @@ function Services() {
       <div className="flex flex-wrap  justify-evenly">
         {visibleServices.map((item, index) => (
           <div key={index} className="w-[40vw]">
-            <img src={item.svg} alt="property showcasing" className="py-4" sizes="0" />
+            <img
+              src={item.svg}
+              alt="property showcasing"
+              className="py-4"
+              sizes="0"
+            />
             <h1 className="text-2xl pb-6 text-[#1971F4]">{item.title}</h1>
             <p className="font-lato text-lg w-[30vw] pb-6">
               {item.description}

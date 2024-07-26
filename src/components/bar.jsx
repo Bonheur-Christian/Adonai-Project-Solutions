@@ -31,7 +31,7 @@ function Bar() {
     setOpen(!open);
   };
   return (
-    <div className="lg:p-4 md:p-4 sm:p-2  z-10 transition-all duration-300 dark:text-white bg-transparent sticky">
+    <div className="lg:p-4 md:p-4 sm:p-2  z-1 transition-all duration-300 dark:text-white bg-transparent sticky">
       <nav className="flex justify-between py- px-12 sticky top-0">
         <div>
           <img src="svg/logo.svg" alt="" width={90} height={10} />

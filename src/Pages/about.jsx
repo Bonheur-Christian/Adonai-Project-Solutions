@@ -3,13 +3,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, Pagination } from "swiper/modules";
 import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
+import Bar from "../components/bar";
 
 export default function About() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
+      if (window.scrollY > 135) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -68,8 +69,9 @@ export default function About() {
   };
   return (
     <div>
-      <LandingPageBar />
+      {scrolled && <LandingPageBar/>}
       <div className="bg-[url('/images/header.png')] h-[10rem] md:h-[20rem] bg-cover bg-center bg-no-repeat dark:text-black">
+      <Bar/>
         <div className="flex items-center justify-end h-full px-6 md:px-24">
           <h1 className="text-right text-[#424242] font-bold text-xl md:text-3xl lg:text-5xl">
             About Our Story
