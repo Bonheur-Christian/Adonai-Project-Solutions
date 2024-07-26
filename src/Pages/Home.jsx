@@ -1,6 +1,7 @@
 import Footer from "../components/Footer";
 import Intro from "../components/Intro";
 import Projects from "../components/Projects";
+import ServiceSwiper from "../components/services";
 import Testimonials from "../components/Testimonials";
 import { MdEmail } from "react-icons/md";
 
@@ -12,6 +13,12 @@ function Home() {
         <h2 className="text-2xl font-lato font-semibold text-center tracking-wider">
           APS ‘s Track Record speaks for Itself
         </h2>
+        <h2 className="text-2xl font-lato font-semibold text-center tracking-wider">
+          Services offered at Aps
+        </h2>
+        <div>
+          <ServiceSwiper />
+        </div>
         <p className="tracking-widest text-xl text-center">
           SEE WHAT OUR CLIENT SAID{" "}
         </p>
@@ -37,15 +44,27 @@ function Home() {
           <img src="svg/mission1.svg" alt="" />
         </div>
         <div className="lg:bg-[url('svg/mission.svg')] lg:w-1/2 bg-no-repeat">
-          <div className="lg:py-32 sm:pt-32 sm:py-12">
-            <h1 className="font-lato font-bold lg:text-white sm:text-gray-900 text-4xl text-center sm:py-4">
-              Our Vision
-            </h1>
-            <p className="lg:w-1/2 sm:w-full sm:text-wrap lg:text-white sm:text-gray-900 text-xl mx-auto sm:px-4">
-              To be the leading engineering solutions provider in Rwanda and
-              beyond, known for our commitment to quality, innovation, and
-              sustainable practices.
-            </p>
+          <div className="ps-36 space-y-12 py-12">
+            <div>
+              <h1 className="font-lato font-bold lg:text-white sm:text-gray-900 text-4xl text-center sm:py-4">
+                Our Vision
+              </h1>
+              <p className="lg:w-[80%] sm:w-full sm:text-wrap lg:text-white sm:text-gray-900 text-xl mx-auto sm:px-4">
+                To be the leading engineering solutions provider in Rwanda and
+                beyond, known for our commitment to quality, innovation, and
+                sustainable practices.
+              </p>
+            </div>
+            <div>
+              <h1 className="font-lato font-bold lg:text-white sm:text-gray-900 text-4xl text-center sm:py-4">
+                Our Mission
+              </h1>
+              <p className="lg:w-[80%] sm:w-full sm:text-wrap lg:text-white sm:text-gray-900 text-xl mx-auto sm:px-4">
+                To provide comprehensive and innovative engineering solutions
+                that meet the highest standards of quality and sustainability,
+                contributing to the development and betterment of communities.
+              </p>
+            </div>
             <div className="flex justify-center lg:my-32 sm:my-12">
               <a href="/services">
                 <button className="bg-transparent border-2 border-blue-700 py-2 px-4 lg:text-white sm:font-lato sm:text-lg hover:bg-blue-700 sm:hover:text-white duration-500 dark:hover:bg-blue-400 dark:border-blue-400 rounded-xl">

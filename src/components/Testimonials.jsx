@@ -2,7 +2,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, Pagination } from "swiper/modules";
 import { useState } from "react";
 
-
 function Test() {
   const Testimonials = [
     {
@@ -56,7 +55,7 @@ function Test() {
   return (
     <div className="relative group">
       <Swiper
-        modules={[Navigation, Autoplay,Pagination]}
+        modules={[Navigation, Autoplay, Pagination]}
         pagination={{
           dynamicMainBullets: true,
           clickable: true,
@@ -71,9 +70,16 @@ function Test() {
       >
         {Testimonials.map((item, index) => (
           <SwiperSlide key={index}>
-            <div key={index} className="py-12 flex sm:flex-col items-center bg-[#F8F8F8] w-[90%] mx-auto  my-12 dark:text-black rounded-xl">
+            <div
+              key={index}
+              className="py-12 flex sm:flex-col items-center bg-[#F8F8F8] w-[90%] mx-auto  my-12 dark:text-black rounded-xl"
+            >
               <div>
-                <img src={item.Image} alt="" className="ms-6 sm:w-1/2 lg:w-1/3 sm:mx-auto "/>
+                <img
+                  src={item.Image}
+                  alt=""
+                  className="ms-6 sm:w-1/2 lg:w-1/3 sm:mx-auto "
+                />
               </div>
               <div className="rounded-xl lg:mx-auto w-full">
                 <div className="flex text-xl pt-4">
