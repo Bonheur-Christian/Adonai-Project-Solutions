@@ -4,6 +4,7 @@ function Intro() {
   return (
     <div className="bg-[url('images/Intro.png')] h-screen bg-cover bg-fit bg-no-repeat dark:text-black">
       <LandingPageBar />
+      <img src="images/Intro.png" alt="image" />
       <div className="lg:ms-[60rem] sm:text-center lg:text-start sm:p-12">
         <div className=" flex gap-4 pt-44">
           <div>
