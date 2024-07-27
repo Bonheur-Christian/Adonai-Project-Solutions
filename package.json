@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/styled": "^11.13.0",
     "@ionic/react": "^8.2.2",
+    "@mui/material": "^5.16.5",
     "ionicons": "^7.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.3.1",

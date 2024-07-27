@@ -1,8 +1,8 @@
+import Discuss from "../components/discussProject";
 import Footer from "../components/Footer";
 import Intro from "../components/Intro";
 import Projects from "../components/Projects";
 import Testimonials from "../components/Testimonials";
-import { MdEmail } from "react-icons/md";
 
 function Home() {
   return (
@@ -52,18 +52,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div>
-        <h2 className="font-lato text-xl text-center">
-          Want To Discuss Project?
-        </h2>
-        <div className="flex justify-center">
-          <img src="svg/downArrow.svg" alt="" className="w-auto h-auto" />
-        </div>
-        <div className="w-full bg-blue-700 flex justify-center items-center gap-4 text-2xl text-white py-4">
-          <p>Reach Out To Our Team. </p>
-          <MdEmail />
-        </div>
-      </div>
+      <Discuss/>
       <Footer />
     </div>
   );

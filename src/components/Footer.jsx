@@ -27,15 +27,15 @@ function Footer() {
 
   return (
     <div>
-      <div className="flex sm:flex-wrap sm:space-y-6 justify-evenly lg:py-12 bg-[#D9D9D9] dark:bg-gray-700">
+      <div className="flex sm:flex-wrap text-black dark:text-white sm:space-y-6 justify-evenly lg:py-12 bg-[#D9D9D9] dark:bg-gray-700">
         <div className="py-6">
           <div className="pb-4">
             <img src="svg/logo.svg" alt="logo" width={90} height={20} />
           </div>
           <div className="flex gap-4">
             <FaFacebook size={30} color="blue" />
-            <FaInstagram size={30} color="purple"/>
-            <FaXTwitter size={30} color="dark"/>
+            <FaInstagram size={30} color="purple" />
+            <FaXTwitter size={30} color="dark" />
           </div>
         </div>
         <div>
@@ -79,14 +79,21 @@ function Footer() {
           </ul>
         </div>
         <div className="space-y-3">
-            <h1 className="font-semibold font-lato">Address</h1>
-             <address className="space-y-2">
-              <p><span className="font-lato text-lg">Tel</span>:0788348991</p>
-              <p><span className="font-lato text-lg">Email</span>:info@apsltd.rw</p>
-              <p><span className="font-lato text-lg">Location</span>:Kigali-Rwanda, Remera-Gisiment</p>
-              <p>Ituze House</p>
-              </address> 
-            </div>
+          <h1 className="font-semibold font-lato">Address</h1>
+          <address className="space-y-2">
+            <p>
+              <span className="font-lato text-lg">Tel</span>:0788348991
+            </p>
+            <p>
+              <span className="font-lato text-lg">Email</span>:info@apsltd.rw
+            </p>
+            <p>
+              <span className="font-lato text-lg">Location</span>:Kigali-Rwanda,
+              Remera-Gisiment
+            </p>
+            <p>Ituze House</p>
+          </address>
+        </div>
       </div>
       <div className="bg-[#979797]">
         <p className="text-xl text-white text-center py-4">

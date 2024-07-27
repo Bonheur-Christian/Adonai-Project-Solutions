@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { FaMoon } from "react-icons/fa";
-import { IoIosSunny } from "react-icons/io";
+import { FaMoon, FaSun } from "react-icons/fa";
 import { IoMdMenu } from "react-icons/io";
 import { IoCloseSharp } from "react-icons/io5";
+import { IconButton, Drawer, List, ListItem } from "@mui/material";
 
 function LandingPageBar() {
-  const [theme, setheme] = useState("light");
-  const [open, setOpen] = useState(false);
+  const [theme, setTheme] = useState("light");
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -23,17 +23,27 @@ function LandingPageBar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme) {
+      setTheme(storedTheme);
+    }
+  }, []);
+
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
     }
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   const handleThemeSwitch = () => {
-    setheme(theme === "dark" ? "light" : "dark");
+    setTheme(theme === "dark" ? "light" : "dark");
   };
+
   const Links = [
     { link: "Home", dest: "/" },
     { link: "About", dest: "/about" },
@@ -43,50 +53,84 @@ function LandingPageBar() {
     { link: "Contacts", dest: "/contacts" },
   ];
 
-  const toggleMenu = () => {
-    setOpen(!open);
-  };
   return (
-    <div
-      className={`lg:p-4 md:p-4 sm:p-2  z-10 transition-all duration-500 dark:text-white sticky top-0 ${
-        scrolled
-          ? "bg-white dark:bg-gray-800 sticky top"
-          : "bg-transparent sticky top-0"
+    <nav
+      className={`flex items-center p-4 justify-between px-10 text-black bg-transparent dark:text-white lg:px-36 sticky top-0 z-50  ${
+        scrolled ? "bg-white dark:bg-gray-800" : "bg-transparent"
       }`}
     >
-      <nav className="flex justify-between py- px-12 sticky top-0">
-        <div>
-          <img src="svg/logo.svg" alt="" width={90} height={10} />
+      <img src="svg/logo.svg" alt="Logo" width={90} height={10} />
+
+      {/* For larger devices */}
+      <div className="hidden md:flex justify-center items-center">
+        <div className="p-2 space-x-7 text-center items-center justify-center flex rounded-full px-5">
+          {Links.map((link, index) => (
+            <li key={index} style={{ listStyleType: "none" }}>
+              <a href={link.dest} className="font-lato underline-animation">
+                {link.link}
+              </a>
+            </li>
+          ))}
         </div>
-        <div className="flex sm:flex-col-reverse sm:justify-center">
-          <ul
-            className={`${
-              open ? "block" : "hidden"
-            } lg:flex lg:space-x-12  sm:space-y-4 lg:space-y-0 md:space-y-4 sm:top-[10vh] `}
+        {theme === "dark" ? (
+          <FaSun onClick={handleThemeSwitch} className="cursor-pointer" />
+        ) : (
+          <FaMoon onClick={handleThemeSwitch} className="cursor-pointer" />
+        )}
+      </div>
+
+      {/* For smaller devices */}
+      <div className="block md:hidden">
+        <div className="flex items-center space-x-4">
+          {theme === "dark" ? (
+            <FaSun onClick={handleThemeSwitch} />
+          ) : (
+            <FaMoon onClick={handleThemeSwitch} />
+          )}
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            onClick={() => setDrawerOpen(true)}
           >
+            <IoMdMenu className="text-4xl" />
+          </IconButton>
+        </div>
+        <Drawer
+  anchor="right"
+  open={drawerOpen}
+  onClose={() => setDrawerOpen(false)}
+  PaperProps={{
+    style: {
+      width: "75%",
+      padding: "20px",
+      boxShadow: "none",
+    },
+    className: "bg-white dark:bg-black"
+  }}
+>
+          <div
+            onClick={() => setDrawerOpen(false)}
+            className="flex text-2xl justify-end font-bold cursor-pointer"
+          >
+            <IoCloseSharp className="text-black dark:text-white" />
+          </div>
+          <List>
             {Links.map((link, index) => (
-              <li key={index}>
-                <a href={link.dest} className="font-lato underline-animation">
+              <ListItem key={index} button onClick={() => setDrawerOpen(false)}>
+                <a
+                  href={link.dest}
+                  className="font-lato text-black dark:text-white underline-animation"
+                >
                   {link.link}
                 </a>
-              </li>
+              </ListItem>
             ))}
-            {theme === "dark" ? (
-              <FaMoon onClick={handleThemeSwitch} />
-            ) : (
-              <IoIosSunny onClick={handleThemeSwitch} />
-            )}
-          </ul>
-          <div className="sm:block lg:hidden sm:pb-6" onClick={toggleMenu}>
-            {open ? (
-              <IoCloseSharp className="text-4xl" />
-            ) : (
-              <IoMdMenu className="text-4xl" />
-            )}
-          </div>
-        </div>
-      </nav>
-    </div>
+          </List>
+        </Drawer>
+      </div>
+    </nav>
   );
 }
 

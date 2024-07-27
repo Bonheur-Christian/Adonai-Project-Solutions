@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import LandingPageBar from "../components/LandingPageBar";
+import Footer from "../components/Footer";
+import { FaChevronDown } from "react-icons/fa";
+import Discuss from "../components/discussProject";
 
 const Services = () => {
-  const [scrolled, setScrolled] = useState(false);
+  const [, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,7 +24,7 @@ const Services = () => {
   const services = [
     {
       image: "/images/civil.png",
-      Name: "Civil engineering.png",
+      Name: "Civil engineering",
       description:
         "Civil engineering projects present unique challenges, but APS has the practical knowledge and experience necessary to anticipate problems and quickly propose sound solutions.",
     },
@@ -46,54 +49,78 @@ const Services = () => {
   ];
   return (
     <div>
-      {scrolled && <LandingPageBar />}
-      <div className="bg-[url('svg/Intro.svg')] h-[10rem] md:h-[20rem] bg-cover bg-center bg-no-repeat">
-        <div className="flex items-center justify-end h-full px-6 md:px-24">
+      {/* {scrolled && <LandingPageBar />} */}
+      <LandingPageBar />
+      <div className="bg-[url('svg/Intro.svg')] bg-white dark:bg-black h-screen lg:h-[20rem] bg-cover bg-center bg-no-repeat">
+        <div className=" flex flex-col space-y-10 lg:flex-row items-center justify-center lg:justify-end h-full px-6 md:px-24">
           <h1 className="text-right text-[#424242] font-bold text-xl md:text-3xl lg:text-5xl">
             SERVICES....
           </h1>
+          <button className="bottom-4 right-4 text-white visible lg:hidden  bg-blue-600 px-4 py-2 rounded-xl rounded-tr-none">
+            Let&apos;s talk
+          </button>
         </div>
       </div>
       <div className="flex justify-between">
-        <div className="container mx-auto p-6 md:p-12">
-          <h1 className="text-[#B4A9A9]">VERSATILE. PROACTIVE.EXPERIENCED.</h1>
-          <h2 className="text-center text-3xl font-semibold mb-12">
-            APS Services
-          </h2>
-          <p className="text-center text-gray-700 mb-12">
-            Our team understands the importance of shared knowledge and believes
-            that all things must work together to create a cohesive and
-            functional finished product. Explore APS capabilities below to learn
-            more about what our team can offer in each sector.
-          </p>
+        <div className="container mx-auto p-0 lg:p-12">
+          <div className="items-center text-center  p-0">
+            <h1 className="text-[#B4A9A9] items-center justify-center flex">
+              VERSATILE. PROACTIVE.EXPERIENCED.
+            </h1>
+            <div className="flex justify-center lg:justify-center">
+              <h2 className="text-center text-black dark:text-white text-3xl font-semibold mb-12">
+                APS Services
+              </h2>
+            </div>
+            <div className="text-center flex justify-center w-1/2 lg:w-auto">
+              <p className=" text-black dark:text-white mb-12">
+                Our team understands the importance of shared knowledge and
+                believes that all things must work together to create a cohesive
+                and functional finished product. Explore APS capabilities below
+                to learn more about what our team can offer in each sector.
+              </p>
+            </div>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-8">
             {services.map((service, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center text-center p-6 rounded-lg"
+                className="flex flex-col text-black dark:text-white items-center text-center p-0 md:p-6 rounded-lg"
               >
                 <img src={service.image} alt={service.Name} className="mb-4" />
                 <h3 className="text-xl font-bold mb-2">{service.Name}</h3>
-                <p className="text-gray-700 mb-4">{service.description}</p>
-                <button className="px-6 py-2 border text-[#717172] border-[#717172] rounded-full rounded-tr-none">
+                <p className="text-gray-700 dark:text-white mb-4">
+                  {service.description}
+                </p>
+                <button className="px-6 py-2 border text-[#717172] hover:text-white hover:bg-blue-600 border-[#717172] hover:border-none rounded-full rounded-tr-none transition duration-500 ease-in-out">
                   Learn More
                 </button>
               </div>
             ))}
           </div>
         </div>
-        <div className="md:w-1/2 max-h-[619px] flex justify-end relative">
+        <div className="hidden lg:flex lg:justify-end lg:w-1/2 lg:max-h-[619px] lg:relative">
           <img
             src="images/sideImage.png"
             alt="aboutUs"
             className="rounded-lg max-w-full h-auto max-h-[519px]"
-            style={{ position: "relative" }}
           />
         </div>
-        <button className="absolute bottom-4 right-4 text-white  bg-blue-600 px-4 py-2 rounded-xl rounded-tr-none">
+
+        <button className="absolute bottom-4 hidden lg:flex right-4 text-white  bg-blue-600 px-4 py-2 rounded-xl rounded-tr-none">
           Let&apos;s talk
         </button>
       </div>
+      <div className="cursor-pointer text-black dark:text-white my-5 mb-24">
+        <h1 className="flex justify-center items-center gap-3">
+          See more{" "}
+          <span>
+            <FaChevronDown />
+          </span>
+        </h1>
+      </div>
+      <Discuss />
+      <Footer />
     </div>
   );
 };
