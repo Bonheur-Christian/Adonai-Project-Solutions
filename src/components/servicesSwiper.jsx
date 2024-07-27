@@ -64,6 +64,7 @@ function ServiceSwiper() {
   const previous = () => {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
+
   return (
     <div className="relative group my-12 mb-32">
       <Swiper
@@ -91,7 +92,9 @@ function ServiceSwiper() {
               </div>
               <div className="rounded-xl lg:mx-auto w-full">
                 <div className="flex text-xl pt-4">
-                  <p className="px-10 text-center text-2xl text-[#1971F4] font-lato">{item.title}</p>
+                  <p className="px-10 text-center text-2xl text-[#1971F4] font-lato">
+                    {item.title}
+                  </p>
                 </div>
                 <div className="py-6 px-10 flex gap-2">
                   <div>
