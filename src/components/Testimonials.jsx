@@ -99,8 +99,8 @@ function Test() {
                 </div>
                 <div className="py-6 px-10 flex gap-2">
                   <div>
-                    <p className="text-3xl font-lato">{item.Name}</p>
-                    <p className="text-3xl font-bold font-lato ">{item.role}</p>
+                    <p className="lg:text-3xl sm:text-2xl font-lato">{item.Name}</p>
+                    <p className="lg:text-3xl sm:text-xl font-bold font-lato ">{item.role}</p>
                   </div>
                 </div>
               </div>

@@ -32,15 +32,17 @@ function Bar() {
   };
   return (
     <div className="lg:p-4 md:p-4 sm:p-2  z-1 transition-all duration-300 dark:text-white bg-transparent sticky">
-      <nav className="flex justify-between py- px-12 sticky top-0">
-        <div>
+      <nav className="flex justify-between lg:px-12 sm:px-2 sticky top-0 w-[83vw] ">
+      <div>
           <img src="svg/logo.svg" alt="" width={90} height={10} />
         </div>
-        <div className="flex sm:flex-col-reverse sm:justify-center">
-          <ul
+        <div className="flex sm:flex-col-reverse lg:flex-row sm:justify-center relative">
+        <ul
             className={`${
-              open ? "block" : "hidden"
-            } lg:flex lg:space-x-12  sm:space-y-4 lg:space-y-0 md:space-y-4 sm:top-[10vh] `}
+              open
+                ? "bg-white sm:px-12 sm:py-4 w-[100vw] h-screen z-50 mt-20"
+                : "hidden duration-1000"
+            } lg:flex lg:space-x-12  sm:space-y-4 lg:space-y-0 md:space-y-4 sm:top-[10vh] lg:top-6 absolute`}
           >
             {Links.map((link, index) => (
               <li key={index}>
@@ -55,6 +57,7 @@ function Bar() {
               <IoIosSunny onClick={handleThemeSwitch} />
             )}
           </ul>
+        </div>
           <div className="sm:block lg:hidden sm:pb-6" onClick={toggleMenu}>
             {open ? (
               <IoCloseSharp className="text-4xl" />
@@ -62,7 +65,6 @@ function Bar() {
               <IoMdMenu className="text-4xl" />
             )}
           </div>
-        </div>
       </nav>
     </div>
   );

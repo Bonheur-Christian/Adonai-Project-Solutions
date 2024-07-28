@@ -53,9 +53,9 @@ function Projects() {
                 alt=""
                 width={200}
                 height={10}
-                className="sm:w-1/2 lg:w-[30vw] lg:h-[50vh] rounded-2xl"
+                className="sm:w-[90vw] lg:w-[30vw] lg:h-[50vh] sm:[90vh] lg:rounded-xl sm:rounded-md"
               />
-              <p className="font-lato text-xl text-gray-600 shadow-2xl font-semibold">
+              <p className="font-lato text-xl text-center text-gray-600 font-semibold">
                 {item.desc}
               </p>
             </div>

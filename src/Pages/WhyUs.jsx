@@ -41,24 +41,6 @@ function WhyUs() {
       role: "Minister",
       Image: "images/3.png",
     },
-    {
-      Name: "Kim Adams",
-      info: "APS made our dream home a reality. Their attention to detail and commitment to quality are unmatched. The entire process was smooth and stress-free thanks to their expertise and dedication.",
-      role: "CEO",
-      Image: "images/1.png",
-    },
-    {
-      Name: "Mike Nzirorera ",
-      info: "This company is amazing in water management, land survey, property management and other various services. They are great Entrepreneur I've ever seen.",
-      role: "Architect",
-      Image: "images/2.png",
-    },
-    {
-      Name: "Assoumpta IGIRANEZA",
-      info: "The APS team is professional, responsive, and talented. They managed our construction project flawlessly and ensured everything was done to the highest standards. We will definitely use their services again.",
-      role: "Entrepreneur",
-      Image: "images/3.png",
-    },
   ];
   return (
     <div>
@@ -66,33 +48,33 @@ function WhyUs() {
       <div className="bg-[url('/images/header.png')] h-[10rem] md:h-[15rem] bg-cover bg-center bg-no-repeat dark:text-black">
         <Bar />
         <div className="flex items-center justify-end px-6 md:px-24">
-          <h1 className="text-right text-[#424242] font-bold text-xl md:text-3xl lg:text-5xl">
+          <h1 className="text-right text-[#424242] font-bold sm:text-xl md:text-3xl lg:text-5xl">
             Why APS .Ltd ?
           </h1>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row">
-        <div className="md:w-1/2 md:pr-6 mb-8 md:mb-0 pt-40 pl-12">
+      <div className="flex lg:flex-row sm:flex-col-reverse md:flex-row">
+        <div className="md:w-1/2 md:pr-6 mb-8 md:mb-0 lg:pt-40 sm:pt-6 lg:pl-12 sm:px-4 sm:w-full">
           <h1 className="font-semibold text-blue-500 text-lg mb-4">
             IT MATTERS ....
           </h1>
-          <h1 className="font-bold text-3xl mb-4 w-1/4">
+          <h1 className="font-bold text-3xl sm:text-2xl mb-4 lg:w-1/4 sm:w-full">
             Who Does Your Engineering.
           </h1>
-          <p className="mb-6 text-xl font-lato w-[40vw]">
+          <p className="mb-6 text-xl font-lato lg:w-[40vw] sm:w-full">
             If you’ve worked with one engineer, you’ve worked with them
             all—right? It doesn’t have to be that way. It’s easy to get caught
             up in the routine of working with the same engineering firm(s) over
             and over, despite their shortcomings.
           </p>
-          <p className="mb-8 text-xl font-lato w-[40vw]">
+          <p className="mb-8 text-xl font-lato lg:w-[40vw] sm:w-full">
             If you’ve worked with one engineer, you’ve worked with them
             all—right? It doesn’t have to be that way. It’s easy to get caught
             up in the routine of working with the same engineering firm(s) over
             and over, despite their shortcomings.
           </p>
         </div>
-        <div className="md:w-1/2">
+        <div className="md:w-1/2 sm:w-full sm:p-6">
           <img
             src="images/image.png"
             alt="aboutUs"
@@ -100,15 +82,15 @@ function WhyUs() {
           />
         </div>
       </div>
-      <div className="bg-[#DEF2F9]/30 py-12 mt-[-12rem] space-y-16">
-        <p className="font-medium text-2xl ps-[15rem]">
+      <div className="bg-[#DEF2F9]/30 py-12 lg:mt-[-12rem] sm:mt-0 space-y-16">
+        <p className="font-medium text-2xl lg:ps-[15rem] sm:p-6 sm:text-center">
           Aps keeps the clients’ priorities at the forefront of everything we
           do. We believe:
         </p>
         <div className="flex justify-evenly items-start">
-          <img src="svg/1.svg" alt="1" className="pt-4" />
-          <div className="w-[60vw] space-y-6 ms-[-10rem]">
-            <h1 className="text-[#1971F4] font-medium text-2xl">
+          <img src="svg/1.svg" alt="1" className="pt-4 sm:hidden lg:block" />
+          <div className="lg:w-[60vw] sm:w-full space-y-6 lg:ms-[-10rem] sm:ms-0 sm:px-6">
+            <h1 className="text-[#1971F4] font-medium text-2xl sm:text-center">
               THE BUDGET IS MEANT TO BE ADHERED TO.
             </h1>
             <p className="text-xl font-medium">
@@ -116,8 +98,8 @@ function WhyUs() {
               these hurdles shouldn’t completely negate the budget. When these
               situations arise, you’ll need an engineering team that makes
               budget-conscious recommendations without compromising the
-              integrity of the project.{" "}
-              <span className="text-[#1971F4] font-medium">Aps</span>{" "}
+              integrity of the project.
+              <span className="text-[#1971F4] font-medium"> Aps </span>
               Engineering will always outline the most cost-effective solutions
               and research other ways to save money throughout the duration of
               the project.
@@ -125,9 +107,9 @@ function WhyUs() {
           </div>
         </div>
         <div className="flex justify-evenly items-start">
-          <img src="svg/2.svg" alt="2" className="pt-4" />
-          <div className="w-[60vw] ms-[-10rem] space-y-6">
-            <h1 className="text-[#1971F4] font-medium text-2xl">
+          <img src="svg/2.svg" alt="2" className="pt-4 sm:hidden lg:block" />
+          <div className="lg:w-[60vw] sm:w-full space-y-6 lg:ms-[-10rem] sm:ms-0 sm:px-6">
+            <h1 className="text-[#1971F4] font-medium text-2xl sm:text-center">
               A PROJECT SCHEDULE IS NOT JUST A GUIDELINE.
             </h1>
             <p className="text-xl font-medium">
@@ -141,9 +123,9 @@ function WhyUs() {
           </div>
         </div>
         <div className="flex justify-evenly items-start">
-          <img src="svg/3.svg" alt="3" className="pt-4" />
-          <div className="w-[60vw] ms-[-10rem] space-y-6">
-            <h1 className="text-[#1971F4] font-medium text-2xl">
+          <img src="svg/2.svg" alt="2" className="pt-4 sm:hidden lg:block" />
+          <div className="lg:w-[60vw] sm:w-full space-y-6 lg:ms-[-10rem] sm:ms-0 sm:px-6">
+            <h1 className="text-[#1971F4] font-medium text-2xl sm:text-center">
               RESPONSIVENESS IS CRUCIAL.
             </h1>
             <p className="text-xl font-medium">
@@ -158,10 +140,10 @@ function WhyUs() {
       </div>
       <div>
         <div className=" py-12 space-y-6">
-          <h2 className="text-2xl font-lato font-semibold ps-[18rem] tracking-wider">
+          <h2 className="text-2xl sm:text-center font-lato font-semibold lg:ps-[18rem] sm:p-6 tracking-wider">
             APS ‘s Track Record speaks for Itself
           </h2>
-          <p className="tracking-widest text-xl ps-[18rem]">
+          <p className="tracking-widest text-xl lg:ps-[18rem] sm:text-center">
             SEE WHAT OUR CLIENT SAID
           </p>
         </div>
@@ -169,18 +151,18 @@ function WhyUs() {
           {Testimonials.map((item, index) => (
             <div
               key={index}
-              className="py-6 flex lg:flex-row sm:flex-col items-center hover:translate-y-6 hover:text-black text-gray-200 duration-1000 hover:bg-[#F8F8F8] w-[60%] mx-auto  my-6 dark:text-black rounded-xl"
+              className="sm:px-6 py-6 flex lg:flex-row sm:flex-col items-center hover:translate-y-6 hover:text-black text-gray-200 duration-1000 hover:bg-[#F8F8F8] lg:w-[60%] sm:w-[100%] mx-auto  my-6 dark:text-black rounded-xl"
             >
               <div>
                 <img
                   src={item.Image}
                   alt=""
-                  className="w-[60%] sm:mx-auto backdrop-blur-lg"
+                  className="lg:w-[60%] w-[40%] sm:mx-auto backdrop-blur-lg"
                 />
               </div>
               <div className="rounded-xl lg:mx-auto">
                 <div className="flex text-xl pt-2">
-                  <p className="sm:px-2 text-center">
+                  <p className="sm:px-2 lg:text-center">
                     <img
                       src="svg/quote.svg"
                       alt=""
@@ -205,12 +187,12 @@ function WhyUs() {
           ))}
         </div>
       </div>
-      <div className="bg-[#DEF2F9] pt-6">
-        <div className="space-y-6">
-          <h1 className="text-3xl font-lato font-bold text-shadow ps-[18rem]">
+      <div className="bg-[#DEF2F9] pt-12">
+        <div className="lg:space-y-6 sm:space-y-0">
+          <h1 className="text-3xl font-lato font-bold text-shadow lg:ps-[18rem] sm:p-6">
             The Company We Keep
           </h1>
-          <h1 className="text-md font-lato font-medium ps-[18rem] text-[#1971F4] tracking-[0.5rem]">
+          <h1 className="lg:text-md sm:text-xl font-lato font-medium lg:ps-[18rem] sm:p-6 text-[#1971F4] lg:tracking-[0.5rem] sm:tracking-widest sm:text-center">
             PROUD TO PARTNER WITH ORGANIZATIONS ACROSS THE COUNTRY FOR 30 YEARS.
           </h1>
         </div>

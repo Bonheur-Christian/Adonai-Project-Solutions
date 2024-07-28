@@ -39,12 +39,12 @@ function Home() {
         </a>
       </div>
       <Projects />
-      <div className="flex lg:flex-row sm:flex-col-reverse lg:justify-between  lg:h-screen lg:py-24 sm:py-12 lg:ps-12 sm:ps-2">
-        <div className="lg:flex items-center ">
+      <div className="flex lg:flex-row sm:flex-col-reverse lg:justify-between  lg:h-screen lg:py-24 sm:py-6 lg:ps-12 sm:ps-2">
+        <div className="lg:flex items-center sm:px-12 lg:px-0">
           <img src="svg/mission1.svg" alt="" />
         </div>
         <div className="lg:bg-[url('/images/mission.png')] lg:w-1/2 bg-no-repeat">
-          <div className="ps-36 space-y-12 py-12">
+          <div className="lg:ps-48 space-y-12 lg:py-12 sm:py-6">
             <div>
               <h1 className="font-lato font-bold lg:text-white sm:text-gray-900 text-4xl text-center sm:py-4">
                 Our Vision

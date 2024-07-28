@@ -29,9 +29,9 @@ export default function About() {
       image: "/images/Ndahiro.jpeg",
     },
     {
-      name: "Uwineza Linda",
-      role: "Co-Founder& COO",
-      image: "/images/Linda.png",
+      name: "SINDAYIGAYA Moise",
+      role: "Project Mnager",
+      image: "/images/PM.jpg",
     },
     { name: "Keza Ange", role: "Product Designer", image: "/images/Ange.png" },
     {
@@ -69,19 +69,19 @@ export default function About() {
   };
   return (
     <div>
-      {scrolled && <LandingPageBar/>}
+      {scrolled && <LandingPageBar />}
       <div className="bg-[url('/images/header.png')] h-[10rem] md:h-[20rem] bg-cover bg-center bg-no-repeat dark:text-black">
-      <Bar/>
-        <div className="flex items-center justify-end h-full px-6 md:px-24">
+        <Bar />
+        <div className="flex items-center justify-end lg:h-full px-6 pb-16 md:px-24">
           <h1 className="text-right text-[#424242] font-bold text-xl md:text-3xl lg:text-5xl">
             About Our Story
           </h1>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row p-6 md:p-12">
-        <div className="md:w-1/2 md:pr-6 mb-8 md:mb-0">
+      <div className="flex sm:flex-col-reverse md:flex-row p-6 md:p-12">
+        <div className="md:w-1/2 md:pr-6 mb-8 md:mb-0 pt-16 sm:w-full">
           <h1 className="font-bold text-3xl mb-4">Who are we</h1>
-          <p className="mb-8 text-lg font-lato w-[40vw]">
+          <p className="mb-8 text-lg font-lato lg:w-[40vw] sm:w-full">
             Welcome to Adonai Project Solutions (APS) Ltd, a premier
             multidisciplinary engineering firm based in Rwanda since 2011. We
             deliver excellence in architectural design, consultancy,
@@ -92,32 +92,28 @@ export default function About() {
             construction solutions.
           </p>
           <h1 className="font-bold text-3xl mb-4">Our Mission</h1>
-          <p className="mb-8 text-lg font-lato w-[40vw]">
+          <p className="mb-8 text-lg font-lato lg:w-[40vw] sm:w-full">
             To provide comprehensive and innovative engineering solutions that
             meet the highest standards of quality and sustainability,
             contributing to the development and betterment of communities.
           </p>
           <h1 className="font-bold text-3xl mb-4 ">Our Vision</h1>
-          <p className="text-lg font-lato ">
+          <p className="text-lg font-lato lg:w-[40vw] sm:w-full">
             To be the leading engineering solutions provider in Rwanda and
             beyond, known for our commitment to quality, innovation, and
             sustainable practices.
           </p>
         </div>
-        <div className="md:w-1/2 relative">
+        <div className="md:w-1/2">
           <img
             src="images/image.png"
             alt="aboutUs"
             className="rounded-lg max-w-full h-auto"
-            style={{ position: "relative" }}
           />
-          <button className="absolute bottom-4 right-4 text-white  bg-blue-600 px-4 py-2 rounded-xl rounded-tr-none">
-            Let&apos;s talk
-          </button>
         </div>
       </div>
       <div>
-        <h1 className="flex justify-center font-bold text-2xl">
+        <h1 className="flex justify-center font-bold text-3xl">
           Meet Our Team
         </h1>
       </div>

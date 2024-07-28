@@ -81,40 +81,40 @@ function Services() {
       <div className="bg-[url('/images/header.png')] h-[10rem] md:h-[15rem] bg-cover bg-center bg-no-repeat dark:text-black">
         <Bar />
         <div className="flex items-center justify-end px-6 md:px-24">
-          <h1 className="text-right text-[#424242] font-bold text-xl md:text-3xl lg:text-5xl">
+          <h1 className="text-right text-[#424242] font-bold text-2xl md:text-3xl lg:text-5xl">
             Services ....
           </h1>
         </div>
       </div>
-      <div className="flex flex-col md:justify-between md:flex-row">
-        <div className="md:w-1/2 md:pr-6 mb-8 md:mb-0 pt-40 pl-32">
-          <h1 className="font-semibold text-[#B4A9A9] tracking-widest text-2xl mb-4">
+      <div className="flex sm:flex-col-reverse md:justify-between md:flex-row">
+        <div className="md:w-1/2 sm:w-full md:pr-6 mb-8 md:mb-0 lg:pt-40 sm:pt-16 sm:space-y-12 lg:space-y-6  lg:pl-32 sm:pl-6">
+          <h1 className="font-semibold text-[#B4A9A9] tracking-widest text-2xl mb-4 sm:text-center lg:text-start">
             VERSATILE. PROACTIVE.EXPERIENCED.
           </h1>
-          <h1 className="font-bold text-4xl mb-4 w-1/2 tracking-wider">
+          <h1 className="font-bold text-4xl mb-4 lg:w-1/2 sm:w-full tracking-wider lg:text-start sm:text-center">
             Aps Services
           </h1>
-          <p className="mb-6 text-xl font-lato w-[40vw]">
+          <p className="mb-6 text-xl font-lato lg:w-[40vw] sm:w-full sm:pe-2 lg:px-0">
             Our team understands the importance of shared knowledge and believes
             that all things must work together to create a cohesive and
             functional finished product.
           </p>
-          <p className="mb-8 text-xl font-lato w-[40vw]">
+          <p className="mb-8 text-xl font-lato lg:w-[40vw] sm:w-full">
             Explore Aps capabilities below to learn more about what our team can
             offer in each sector.
           </p>
         </div>
-        <div className="">
+        <div className="sm:hidden lg:block">
           <img
             src="svg/services.svg"
             alt="aboutUs"
-            className="rounded-lg max-w-full h-auto"
+            className="rounded-lg max-w-full h-auto sm:p-6"
           />
         </div>
       </div>
       <div className="flex flex-wrap  justify-evenly">
         {visibleServices.map((item, index) => (
-          <div key={index} className="w-[40vw]">
+          <div key={index} className="lg:w-[40vw] sm:w-full sm:px-6">
             <img
               src={item.svg}
               alt="property showcasing"
@@ -122,7 +122,7 @@ function Services() {
               sizes="0"
             />
             <h1 className="text-2xl pb-6 text-[#1971F4]">{item.title}</h1>
-            <p className="font-lato text-lg w-[30vw] pb-6">
+            <p className="font-lato text-lg lg:w-[30vw] sm:w-full pb-6">
               {item.description}
             </p>
             <button class="hover:text-white hover:bg-[#1971F4] duration-300 hover:border-none box-border flex flex-row justify-center items-center px-12 py-4 gap-4 w-45 h-14 bg-white border border-gray-700 rounded-tl-2xl rounded-tr-none rounded-br-2xl rounded-bl-2xl order-3 flex-grow-0">
@@ -132,7 +132,7 @@ function Services() {
         ))}
       </div>
       {showAll ? (
-        <div className="flex justify-end me-[15rem]">
+        <div className="flex justify-end lg:me-[15rem] sm:mx-6 sm:m-6 lg:m-0">
           <button
             onClick={() => setShowAll(false)}
             className="px-6 py-2 bg-[#1971F4] text-white rounded-md"
