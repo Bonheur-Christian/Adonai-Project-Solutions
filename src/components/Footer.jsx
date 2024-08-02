@@ -8,7 +8,7 @@ function Footer() {
     { link: "Home", dest: "/" },
     { link: "About", dest: "/about" },
     { link: "Services", dest: "/services" },
-    { link: "Contacts", dest: "#contacts" },
+    { link: "Contacts", dest: "/contacts" },
   ];
   const Services = [
     { link: "Construction", dest: "/services" },
@@ -22,7 +22,7 @@ function Footer() {
     { link: "News", dest: "/news" },
   ];
   const ContactUS = [
-    { link: " Reach Us", dest: "#contacts" },
+    { link: " Reach Us", dest: "/contacts" },
     { link: "Projects", dest: "/#projects" },
   ];
 
@@ -79,22 +79,6 @@ function Footer() {
             ))}
           </ul>
         </div>
-        {/* <div className="space-y-3" id="contacts">
-          <h1 className="font-semibold font-lato">Address</h1>
-          <address className="space-y-2">
-            <p>
-              <span className="font-lato text-lg">Tel</span>:0788348991
-            </p>
-            <p>
-              <span className="font-lato text-lg">Email</span>:info@apsltd.rw
-            </p>
-            <p>
-              <CiLocationOn className="inline font-bold" color="blue" />
-              :Kigali-Rwanda, Remera-Gisiment
-            </p>
-            <p>Ituze House</p>
-          </address>
-        </div> */}
       </div>
       <div className="bg-[#979797]">
         <p className="text-xl text-white text-center py-4 sm:px-6">

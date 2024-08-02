@@ -43,7 +43,7 @@ function WhyUs() {
     },
   ];
   return (
-    <div>
+    <div className="dark:text-white">
       {scrolled && <LandingPageBar />}
       <div className="bg-[url('/images/header.png')] h-[10rem] md:h-[15rem] bg-cover bg-center bg-no-repeat dark:text-black">
         <Bar />
@@ -82,7 +82,7 @@ function WhyUs() {
           />
         </div>
       </div>
-      <div className="bg-[#DEF2F9]/30 py-12 lg:mt-[-12rem] sm:mt-0 space-y-16">
+      <div className="bg-[#DEF2F9]/30 dark:bg-gray-800 py-12 lg:mt-[-12rem] sm:mt-0 space-y-16">
         <p className="font-medium text-2xl lg:ps-[15rem] sm:p-6 sm:text-center">
           Aps keeps the clients’ priorities at the forefront of everything we
           do. We believe:
@@ -187,12 +187,12 @@ function WhyUs() {
           ))}
         </div>
       </div>
-      <div className="bg-[#DEF2F9] pt-12">
+      <div className="bg-[#DEF2F9] dark:bg-gray-800 pt-12">
         <div className="lg:space-y-6 sm:space-y-0">
           <h1 className="text-3xl font-lato font-bold text-shadow lg:ps-[18rem] sm:p-6">
             The Company We Keep
           </h1>
-          <h1 className="lg:text-md sm:text-xl font-lato font-medium lg:ps-[18rem] sm:p-6 text-[#1971F4] lg:tracking-[0.5rem] sm:tracking-widest sm:text-center">
+          <h1 className="lg:text-md sm:text-xl font-lato font-medium lg:ps-[3rem] sm:ps-6 text-[#1971F4] lg:tracking-[0.5rem] sm:tracking-widest sm:text-center">
             PROUD TO PARTNER WITH ORGANIZATIONS ACROSS THE COUNTRY FOR 30 YEARS.
           </h1>
         </div>

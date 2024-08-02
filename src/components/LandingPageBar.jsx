@@ -40,7 +40,7 @@ function LandingPageBar() {
     { link: "Why APS?", dest: "/whyus" },
     { link: "Services", dest: "/services" },
     { link: "News", dest: "/news" },
-    { link: "Contacts", dest: "#contacts" },
+    { link: "Contacts", dest: "/contacts" },
   ];
 
   const toggleMenu = () => {
@@ -48,9 +48,9 @@ function LandingPageBar() {
   };
   return (
     <div
-      className={`lg:p-4 md:p-4 sm:p-2  z-10 transition-all duration-500 dark:text-white sticky top-0 shadow-md ${
+      className={`lg:p-4 md:p-4 sm:p-2  z-10 transition-all duration-500 dark:text-white sticky top-0 ${
         scrolled
-          ? "bg-white dark:bg-gray-800 sticky top"
+          ? "bg-white dark:bg-gray-800 sticky top shadow-md "
           : "bg-transparent sticky top-0"
       }`}
     >

@@ -64,7 +64,7 @@ function News() {
     },
   ];
   return (
-    <div>
+    <div className="dark:text-white">
       {scrolled && <LandingPageBar />}
       <div className="bg-[url('/images/header.png')] h-[10rem] md:h-[15rem] bg-cover bg-center bg-no-repeat dark:text-black">
         <Bar />

@@ -4,12 +4,71 @@ import Projects from "../components/Projects";
 import ServiceSwiper from "../components/servicesSwiper";
 import Testimonials from "../components/Testimonials";
 import { MdEmail } from "react-icons/md";
+import { useState, useEffect } from "react";
+
+const openingHours = {
+  0: { open: null, close: null },
+  1: { open: "07:00", close: "17:00" }, // Monday
+  2: { open: "07:00", close: "17:00" }, // Tuesday
+  3: { open: "07:00", close: "17:00" }, // Wednesday
+  4: { open: "07:00", close: "17:00" }, // Thursday
+  5: { open: "07:00", close: "17:00" }, // Friday
+  6: { open: "07:00", close: "17:00" }, // Saturday
+};
+
+const isOpen = (currentDay, currentTime) => {
+  const hours = openingHours[currentDay];
+  if (!hours.open || !hours.close) return false;
+
+  const [openHour, openMinute] = hours.open.split(":").map(Number);
+  const [closeHour, closeMinute] = hours.close.split(":").map(Number);
+
+  // Create Date objects with today's date and the provided times
+  const now = new Date();
+  const openTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), openHour, openMinute);
+  const closeTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), closeHour, closeMinute);
+
+  // Special handling for closing time being past midnight
+  if (closeHour < openHour || (closeHour === openHour && closeMinute < openMinute)) {
+    closeTime.setDate(closeTime.getDate() + 1); // Move closing time to the next day
+  }
+
+  return currentTime >= openTime && currentTime <= closeTime;
+};
 
 function Home() {
+  const [status, setStatus] = useState("Closed");
+
+  useEffect(() => {
+    const checkStatus = () => {
+      const now = new Date();
+      const currentDay = now.getDay();
+      const currentTime = now;
+      if (isOpen(currentDay, currentTime)) {
+        setStatus("Open");
+      } else {
+        setStatus("Closed");
+      }
+    };
+
+    checkStatus();
+    const intervalId = setInterval(checkStatus, 60000);
+
+    return () => clearInterval(intervalId);
+  }, []);
   return (
     <div className="dark:text-white px-0 mx-0">
       <Intro />
       <div className="py-12 space-y-6">
+        <div className="flex justify-end items-end p-6 fixed bottom-12  z-50 ">
+          <button
+            className={`px-4 py-2 rounded text-white font-medium ${
+              status === "Open" ? "bg-green-500" : "bg-red-500"
+            }`}
+          >
+            Office: {status}
+          </button>
+        </div>
         <h2 className="text-2xl font-lato font-semibold text-center tracking-wider">
           APS ‘s Track Record speaks for Itself
         </h2>
@@ -19,10 +78,10 @@ function Home() {
         <div>
           <ServiceSwiper />
         </div>
-        <p className="tracking-widest text-xl text-center">
+      </div>
+        {/* <p className="tracking-widest text-xl text-center">
           SEE WHAT OUR CLIENT SAID{" "}
         </p>
-      </div>
       <div className="lg:text-center sm:text-start w-[80vw] mx-auto lg:text-xl md:text-xl sm:text-lg  ">
         <p>
           At APS Ltd, we are committed to excellence, integrity, and customer
@@ -31,8 +90,7 @@ function Home() {
           highest standards of safety and sustainability, ensuring that our work
           benefits both the community and the environment.
         </p>
-      </div>
-      <Testimonials />
+      </div> */}
       <div className="flex justify-center my-12">
         <a href="#projects">
           <img src="svg/button.svg" alt="" className="w-auto h-auto" />

@@ -68,7 +68,7 @@ export default function About() {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
   return (
-    <div>
+    <div className="dark:text-white">
       {scrolled && <LandingPageBar />}
       <div className="bg-[url('/images/header.png')] h-[10rem] md:h-[20rem] bg-cover bg-center bg-no-repeat dark:text-black">
         <Bar />

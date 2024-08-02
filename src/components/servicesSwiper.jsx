@@ -85,7 +85,7 @@ function ServiceSwiper() {
           <SwiperSlide key={index}>
             <div
               key={index}
-              className="py-12 flex sm:flex-col items-center w-[90%] mx-auto  my-12 dark:text-black rounded-xl"
+              className="py-12 flex sm:flex-col items-center w-[80%] mx-auto  my-12 dark:text-white rounded-xl"
             >
               <div>
                 <img src={item.svg} alt="svg desc" />
