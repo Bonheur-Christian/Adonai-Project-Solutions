@@ -73,7 +73,7 @@ function Home() {
     <div className="dark:text-white px-0 mx-0">
       <Intro />
       <div className="py-12 space-y-6">
-        <div className="flex justify-end items-end p-6 fixed bottom-12  z-50 ">
+        <div className="flex justify-end items-end p-6 fixed lg:bottom-12 sm:bottom-0  z-50 ">
           <button
             className={`px-4 py-2 rounded text-white font-medium ${
               status === "Open" ? "bg-green-500" : "bg-red-500"
@@ -90,7 +90,7 @@ function Home() {
           <h1 className="text-4xl font-semibold font-lato text-gray-600 text-center">
             About Us
           </h1>
-          <p className="font-lato font-medium text-xl text-center w-[80%] mx-auto py-6 text-gray-400">
+          <p className="font-lato font-medium text-xl lg:text-center sm:text-start lg:w-[80%] sm:w-full sm:px-6 lg:px-0 mx-auto py-6 text-gray-400">
             Welcome to Adonai Project Solutions (APS) Ltd, a premier
             multidisciplinary engineering firm based in Rwanda since 2011. We
             deliver excellence in architectural design, consultancy,
@@ -102,12 +102,12 @@ function Home() {
           </p>
         </motion.div>
         <motion.div
-            variants={fadeIn("left", 0.1)}
+            variants={fadeIn("up", 0.1)}
             initial="hidden"
             whileInView={"show"}
             viewport={{ once: false, amount: 0.7 }}
             >
-          <h2 className="text-2xl font-lato font-semibold text-center text-gray-600 tracking-wider">
+          <h2 className="text-2xl font-lato font-semibold text-center text-gray-600 tracking-wider sm:py-6 lg:py-0">
             APS ‘s Track Record speaks for Itself
           </h2>
           <h2 className="text-2xl font-lato font-semibold text-center tracking-wider text-gray-600">
@@ -162,7 +162,7 @@ function Home() {
               </p>
             </motion.div>
             <motion.div
-                variants={fadeIn("right", 0.8)}
+                variants={fadeIn("down", 0.8)}
                 initial="hidden"
                 whileInView={"show"}
                 viewport={{ once: false, amount: 0.7 }}

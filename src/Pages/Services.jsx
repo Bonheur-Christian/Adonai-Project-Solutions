@@ -89,7 +89,13 @@ function Services() {
         </div>
       </div>
       <div className="flex sm:flex-col-reverse md:justify-between md:flex-row">
-        <div className="md:w-1/2 sm:w-full md:pr-6 mb-8 md:mb-0 lg:pt-40 sm:pt-16 sm:space-y-12 lg:space-y-6  lg:pl-32 sm:pl-6">
+        <motion.div
+          variants={fadeIn("up", 0.3)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.7 }}
+          className="md:w-1/2 sm:w-full md:pr-6 mb-8 md:mb-0 lg:pt-40 sm:pt-16 sm:space-y-12 lg:space-y-6  lg:pl-32 sm:pl-6"
+        >
           <h1 className="font-semibold text-[#B4A9A9] tracking-widest text-2xl mb-4 sm:text-center lg:text-start">
             VERSATILE. PROACTIVE.EXPERIENCED.
           </h1>
@@ -105,7 +111,7 @@ function Services() {
             Explore Aps capabilities below to learn more about what our team can
             offer in each sector.
           </p>
-        </div>
+        </motion.div>
         <div className="sm:hidden lg:block">
           <img
             src="svg/services.svg"
@@ -117,12 +123,13 @@ function Services() {
       <div className="flex flex-wrap  justify-evenly py-24">
         {visibleServices.map((item, index) => (
           <motion.div
-          variants={fadeIn("up",0.1)}
-          initial="hidden"
-          whileInView={"show"}
-          viewport={{once:false,amount:0.7}}
-
-          key={index} className="lg:w-[40vw] sm:w-full sm:px-6">
+            variants={fadeIn("up", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.7 }}
+            key={index}
+            className="lg:w-[40vw] sm:w-full sm:px-6"
+          >
             <img
               src={item.svg}
               alt="property showcasing"
