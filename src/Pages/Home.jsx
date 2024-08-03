@@ -2,18 +2,19 @@ import Footer from "../components/Footer";
 import Intro from "../components/Intro";
 import Projects from "../components/Projects";
 import ServiceSwiper from "../components/servicesSwiper";
-import Testimonials from "../components/Testimonials";
 import { MdEmail } from "react-icons/md";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { fadeIn } from "../variants";
 
 const openingHours = {
   0: { open: null, close: null },
-  1: { open: "07:00", close: "17:00" }, // Monday
-  2: { open: "07:00", close: "17:00" }, // Tuesday
-  3: { open: "07:00", close: "17:00" }, // Wednesday
-  4: { open: "07:00", close: "17:00" }, // Thursday
-  5: { open: "07:00", close: "17:00" }, // Friday
-  6: { open: "07:00", close: "17:00" }, // Saturday
+  1: { open: "07:00", close: "17:00" },
+  2: { open: "07:00", close: "17:00" },
+  3: { open: "07:00", close: "17:00" },
+  4: { open: "07:00", close: "17:00" },
+  5: { open: "07:00", close: "17:00" },
+  6: { open: "07:00", close: "17:00" },
 };
 
 const isOpen = (currentDay, currentTime) => {
@@ -22,14 +23,26 @@ const isOpen = (currentDay, currentTime) => {
 
   const [openHour, openMinute] = hours.open.split(":").map(Number);
   const [closeHour, closeMinute] = hours.close.split(":").map(Number);
-
-  // Create Date objects with today's date and the provided times
   const now = new Date();
-  const openTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), openHour, openMinute);
-  const closeTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), closeHour, closeMinute);
+  const openTime = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate(),
+    openHour,
+    openMinute
+  );
+  const closeTime = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate(),
+    closeHour,
+    closeMinute
+  );
 
-  // Special handling for closing time being past midnight
-  if (closeHour < openHour || (closeHour === openHour && closeMinute < openMinute)) {
+  if (
+    closeHour < openHour ||
+    (closeHour === openHour && closeMinute < openMinute)
+  ) {
     closeTime.setDate(closeTime.getDate() + 1); // Move closing time to the next day
   }
 
@@ -69,41 +82,76 @@ function Home() {
             Office: {status}
           </button>
         </div>
-        <h2 className="text-2xl font-lato font-semibold text-center tracking-wider">
-          APS ‘s Track Record speaks for Itself
-        </h2>
-        <h2 className="text-2xl font-lato font-semibold text-center tracking-wider">
-          Services offered at Aps
-        </h2>
-        <div>
+        <motion.div
+            variants={fadeIn("up", 0.1)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.7 }}>
+          <h1 className="text-4xl font-semibold font-lato text-gray-600 text-center">
+            About Us
+          </h1>
+          <p className="font-lato font-medium text-xl text-center w-[80%] mx-auto py-6 text-gray-400">
+            Welcome to Adonai Project Solutions (APS) Ltd, a premier
+            multidisciplinary engineering firm based in Rwanda since 2011. We
+            deliver excellence in architectural design, consultancy,
+            construction, property management, surveying, and a wide range of
+            services including real estate, water treatment, plumbing, HVAC
+            installation, waste management, and infrastructure projects. Trust
+            APS Ltd for comprehensive and high-quality engineering and
+            construction solutions.
+          </p>
+        </motion.div>
+        <motion.div
+            variants={fadeIn("left", 0.1)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.7 }}
+            >
+          <h2 className="text-2xl font-lato font-semibold text-center text-gray-600 tracking-wider">
+            APS ‘s Track Record speaks for Itself
+          </h2>
+          <h2 className="text-2xl font-lato font-semibold text-center tracking-wider text-gray-600">
+            Services offered at Aps
+          </h2>
+        </motion.div>
+        <motion.div
+            variants={fadeIn("up", 0.2)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.7 }}
+            >
           <ServiceSwiper />
+        </motion.div>
+      </div>
+      <motion.div
+          variants={fadeIn("up", 0.1)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.7 }}>
+        <div className="flex justify-center my-12">
+          <a href="#projects">
+            <img src="svg/button.svg" alt="" className="w-auto h-auto" />
+          </a>
         </div>
-      </div>
-        {/* <p className="tracking-widest text-xl text-center">
-          SEE WHAT OUR CLIENT SAID{" "}
-        </p>
-      <div className="lg:text-center sm:text-start w-[80vw] mx-auto lg:text-xl md:text-xl sm:text-lg  ">
-        <p>
-          At APS Ltd, we are committed to excellence, integrity, and customer
-          satisfaction. Our team of professionals is dedicated to delivering
-          projects that meet and exceed client expectations. We adhere to the
-          highest standards of safety and sustainability, ensuring that our work
-          benefits both the community and the environment.
-        </p>
-      </div> */}
-      <div className="flex justify-center my-12">
-        <a href="#projects">
-          <img src="svg/button.svg" alt="" className="w-auto h-auto" />
-        </a>
-      </div>
-      <Projects />
+        <Projects />
+      </motion.div>
       <div className="flex lg:flex-row sm:flex-col-reverse lg:justify-between  lg:h-screen lg:py-24 sm:py-6 lg:ps-12 sm:ps-2">
-        <div className="lg:flex items-center sm:px-12 lg:px-0">
+        <motion.div
+            variants={fadeIn("right", 0.1)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.7 }}
+             className="lg:flex items-center sm:px-12 lg:px-0">
           <img src="svg/mission1.svg" alt="" />
-        </div>
+        </motion.div>
         <div className="lg:bg-[url('/images/mission.png')] lg:w-1/2 bg-no-repeat">
           <div className="lg:ps-48 space-y-12 lg:py-12 sm:py-6">
-            <div>
+            <motion.div
+                variants={fadeIn("up", 0.8)}
+                initial="hidden"
+                whileInView={"show"}
+                viewport={{ once: false, amount: 0.7 }}
+            >
               <h1 className="font-lato font-bold lg:text-white sm:text-gray-900 text-4xl text-center sm:py-4">
                 Our Vision
               </h1>
@@ -112,8 +160,13 @@ function Home() {
                 beyond, known for our commitment to quality, innovation, and
                 sustainable practices.
               </p>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div
+                variants={fadeIn("right", 0.8)}
+                initial="hidden"
+                whileInView={"show"}
+                viewport={{ once: false, amount: 0.7 }}
+            >
               <h1 className="font-lato font-bold lg:text-white sm:text-gray-900 text-4xl text-center sm:py-4">
                 Our Mission
               </h1>
@@ -122,7 +175,7 @@ function Home() {
                 that meet the highest standards of quality and sustainability,
                 contributing to the development and betterment of communities.
               </p>
-            </div>
+            </motion.div>
             <div className="flex justify-center lg:my-32 sm:my-12">
               <a href="/services">
                 <button className="bg-transparent border-2 border-blue-700 py-2 px-4 lg:text-white sm:font-lato sm:text-lg hover:bg-blue-700 sm:hover:text-white duration-500 dark:hover:bg-blue-400 dark:border-blue-400 rounded-xl">

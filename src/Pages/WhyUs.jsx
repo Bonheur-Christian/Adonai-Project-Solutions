@@ -3,6 +3,8 @@ import LandingPageBar from "../components/LandingPageBar";
 import Footer from "../components/Footer";
 import { MdEmail } from "react-icons/md";
 import Bar from "../components/bar";
+import { motion } from "framer-motion";
+import { fadeIn } from "../variants";
 
 function WhyUs() {
   const [scrolled, setScrolled] = useState(false);
@@ -54,7 +56,13 @@ function WhyUs() {
         </div>
       </div>
       <div className="flex lg:flex-row sm:flex-col-reverse md:flex-row">
-        <div className="md:w-1/2 md:pr-6 mb-8 md:mb-0 lg:pt-40 sm:pt-6 lg:pl-12 sm:px-4 sm:w-full">
+        <motion.div
+          variants={fadeIn("up", 0.2)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.7 }}
+          className="md:w-1/2 md:pr-6 mb-8 md:mb-0 lg:pt-40 sm:pt-6 lg:pl-12 sm:px-4 sm:w-full"
+        >
           <h1 className="font-semibold text-blue-500 text-lg mb-4">
             IT MATTERS ....
           </h1>
@@ -62,18 +70,17 @@ function WhyUs() {
             Who Does Your Engineering.
           </h1>
           <p className="mb-6 text-xl font-lato lg:w-[40vw] sm:w-full">
-            If you’ve worked with one engineer, you’ve worked with them
-            all—right? It doesn’t have to be that way. It’s easy to get caught
-            up in the routine of working with the same engineering firm(s) over
-            and over, despite their shortcomings.
+            Welcome to Adonai Project Solutions (APS) Ltd, a premier
+            multidisciplinary engineering firm based in Rwanda. Established in
+            2011, we have been committed to delivering excellence in a wide
+            range of services for over a decade. Our expertise spans across
+            various domains.
           </p>
           <p className="mb-8 text-xl font-lato lg:w-[40vw] sm:w-full">
-            If you’ve worked with one engineer, you’ve worked with them
-            all—right? It doesn’t have to be that way. It’s easy to get caught
-            up in the routine of working with the same engineering firm(s) over
-            and over, despite their shortcomings.
+            Adonai Project Solutions ltd, we put the client desire infront,
+            resulting in Our best performance.
           </p>
-        </div>
+        </motion.div>
         <div className="md:w-1/2 sm:w-full sm:p-6">
           <img
             src="images/image.png"
@@ -83,17 +90,35 @@ function WhyUs() {
         </div>
       </div>
       <div className="bg-[#DEF2F9]/30 dark:bg-gray-800 py-12 lg:mt-[-12rem] sm:mt-0 space-y-16">
-        <p className="font-medium text-2xl lg:ps-[15rem] sm:p-6 sm:text-center">
+        <motion.p
+          variants={fadeIn("up", 0.1)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.3 }}
+          className="font-medium text-2xl lg:ps-[15rem] sm:p-6 sm:text-center"
+        >
           Aps keeps the clients’ priorities at the forefront of everything we
           do. We believe:
-        </p>
+        </motion.p>
         <div className="flex justify-evenly items-start">
           <img src="svg/1.svg" alt="1" className="pt-4 sm:hidden lg:block" />
           <div className="lg:w-[60vw] sm:w-full space-y-6 lg:ms-[-10rem] sm:ms-0 sm:px-6">
-            <h1 className="text-[#1971F4] font-medium text-2xl sm:text-center">
+            <motion.h1
+              variants={fadeIn("left", 0.3)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.7 }}
+              className="text-[#1971F4] font-medium text-2xl sm:text-center"
+            >
               THE BUDGET IS MEANT TO BE ADHERED TO.
-            </h1>
-            <p className="text-xl font-medium">
+            </motion.h1>
+            <motion.p
+              variants={fadeIn("right", 0.1)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.7 }}
+              className="text-xl font-medium"
+            >
               Over the course of any project, unexpected hurdles happen. But
               these hurdles shouldn’t completely negate the budget. When these
               situations arise, you’ll need an engineering team that makes
@@ -103,50 +128,80 @@ function WhyUs() {
               Engineering will always outline the most cost-effective solutions
               and research other ways to save money throughout the duration of
               the project.
-            </p>
+            </motion.p>
           </div>
         </div>
         <div className="flex justify-evenly items-start">
           <img src="svg/2.svg" alt="2" className="pt-4 sm:hidden lg:block" />
           <div className="lg:w-[60vw] sm:w-full space-y-6 lg:ms-[-10rem] sm:ms-0 sm:px-6">
-            <h1 className="text-[#1971F4] font-medium text-2xl sm:text-center">
+            <motion.h1
+              variants={fadeIn("left", 0.3)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.7 }}
+              className="text-[#1971F4] font-medium text-2xl sm:text-center"
+            >
               A PROJECT SCHEDULE IS NOT JUST A GUIDELINE.
-            </h1>
-            <p className="text-xl font-medium">
+            </motion.h1>
+            <motion.p
+              variants={fadeIn("right", 0.1)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.7 }}
+              className="text-xl font-medium"
+            >
               When there are multiple vendors and regulatory agencies involved,
               timelines can get off track. As a result, engineers must be
               prepared to readjust any aspect of the project so that it stays on
               schedule. ADC does whatever it takes—including our principals, who
               are involved in every project. We’re not afraid to get our hands
               dirty so your project gets done on time.
-            </p>
+            </motion.p>
           </div>
         </div>
         <div className="flex justify-evenly items-start">
-          <img src="svg/2.svg" alt="2" className="pt-4 sm:hidden lg:block" />
+          <img src="svg/3.svg" alt="2" className="pt-4 sm:hidden lg:block" />
           <div className="lg:w-[60vw] sm:w-full space-y-6 lg:ms-[-10rem] sm:ms-0 sm:px-6">
-            <h1 className="text-[#1971F4] font-medium text-2xl sm:text-center">
+            <motion.h1
+              variants={fadeIn("left", 0.3)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.7 }}
+              className="text-[#1971F4] font-medium text-2xl sm:text-center"
+            >
               RESPONSIVENESS IS CRUCIAL.
-            </h1>
-            <p className="text-xl font-medium">
+            </motion.h1>
+            <motion.p
+              variants={fadeIn("right", 0.1)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.7 }}
+              className="text-xl font-medium"
+            >
               How much time goes by before your engineer returns your call or
               email? Do you feel like you are chasing your engineer? In this day
               and age, we still believe in the value of a phone call. A lunch
               meeting. A handshake. When you reach out, you’ll know the person
               you’re talking to by name.
-            </p>
+            </motion.p>
           </div>
         </div>
       </div>
       <div>
-        <div className=" py-12 space-y-6">
+        <motion.div
+          variants={fadeIn("up", 0.2)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.7 }}
+          className=" py-12 space-y-6"
+        >
           <h2 className="text-2xl sm:text-center font-lato font-semibold lg:ps-[18rem] sm:p-6 tracking-wider">
             APS ‘s Track Record speaks for Itself
           </h2>
           <p className="tracking-widest text-xl lg:ps-[18rem] sm:text-center">
             SEE WHAT OUR CLIENT SAID
           </p>
-        </div>
+        </motion.div>
         <div>
           {Testimonials.map((item, index) => (
             <div

@@ -5,6 +5,8 @@ import { FaChevronUp } from "react-icons/fa";
 import Footer from "../components/Footer";
 import { MdEmail } from "react-icons/md";
 import Bar from "../components/bar";
+import { motion } from "framer-motion";
+import { fadeIn } from "../variants";
 
 function Services() {
   const [scrolled, setScrolled] = useState(false);
@@ -25,52 +27,52 @@ function Services() {
 
   const services = [
     {
-      svg: "svg/civil.svg",
+      svg: "images/engineering.jpg",
       title: "CIVIL Engineering",
       description:
         "Civil engineering projects present unique challenges, but APS has the practical knowledge and experience necessary to anticipate problems and quickly propose sound solutions.",
     },
     {
-      svg: "svg/property.svg",
+      svg: "images/property.jpg",
       title: "Property Management",
       description:
         "APS Ltd offers comprehensive property management solutions, ensuring that properties are well-maintained, efficiently operated, and profitable. Our services include tenant management, maintenance, and financial reporting.",
     },
     {
-      svg: "svg/land.svg",
+      svg: "images/land.jpg",
       title: "Land And Quantity Surveying",
       description:
         "Our land and quantity surveying services are critical for successful project execution. We provide accurate land assessments, mapping, and cost estimation to ensure projects are completed on time and within budget.",
     },
     {
-      svg: "svg/real.svg",
+      svg: "images/realestate.jpg",
       title: "REAL ESTATE",
       description:
         "In the realm of real estate, APS Ltd offers a range of services including property development, sales, and marketing. We help clients navigate the complex real estate market to achieve their investment goals.",
     },
     {
-      svg: "svg/waste.svg",
+      svg: "images/waste.jpg  ",
       title: "Waste Management",
       description:
         "APS Ltd is dedicated to promoting environmental sustainability through our waste management services. We provide innovative solutions for waste collection, recycling, and disposal, ensuring minimal environmental impact.",
     },
     {
-      svg: "svg/land.svg",
+      svg: "images/roads.jpg",
       title: "Roads and Bridge Construction",
       description:
         " Our expertise in roads and bridges construction enables us to build infrastructure that supports economic growth and connectivity. We employ advanced techniques and materials to construct durable and safe transportation networks.",
     },
     {
-      svg: "svg/property.svg",
+      svg: "images/plumbing.jpg",
       title: "Plumbing, Heating, and Air Conditioning Installation",
       description:
         "Our plumbing, heating, and air conditioning installation services are designed to enhance comfort and efficiency in residential, commercial, and industrial settings. We utilize the latest technologies and best practices to deliver optimal results.",
     },
     {
-      svg: "svg/real.svg",
-      title: "REAL ESTATE",
+      svg: "images/renovation.jpg",
+      title: "Property Improvement And Renovation",
       description:
-        "In the realm of real estate, APS Ltd offers a range of services including property development, sales, and marketing. We help clients navigate the complex real estate market to achieve their investment goals.",
+        "APS Ltd provides complete property renovation services. Our skilled team handles everything from design to construction, ensuring high-quality results and excellent customer service for all renovation projects.",
     },
   ];
   const [showAll, setShowAll] = useState(false);
@@ -112,41 +114,45 @@ function Services() {
           />
         </div>
       </div>
-      <div className="flex flex-wrap  justify-evenly">
+      <div className="flex flex-wrap  justify-evenly py-24">
         {visibleServices.map((item, index) => (
-          <div key={index} className="lg:w-[40vw] sm:w-full sm:px-6">
+          <motion.div
+          variants={fadeIn("up",0.1)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{once:false,amount:0.7}}
+
+          key={index} className="lg:w-[40vw] sm:w-full sm:px-6">
             <img
               src={item.svg}
               alt="property showcasing"
-              className="py-4"
-              sizes="0"
+              className="w-32 h-32 rounded-full object-cover hover:shadow-gray-400 shadow-md"
             />
             <h1 className="text-2xl pb-6 text-[#1971F4]">{item.title}</h1>
             <p className="font-lato text-lg lg:w-[30vw] sm:w-full pb-6">
               {item.description}
             </p>
-            <button class="hover:text-white hover:bg-[#1971F4] duration-300 hover:border-none box-border flex flex-row justify-center items-center px-12 py-4 gap-4 w-45 h-14 bg-white border border-gray-700 rounded-tl-2xl rounded-tr-none rounded-br-2xl rounded-bl-2xl order-3 flex-grow-0">
-              Learn More
-            </button>
-          </div>
+          </motion.div>
         ))}
       </div>
       {showAll ? (
         <div className="flex justify-end lg:me-[15rem] sm:mx-6 sm:m-6 lg:m-0">
           <button
             onClick={() => setShowAll(false)}
-            className="px-6 py-2 bg-[#1971F4] text-white rounded-md"
+            className="text-xl rounded-md flex items-center gap-4"
           >
-            See Less
+            see less
+            <FaChevronUp color="gray" />
           </button>
         </div>
       ) : (
         <div className="flex justify-end me-[15rem]">
           <button
             onClick={() => setShowAll(true)}
-            className="px-6 py-2 bg-[#1971F4] text-white rounded-md"
+            className="text-xl rounded-md flex items-center gap-4"
           >
-            See More
+            see more
+            <FaChevronDown color="gray" size={15} />
           </button>
         </div>
       )}

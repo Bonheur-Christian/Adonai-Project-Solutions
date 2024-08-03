@@ -1,9 +1,11 @@
 import LandingPageBar from "../components/LandingPageBar";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay, Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import Bar from "../components/bar";
+import { motion } from "framer-motion";
+import { fadeIn } from "../variants";
 
 export default function About() {
   const [scrolled, setScrolled] = useState(false);
@@ -25,35 +27,24 @@ export default function About() {
   const team = [
     {
       name: "Ndahiro Evode",
-      role: "Co-Founder& CEO",
+      role: "CEO",
       image: "/images/Ndahiro.jpeg",
     },
     {
       name: "SINDAYIGAYA Moise",
-      role: "Project Mnager",
+      role: "Project Manager",
       image: "/images/PM.jpg",
     },
-    { name: "Keza Ange", role: "Product Designer", image: "/images/Ange.png" },
-    {
-      name: "Bahati Paul",
-      role: "Product Designer",
-      image: "/images/Bahati.png",
-    },
+
     {
       name: "Ndahiro Evode",
-      role: "Co-Founder& CEO",
+      role: "CEO",
       image: "/images/Ndahiro.jpeg",
     },
     {
-      name: "Uwineza Linda",
-      role: "Co-Founder& COO",
-      image: "/images/Linda.png",
-    },
-    { name: "Keza Ange", role: "Product Designer", image: "/images/Ange.png" },
-    {
-      name: "Bahati Paul",
-      role: "Product Designer",
-      image: "/images/Bahati.png",
+      name: "SINDAYIGAYA Moise",
+      role: "Project Manager",
+      image: "/images/PM.jpg",
     },
   ];
   const length = team.length;
@@ -80,8 +71,18 @@ export default function About() {
       </div>
       <div className="flex sm:flex-col-reverse md:flex-row p-6 md:p-12">
         <div className="md:w-1/2 md:pr-6 mb-8 md:mb-0 pt-16 sm:w-full">
-          <h1 className="font-bold text-3xl mb-4">Who are we</h1>
-          <p className="mb-8 text-lg font-lato lg:w-[40vw] sm:w-full">
+          <motion.h1
+              variants={fadeIn("right", 0.3)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.7 }}
+               className="font-bold text-3xl mb-4">Who We Are</motion.h1>
+          <motion.p
+              variants={fadeIn("left", 0.1)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.2 }}
+          className="mb-8 text-lg font-lato lg:w-[40vw] sm:w-full">
             Welcome to Adonai Project Solutions (APS) Ltd, a premier
             multidisciplinary engineering firm based in Rwanda since 2011. We
             deliver excellence in architectural design, consultancy,
@@ -90,19 +91,39 @@ export default function About() {
             installation, waste management, and infrastructure projects. Trust
             APS Ltd for comprehensive and high-quality engineering and
             construction solutions.
-          </p>
-          <h1 className="font-bold text-3xl mb-4">Our Mission</h1>
-          <p className="mb-8 text-lg font-lato lg:w-[40vw] sm:w-full">
+          </motion.p>
+          <motion.h1 
+              variants={fadeIn("down", 0.3)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.7 }}
+          className="font-bold text-3xl mb-4">Our Mission</motion.h1>
+          <motion.p 
+              variants={fadeIn("up", 0.1)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.7 }}
+          className="mb-8 text-lg font-lato lg:w-[40vw] sm:w-full">
             To provide comprehensive and innovative engineering solutions that
             meet the highest standards of quality and sustainability,
             contributing to the development and betterment of communities.
-          </p>
-          <h1 className="font-bold text-3xl mb-4 ">Our Vision</h1>
-          <p className="text-lg font-lato lg:w-[40vw] sm:w-full">
+          </motion.p>
+          <motion.h1 
+              variants={fadeIn("left", 0.3)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.7 }}
+          className="font-bold text-3xl mb-4 ">Our Vision</motion.h1>
+          <motion.p
+              variants={fadeIn("right", 0.1)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.7 }}
+               className="text-lg font-lato lg:w-[40vw] sm:w-full">
             To be the leading engineering solutions provider in Rwanda and
             beyond, known for our commitment to quality, innovation, and
             sustainable practices.
-          </p>
+          </motion.p>
         </div>
         <div className="md:w-1/2">
           <img
@@ -117,28 +138,27 @@ export default function About() {
           Meet Our Team
         </h1>
       </div>
-      <div className="relative group" id="team">
+      <div className="relative group flex justify-center" id="team">
         <Swiper
-          modules={[Navigation, Autoplay, Pagination]}
+          modules={[Autoplay, Pagination]}
           pagination={{
             dynamicMainBullets: true,
             clickable: true,
           }}
-          navigation={{ prevEl: `#prev-btn`, nextEl: `#next-btn` }}
           autoplay={{ delay: 5000, disableOnInteraction: true }}
           loop={true}
           breakpoints={{
             320: { slidesPerView: 1, spaceBetween: 10 },
-            480: { slidesPerView: 2, spaceBetween: 10 },
-            640: { slidesPerView: 3, spaceBetween: 10 },
-            1024: { slidesPerView: 4, spaceBetween: 20 },
+            480: { slidesPerView: 1, spaceBetween: 10 },
+            640: { slidesPerView: 1, spaceBetween: 10 },
+            1024: { slidesPerView: 1, spaceBetween: 10 },
           }}
         >
           {team.map((item, index) => (
             <SwiperSlide key={index}>
               <div
                 key={index}
-                className="py-8 flex flex-col md:flex-row items-center w-[90%] mx-auto my-8 dark:text-black rounded-xl"
+                className="py-8 flex flex-col space-y-4 items-center w-[90%] mx-auto my-8 dark:text-black rounded-xl justify-center"
               >
                 <div className="mb-4 md:mb-0">
                   <img
@@ -159,38 +179,6 @@ export default function About() {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="absolute top-[45%] z-10 w-full group-hover:flex justify-between px-6 hidden">
-          <div
-            className="bg-slate-200 rounded-full p-2"
-            onClick={previous}
-            id="prev-btn"
-          >
-            <svg
-              className="w-5 h-5"
-              fill="#000000"
-              viewBox="0 0 256 256"
-              id="Flat"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M160,220a11.96287,11.96287,0,0,1-8.48535-3.51465l-80-80a12.00062,12.00062,0,0,1,0-16.9707l80-80a12.0001,12.0001,0,0,1,16.9707,16.9707L96.9707,128l71.51465,71.51465A12,12,0,0,1,160,220Z" />
-            </svg>
-          </div>
-          <div
-            className="bg-slate-200 rounded-full p-2"
-            onClick={next}
-            id="next-btn"
-          >
-            <svg
-              className="w-5 h-5"
-              fill="#000000"
-              viewBox="0 0 256 256"
-              id="Flat"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M96,220a12,12,0,0,1-8.48535-20.48535L159.0293,128,87.51465,56.48535a12.0001,12.0001,0,0,1,16.9707-16.9707l80,80a12.00062,12.00062,0,0,1,0,16.9707l-80,80A11.96287,11.96287,0,0,1,96,220Z" />
-            </svg>
-          </div>
-        </div>
       </div>
       <Footer />
     </div>

@@ -3,6 +3,8 @@ import Footer from "../components/Footer";
 import LandingPageBar from "../components/LandingPageBar";
 import { useEffect, useState } from "react";
 import Bar from "../components/bar";
+import { motion } from "framer-motion";
+import { fadeIn } from "../variants";
 function News() {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -19,13 +21,48 @@ function News() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const [completedProjects, setCompletedProjects] = useState([]);
+  useEffect(() => {
+    const fetchCompletedProjects = async () => {
+      try {
+        const response = await fetch("http://localhost:8800/completedProjects");
+        if (!response.ok) {
+          toast.error("Error Occurred");
+        } else {
+          const data = await response.json();
+          const formattedData = data.map((project) => {
+            const isoDate = project.date;
+            const date = new Date(isoDate);
+            const year = date.getUTCFullYear();
+            const month = ("0" + (date.getUTCMonth() + 1)).slice(-2);
+            const day = ("0" + date.getUTCDate()).slice(-2);
+            const formattedDate = `${year}-${month}-${day}`;
+            return { ...project, formattedDate };
+          });
+          setCompletedProjects(formattedData);
+        }
+      } catch (error) {
+        toast.error("Error Occurred");
+      }
+    };
+    fetchCompletedProjects();
+  }, []);
+
   const News = [
     {
       image: "images/project3.jpg",
       date: "MARCH 8, 2023",
-      title: "Hope Haven Christian Academy Secondary",
+      title: "Hope Haven Christian Secondary Academy",
       description:
         "The APS team successfully completed the Hope Haven Academy construction project, delivering a modern educational facility equipped with advanced classrooms, science and computer labs, a comprehensive library, sports facilities, and arts spaces. The project emphasizes sustainability, safety, and accessibility, creating an inclusive and inspiring environment for students' academic and personal growth.",
+    },
+    {
+      image: "images/project7.jpg",
+      date: "September 27, 2021",
+      title: "Hope Haven Christian Primary School",
+      description:
+        "The APS team successfully completed the Primary Hope Haven Academy construction project, delivering a modern educational facility equipped with advanced classrooms, science and computer labs, a comprehensive library, sports facilities, and arts spaces. The project emphasizes sustainability, safety, and accessibility, creating an inclusive and inspiring environment for students' academic and personal growth.",
     },
     {
       image: "images/project4.jpg",
@@ -33,13 +70,6 @@ function News() {
       title: "New Life Christian Academy",
       description:
         "The APS team successfully completed the New Life Christian Academy construction project, delivering a modern educational facility equipped with advanced classrooms, science and computer labs, a comprehensive library, sports facilities, and arts spaces. The project emphasizes sustainability, safety, and accessibility, creating an inclusive and inspiring environment for students' academic and personal growth.",
-    },
-    {
-      image: "images/project7.jpg",
-      date: "September 27, 2021",
-      title: "Hope Haven Christian Academy Primary",
-      description:
-        "The APS team successfully completed the Primary Hope Haven Academy construction project, delivering a modern educational facility equipped with advanced classrooms, science and computer labs, a comprehensive library, sports facilities, and arts spaces. The project emphasizes sustainability, safety, and accessibility, creating an inclusive and inspiring environment for students' academic and personal growth.",
     },
     {
       image: "images/project5.jpg",
@@ -74,30 +104,31 @@ function News() {
           </h1>
         </div>
       </div>
-      <div className="p-6">
-        {News.map((item, index) => (
-          <div
+      <div className="p-6 flex flex-wrap">
+        {completedProjects.map((item, index) => (
+          <motion.div
+            variants={fadeIn("up", 0.1)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.7 }}
             key={index}
-            className="flex lg:flex-row sm:flex-col lg:gap-32 sm:gap-12 lg:p-6 sm:py-6 items-center"
+            className="flex lg:flex-row sm:flex-col lg:gap-32 sm:gap-12 lg:p-6 sm:py-6 items-center w-1/2 lg:justify-center lg:items-center"
           >
-            <img
-              src={item.image}
-              alt="project 1"
-              height={200}
-              className="rounded lg:w-1/4 sm:w-full"
-            />
             <div className="lg:space-y-12 sm:space-y-6">
               <h1 className="text-xl font-lato lg:text-start sm:text-center ">
-                {item.date}
+                <span className="font-lato font-semibold">
+                  Date Of Completion:
+                </span>
+                {item.formattedDate}
               </h1>
               <h1 className="lg:text-3xl sm:text-2xl sm:text-center lg:text-start font-semibold text-[#1971F4]">
-                {item.title}
+                {item.name}
               </h1>
               <p className="font-lato text-lg lg:font-medium  w-full">
                 {item.description}
               </p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
       <div className="w-full bg-blue-700 flex justify-center items-center gap-4 text-2xl text-white py-4">

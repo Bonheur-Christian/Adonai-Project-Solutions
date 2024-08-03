@@ -5,7 +5,6 @@ import { IoMdMenu } from "react-icons/io";
 import { IoCloseSharp } from "react-icons/io5";
 
 function LandingPageBar() {
-  const [theme, setheme] = useState("light");
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -23,17 +22,7 @@ function LandingPageBar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [theme]);
 
-  const handleThemeSwitch = () => {
-    setheme(theme === "dark" ? "light" : "dark");
-  };
   const Links = [
     { link: "Home", dest: "/" },
     { link: "About", dest: "/about" },
@@ -73,11 +62,6 @@ function LandingPageBar() {
                 </a>
               </li>
             ))}
-            {theme === "dark" ? (
-              <FaMoon onClick={handleThemeSwitch} />
-            ) : (
-              <IoIosSunny onClick={handleThemeSwitch} />
-            )}
           </ul>
         </div>
         <div

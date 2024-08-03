@@ -1,11 +1,17 @@
 import LandingPageBar from "./LandingPageBar";
-
+import { motion } from "framer-motion";
+import { fadeIn } from "../variants";
 function Intro() {
   return (
-    <div className="bg-[url('/images/Intro.png')] h-screen bg-cover bg-center bg-no-repeat dark:text-black">
+    <div className="bg-[url('/images/intro.jpg')] h-screen bg-cover  bg-no-repeat dark:text-black intro">
       <LandingPageBar />
-      <div className="lg:ms-[60rem] sm:text-center lg:text-start sm:p-12">
-        <div className=" flex gap-4 pt-44">
+      <motion.div 
+          variants={fadeIn("left", 0.1)}
+                  initial="hidden"
+                  whileInView={"show"}
+                  viewport={{ once: false, amount: 0.7 }}
+                  className="lg:ms-[60rem] sm:text-center lg:text-start sm:p-12">
+        <div className=" flex gap-4 pt-32">
           <div>
             <img src="svg/intro1.svg" alt="" className="w-full h-auto pt-3" />
           </div>
@@ -15,7 +21,7 @@ function Intro() {
             </h1>
             <h1 className="font-lato font-light text-3xl py-12">
               ONE THAT{" "}
-              <span className="text-gray-400 font-semibold">
+              <span className="text-orange-700 font-semibold">
                 ANSWERS YOUR CALLS.
               </span>
             </h1>
@@ -26,7 +32,7 @@ function Intro() {
             Why APS?
           </button>
         </a>
-      </div>
+      </motion.div>
     </div>
   );
 }

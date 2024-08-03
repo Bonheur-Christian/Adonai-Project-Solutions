@@ -5,52 +5,52 @@ import { useState } from "react";
 function ServiceSwiper() {
   const services = [
     {
-      svg: "svg/civil.svg",
+      svg: "images/engineering.jpg",
       title: "CIVIL Engineering",
       description:
         "Civil engineering projects present unique challenges, but APS has the practical knowledge and experience necessary to anticipate problems and quickly propose sound solutions.",
     },
     {
-      svg: "svg/property.svg",
+      svg: "images/property.jpg",
       title: "Property Management",
       description:
         "APS Ltd offers comprehensive property management solutions, ensuring that properties are well-maintained, efficiently operated, and profitable. Our services include tenant management, maintenance, and financial reporting.",
     },
     {
-      svg: "svg/land.svg",
+      svg: "images/land.jpg",
       title: "Land And Quantity Surveying",
       description:
         "Our land and quantity surveying services are critical for successful project execution. We provide accurate land assessments, mapping, and cost estimation to ensure projects are completed on time and within budget.",
     },
     {
-      svg: "svg/real.svg",
+      svg: "images/realestate.jpg",
       title: "REAL ESTATE",
       description:
         "In the realm of real estate, APS Ltd offers a range of services including property development, sales, and marketing. We help clients navigate the complex real estate market to achieve their investment goals.",
     },
     {
-      svg: "svg/waste.svg",
+      svg: "images/waste.jpg  ",
       title: "Waste Management",
       description:
         "APS Ltd is dedicated to promoting environmental sustainability through our waste management services. We provide innovative solutions for waste collection, recycling, and disposal, ensuring minimal environmental impact.",
     },
     {
-      svg: "svg/land.svg",
+      svg: "images/roads.jpg",
       title: "Roads and Bridge Construction",
       description:
         " Our expertise in roads and bridges construction enables us to build infrastructure that supports economic growth and connectivity. We employ advanced techniques and materials to construct durable and safe transportation networks.",
     },
     {
-      svg: "svg/property.svg",
+      svg: "images/plumbing.jpg",
       title: "Plumbing, Heating, and Air Conditioning Installation",
       description:
         "Our plumbing, heating, and air conditioning installation services are designed to enhance comfort and efficiency in residential, commercial, and industrial settings. We utilize the latest technologies and best practices to deliver optimal results.",
     },
     {
-      svg: "svg/real.svg",
-      title: "REAL ESTATE",
+      svg: "images/renovation.jpg",
+      title: "Property Improvement And Renovation",
       description:
-        "In the realm of real estate, APS Ltd offers a range of services including property development, sales, and marketing. We help clients navigate the complex real estate market to achieve their investment goals.",
+        "APS Ltd provides complete property renovation services. Our skilled team handles everything from design to construction, ensuring high-quality results and excellent customer service for all renovation projects.",
     },
   ];
   const length = services.length;
@@ -85,23 +85,19 @@ function ServiceSwiper() {
           <SwiperSlide key={index}>
             <div
               key={index}
-              className="py-12 flex sm:flex-col items-center w-[80%] mx-auto  my-12 dark:text-white rounded-xl"
+              className="flex sm:flex-col items-center w-[80%] mx-auto  dark:text-white rounded-xl"
             >
-              <div>
-                <img src={item.svg} alt="svg desc" />
-              </div>
-              <div className="rounded-xl lg:mx-auto w-full">
-                <div className="flex text-xl pt-4">
-                  <p className="px-10 text-center text-2xl text-[#1971F4] font-lato">
-                    {item.title}
-                  </p>
-                </div>
-                <div className="py-6 px-10 flex gap-2">
-                  <div>
-                    <p className="text-xl font-lato">{item.description}</p>
-                  </div>
-                </div>
-              </div>
+              <div key={index} className="lg:w-[40vw] sm:w-full sm:px-6">
+            <img
+              src={item.svg}
+              alt="property showcasing"
+              className="w-32 h-32 rounded-full object-cover hover:shadow-gray-400 shadow-md"
+            />
+            <h1 className="text-2xl pb-6 text-[#1971F4]">{item.title}</h1>
+            <p className="font-lato text-lg lg:w-[30vw] sm:w-full pb-6">
+              {item.description}
+            </p>
+          </div>
             </div>
           </SwiperSlide>
         ))}
