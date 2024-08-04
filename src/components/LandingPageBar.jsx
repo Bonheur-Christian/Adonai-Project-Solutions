@@ -41,7 +41,7 @@ function LandingPageBar() {
           : "bg-transparent fixed top-0 w-full"
       }`}
     >
-      <nav className="flex justify-between lg:px-12 sm:px-2 sticky top-0 w-[68vw]">
+      <nav className="flex justify-between lg:px-12 sm:px-2 sticky top-0 lg:w-[68vw] sm:w-full">
         <div>
           <img src="svg/logo.svg" alt="aps"id="aps" width={90} height={10} />
           <label htmlFor="aps" className="text-blue-900 font-bold text-2xl">Adonai Project Solutions</label>
@@ -50,7 +50,7 @@ function LandingPageBar() {
           <ul
             className={`${
               open
-                ? "bg-white sm:px-12 sm:py-4 w-[100vw] h-screen z-50"
+                ? "bg-white sm:px-4 sm:ms-[-4rem]  sm:py-4 w-[100vw] h-screen z-50"
                 : "hidden duration-1000"
             } lg:flex lg:space-x-12  sm:space-y-4 lg:space-y-0 md:space-y-4 sm:top-[10vh] lg:top-6 absolute origin-top-left`}
           >
