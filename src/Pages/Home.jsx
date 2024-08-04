@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
 import Dropdown from "../components/DropDown";
+import { API_url } from "../constants";
 
 const openingHours = {
   0: { open: null, close: null },
@@ -74,7 +75,7 @@ function Home() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await fetch("http://localhost:8800/allProjects");
+        const response = await fetch(`${API_url}/allProjects`);
         if (!response.ok) {
           toast.error("Error Occurred");
         } else {

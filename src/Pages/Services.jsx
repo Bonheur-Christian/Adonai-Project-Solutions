@@ -8,6 +8,7 @@ import Bar from "../components/bar";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
 import Dropdown from "../components/DropDown";
+import { API_url } from "../constants";
 
 function Services() {
   const [scrolled, setScrolled] = useState(false);
@@ -80,14 +81,13 @@ function Services() {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await fetch("http://localhost:8800/allServices");
+        const response = await fetch(`${API_url}/allServices`);
         if (!response.ok) {
           toast.error("Error Occured");
         } else {
           const data = await response.json();
           setServicesList(data);
           console.log(servicesList);
-          
         }
       } catch (err) {
         toast.error("Error Occured");

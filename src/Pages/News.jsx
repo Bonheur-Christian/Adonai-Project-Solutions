@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Bar from "../components/bar";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
+import { API_url } from "../constants";
 function News() {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -26,7 +27,7 @@ function News() {
   useEffect(() => {
     const fetchCompletedProjects = async () => {
       try {
-        const response = await fetch("http://localhost:8800/completedProjects");
+        const response = await fetch(`${API_url}/completedProjects`);
         if (!response.ok) {
           toast.error("Error Occurred");
         } else {

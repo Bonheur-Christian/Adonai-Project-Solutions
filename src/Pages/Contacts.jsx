@@ -6,6 +6,7 @@ import Bar from "../components/bar";
 import { CiLocationOn } from "react-icons/ci";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
+import { API_url } from "../constants";
 
 function Contacts() {
   const [scrolled, setScrolled] = useState(false);
@@ -28,7 +29,7 @@ function Contacts() {
   useEffect(() => {
     const fetchAddress = async () => {
       try {
-        const response = await fetch("http://localhost:8800/allAddress");
+        const response = await fetch(`${API_url}/allAddress`);
         if (!response.ok) {
           toast.error("Error Occured");
         } else {
