@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { FaMoon } from "react-icons/fa";
-import { IoIosSunny } from "react-icons/io";
 import { IoMdMenu } from "react-icons/io";
 import { IoCloseSharp } from "react-icons/io5";
 
@@ -37,23 +35,24 @@ function LandingPageBar() {
   };
   return (
     <div
-      className={`lg:p-4 md:p-4 sm:p-2  z-10 transition-all duration-500 dark:text-white sticky top-0 ${
+      className={`lg:p-4 md:p-4 sm:p-2 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white dark:bg-gray-800 sticky top shadow-md "
-          : "bg-transparent sticky top-0"
+          ? "bg-white dark:bg-gray-800 fixed top-0 shadow-md w-full"
+          : "bg-transparent fixed top-0 w-full"
       }`}
     >
-      <nav className="flex justify-between lg:px-12 sm:px-2 sticky top-0 w-[83vw] ">
+      <nav className="flex justify-between lg:px-12 sm:px-2 sticky top-0 w-[83vw]">
         <div>
-          <img src="svg/logo.svg" alt="" width={90} height={10} />
+          <img src="svg/logo.svg" alt="aps"id="aps" width={90} height={10} />
+          <label htmlFor="aps" className="text-blue-900 font-bold text-2xl">Adonai Project Solutions</label>
         </div>
-        <div className="flex sm:flex-col-reverse lg:flex-row sm:justify-center relative">
+        <div className="flex sm:flex-col-reverse lg:flex-row sm:justify-center lg:justify-between relative">
           <ul
             className={`${
               open
                 ? "bg-white sm:px-12 sm:py-4 w-[100vw] h-screen z-50"
                 : "hidden duration-1000"
-            } lg:flex lg:space-x-12  sm:space-y-4 lg:space-y-0 md:space-y-4 sm:top-[10vh] lg:top-6 absolute`}
+            } lg:flex lg:space-x-12  sm:space-y-4 lg:space-y-0 md:space-y-4 sm:top-[10vh] lg:top-6 absolute origin-top-left`}
           >
             {Links.map((link, index) => (
               <li key={index}>

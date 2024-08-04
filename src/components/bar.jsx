@@ -20,10 +20,11 @@ function Bar() {
     setOpen(!open);
   };
   return (
-    <div className="lg:p-4 md:p-4 sm:p-2  z-1 transition-all duration-300 dark:text-dark bg-transparent sticky">
-      <nav className="flex justify-between lg:px-12 sm:px-2 sticky top-0 w-[83vw] ">
+    <div className="lg:p-4 md:p-4 sm:p-2  z-1 transition-all duration-300 dark:text-dark bg-transparent">
+      <nav className="flex justify-between lg:px-12 sm:px-2 w-[83vw] ">
         <div>
-          <img src="svg/logo.svg" alt="" width={90} height={10} />
+          <img src="svg/logo.svg" alt="aps" id="aps" width={90} height={10} />
+          <label htmlFor="aps" className="text-blue-1000 font-bold text-2xl">Adonai Project Solutions</label>
         </div>
         <div className="flex sm:flex-col-reverse lg:flex-row sm:justify-center relative">
           <ul
