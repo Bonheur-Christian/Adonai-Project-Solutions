@@ -43,7 +43,7 @@ function Contacts() {
     fetchAddress();
   }, []);
   return (
-    <div className="dark:text-white">
+    <div className="dark:text-white overflow-x-hidden">
       {scrolled && <LandingPageBar />}
       <div className="bg-[url('/images/header.png')] h-[10rem] md:h-[15rem] bg-cover bg-center bg-no-repeat dark:text-black">
         <Bar />

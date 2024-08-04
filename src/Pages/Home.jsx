@@ -6,6 +6,7 @@ import { MdEmail } from "react-icons/md";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
+import Dropdown from "../components/DropDown";
 
 const openingHours = {
   0: { open: null, close: null },
@@ -51,6 +52,7 @@ const isOpen = (currentDay, currentTime) => {
 
 function Home() {
   const [status, setStatus] = useState("Closed");
+  const [projects, setProjects] = useState([]);
 
   useEffect(() => {
     const checkStatus = () => {
@@ -69,8 +71,24 @@ function Home() {
 
     return () => clearInterval(intervalId);
   }, []);
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch("http://localhost:8800/allProjects");
+        if (!response.ok) {
+          toast.error("Error Occurred");
+        } else {
+          const data = await response.json();
+          setProjects(data);
+        }
+      } catch (error) {
+        toast.error("Error Occurred");
+      }
+    };
+    fetchProjects();
+  }, []);
   return (
-    <div className="dark:text-white px-0 mx-0">
+    <div className="dark:text-white px-0 mx-0 overflow-x-hidden">
       <Intro />
       <div className="py-12 space-y-6">
         <div className="flex justify-end items-end p-6 fixed lg:bottom-12 sm:bottom-0  z-50 ">
@@ -83,10 +101,11 @@ function Home() {
           </button>
         </div>
         <motion.div
-            variants={fadeIn("up", 0.1)}
-            initial="hidden"
-            whileInView={"show"}
-            viewport={{ once: false, amount: 0.7 }}>
+          variants={fadeIn("up", 0.1)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.7 }}
+        >
           <h1 className="text-4xl font-semibold font-lato text-gray-600 text-center">
             About Us
           </h1>
@@ -102,11 +121,11 @@ function Home() {
           </p>
         </motion.div>
         <motion.div
-            variants={fadeIn("up", 0.1)}
-            initial="hidden"
-            whileInView={"show"}
-            viewport={{ once: false, amount: 0.7 }}
-            >
+          variants={fadeIn("up", 0.1)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.7 }}
+        >
           <h2 className="text-2xl font-lato font-semibold text-center text-gray-600 tracking-wider sm:py-6 lg:py-0">
             APS ‘s Track Record speaks for Itself
           </h2>
@@ -115,19 +134,21 @@ function Home() {
           </h2>
         </motion.div>
         <motion.div
-            variants={fadeIn("up", 0.2)}
-            initial="hidden"
-            whileInView={"show"}
-            viewport={{ once: false, amount: 0.7 }}
-            >
+          variants={fadeIn("up", 0.2)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.7 }}
+        >
           <ServiceSwiper />
         </motion.div>
       </div>
       <motion.div
-          variants={fadeIn("up", 0.1)}
-          initial="hidden"
-          whileInView={"show"}
-          viewport={{ once: false, amount: 0.7 }}>
+        variants={fadeIn("up", 0.1)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: false, amount: 0.7 }}
+      >
+        <Dropdown title={"All Projects"} content={projects} />
         <div className="flex justify-center my-12">
           <a href="#projects">
             <img src="svg/button.svg" alt="" className="w-auto h-auto" />
@@ -137,20 +158,21 @@ function Home() {
       </motion.div>
       <div className="flex lg:flex-row sm:flex-col-reverse lg:justify-between  lg:h-screen lg:py-24 sm:py-6 lg:ps-12 sm:ps-2">
         <motion.div
-            variants={fadeIn("right", 0.1)}
-            initial="hidden"
-            whileInView={"show"}
-            viewport={{ once: false, amount: 0.7 }}
-             className="lg:flex items-center sm:px-12 lg:px-0">
+          variants={fadeIn("right", 0.1)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.7 }}
+          className="lg:flex items-center sm:px-12 lg:px-0"
+        >
           <img src="svg/mission1.svg" alt="" />
         </motion.div>
         <div className="lg:bg-[url('/images/mission.png')] lg:w-1/2 bg-no-repeat">
           <div className="lg:ps-48 space-y-12 lg:py-12 sm:py-6">
             <motion.div
-                variants={fadeIn("up", 0.8)}
-                initial="hidden"
-                whileInView={"show"}
-                viewport={{ once: false, amount: 0.7 }}
+              variants={fadeIn("up", 0.8)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.7 }}
             >
               <h1 className="font-lato font-bold lg:text-white sm:text-gray-900 text-4xl text-center sm:py-4">
                 Our Vision
@@ -162,10 +184,10 @@ function Home() {
               </p>
             </motion.div>
             <motion.div
-                variants={fadeIn("down", 0.8)}
-                initial="hidden"
-                whileInView={"show"}
-                viewport={{ once: false, amount: 0.7 }}
+              variants={fadeIn("down", 0.8)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.7 }}
             >
               <h1 className="font-lato font-bold lg:text-white sm:text-gray-900 text-4xl text-center sm:py-4">
                 Our Mission

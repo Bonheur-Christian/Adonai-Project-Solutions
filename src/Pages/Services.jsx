@@ -7,9 +7,11 @@ import { MdEmail } from "react-icons/md";
 import Bar from "../components/bar";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
+import Dropdown from "../components/DropDown";
 
 function Services() {
   const [scrolled, setScrolled] = useState(false);
+  const [servicesList, setServicesList] = useState([]);
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 140) {
@@ -75,10 +77,28 @@ function Services() {
         "APS Ltd provides complete property renovation services. Our skilled team handles everything from design to construction, ensuring high-quality results and excellent customer service for all renovation projects.",
     },
   ];
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const response = await fetch("http://localhost:8800/allServices");
+        if (!response.ok) {
+          toast.error("Error Occured");
+        } else {
+          const data = await response.json();
+          setServicesList(data);
+          console.log(servicesList);
+          
+        }
+      } catch (err) {
+        toast.error("Error Occured");
+      }
+    };
+    fetchServices();
+  }, []);
   const [showAll, setShowAll] = useState(false);
   const visibleServices = showAll ? services : services.slice(0, 4);
   return (
-    <div>
+    <div overflow-x-hidden>
       {scrolled && <LandingPageBar />}
       <div className="bg-[url('/images/header.png')] h-[10rem] md:h-[15rem] bg-cover bg-center bg-no-repeat dark:text-black">
         <Bar />
@@ -120,6 +140,7 @@ function Services() {
           />
         </div>
       </div>
+      <Dropdown title={"All Services"} content={servicesList} />
       <div className="flex flex-wrap  justify-evenly py-24">
         {visibleServices.map((item, index) => (
           <motion.div
