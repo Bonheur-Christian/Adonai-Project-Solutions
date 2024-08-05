@@ -33,7 +33,6 @@ function Projects() {
       desc: "Hope Haven Christian Primary School .",
     },
   ];
-
   return (
     <div className="mx-auto" id="projects">
       <Swiper

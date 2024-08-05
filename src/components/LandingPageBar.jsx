@@ -43,8 +43,18 @@ function LandingPageBar() {
     >
       <nav className="flex justify-between lg:px-12 sm:px-2 sticky top-0 lg:w-[68vw] sm:w-full">
         <div>
-          <img src="svg/logo.svg" alt="aps" id="aps"  className="sm:w-1/6 sm:h-1/2 lg:w-1/12 lg:h-1/3" />
-          <label htmlFor="aps" className="text-blue-900 font-bold lg:text-2xl sm:text-sm">Adonai Project Solutions</label>
+          <img
+            src="svg/logo.svg"
+            alt="aps"
+            id="aps"
+            className="sm:w-1/6 sm:h-1/2 lg:w-1/12 lg:h-1/3"
+          />
+          <label
+            htmlFor="aps"
+            className="text-blue-900 font-bold lg:text-2xl sm:text-sm"
+          >
+            Adonai Project Solutions
+          </label>
         </div>
         <div className="flex sm:flex-col-reverse lg:flex-row sm:justify-center lg:justify-between relative">
           <ul
@@ -77,5 +87,4 @@ function LandingPageBar() {
     </div>
   );
 }
-
 export default LandingPageBar;
