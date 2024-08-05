@@ -62,20 +62,24 @@ body {
             background-image: url(images/intro1.jpg);
         }
 
-        20% {
+        10% {
             background-image: url(images/intro2.jpg);
         }
 
-        40% {
+        35% {
             background-image: url(images/project3.jpg);
         }
 
-        60% {
+        50% {
             background-image: url(images/intro3.jpg);
         }
 
-        80% {
+        65% {
             background-image: url(images/intro4.jpg);
+        }
+
+        80% {
+            background-image: url(images/team.png);
         }
 
         100% {
