@@ -23,8 +23,15 @@ function Bar() {
     <div className="lg:p-4 md:p-4 sm:p-2  z-1 transition-all duration-300 dark:text-dark bg-transparent">
       <nav className="flex justify-between lg:px-12 sm:px-2 w-[83vw] ">
         <div>
-          <img src="svg/logo.svg" alt="aps" id="aps" width={90} height={10} />
-          <label htmlFor="aps" className="text-blue-1000 font-bold text-2xl">Adonai Project Solutions</label>
+          <img
+            src="svg/logo.svg"
+            alt="aps"
+            id="aps"
+            className="sm:w-1/6 sm:h-1/2 lg:w-1/12 lg:h-1/3"
+          />
+          <label htmlFor="aps" className="text-blue-700 font-bold text-2xl">
+            Adonai Project Solutions
+          </label>
         </div>
         <div className="flex sm:flex-col-reverse lg:flex-row sm:justify-center relative">
           <ul

@@ -14,7 +14,7 @@ function Projects() {
     },
     {
       Image: "images/project3.jpg",
-      desc: "Hope Haven Christian School Secondary.",
+      desc: "Hope Haven Christian Secondary School .",
     },
     {
       Image: "images/project4.jpg",
@@ -26,11 +26,11 @@ function Projects() {
     },
     {
       Image: "images/project6.jpg",
-      desc: "Potter's Hand Church.",
+      desc: "Potter's Hand Fellowship Hall.",
     },
     {
       Image: "images/project7.jpg",
-      desc: "Hope Haven Christian School Primary.",
+      desc: "Hope Haven Christian Primary School .",
     },
   ];
 

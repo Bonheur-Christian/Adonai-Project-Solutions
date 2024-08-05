@@ -37,5 +37,56 @@ body {
     top: 100%;
     opacity: 1;
     transition: top 0.3s ease, opacity 0.3s ease;
-  }
-  
+}
+
+
+@media only screen and (max-width:640px) {
+
+    .intro {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: 10s;
+
+        animation-name: animate;
+        animation-direction: normal;
+        animation-duration: 50s;
+        animation-fill-mode: both;
+        animation-iteration-count: infinite;
+        animation-play-state: running;
+        animation-timing-function: ease;
+    }
+
+    @keyframes animate {
+        0% {
+            background-image: url(images/intro1.jpg);
+        }
+
+        20% {
+            background-image: url(images/intro2.jpg);
+        }
+
+        40% {
+            background-image: url(images/project3.jpg);
+        }
+
+        60% {
+            background-image: url(images/intro3.jpg);
+        }
+
+        80% {
+            background-image: url(images/intro4.jpg);
+        }
+
+        100% {
+            background-image: url(images/intro5.jpg);
+        }
+    }
+
+}
+
+@media only screen and (min-width: 641px) {
+    .intro {
+        background-image: url(images/intro4.jpg);
+    }
+}

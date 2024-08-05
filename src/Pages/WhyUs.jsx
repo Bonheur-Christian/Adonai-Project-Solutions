@@ -11,7 +11,7 @@ function WhyUs() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 140) {
+      if (window.scrollY > 15) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -61,22 +61,22 @@ function WhyUs() {
           initial="hidden"
           whileInView={"show"}
           viewport={{ once: false, amount: 0.7 }}
-          className="md:w-1/2 md:pr-6 mb-8 md:mb-0 lg:pt-40 sm:pt-6 lg:pl-12 sm:px-4 sm:w-full"
+          className="md:w-1/2 md:pr-6 mb-8 md:mb-0 lg:pt-40 sm:pt-0 lg:pl-12 sm:px-4 sm:w-full"
         >
           <h1 className="font-semibold text-blue-500 text-lg mb-4">
             IT MATTERS ....
           </h1>
-          <h1 className="font-bold text-3xl sm:text-2xl mb-4 lg:w-1/4 sm:w-full">
+          <h1 className="font-bold lg:text-3xl sm:text-xl mb-4 lg:w-1/4 sm:w-full">
             Who Does Your Engineering.
           </h1>
-          <p className="mb-6 text-xl font-lato lg:w-[40vw] sm:w-full">
+          <p className="mb-6 lg:text-xl sm:text-md font-lato lg:w-[40vw] sm:w-full">
             Welcome to Adonai Project Solutions (APS) Ltd, a premier
             multidisciplinary engineering firm based in Rwanda. Established in
             2011, we have been committed to delivering excellence in a wide
             range of services for over a decade. Our expertise spans across
             various domains.
           </p>
-          <p className="mb-8 text-xl font-lato lg:w-[40vw] sm:w-full">
+          <p className="mb-8 lg:text-xl sm:text-md font-lato lg:w-[40vw] sm:w-full">
             Adonai Project Solutions ltd, we put the client desire infront,
             resulting in Our best performance.
           </p>
@@ -89,13 +89,13 @@ function WhyUs() {
           />
         </div>
       </div>
-      <div className="bg-[#DEF2F9]/30 dark:bg-gray-800 py-12 lg:mt-[-12rem] sm:mt-0 space-y-16">
+      <div className="bg-[#DEF2F9]/30 dark:bg-gray-800 lg:py-12 sm:py-6 lg:mt-[-12rem] sm:mt-0 lg:space-y-16 sm:space-y-10">
         <motion.p
           variants={fadeIn("up", 0.1)}
           initial="hidden"
           whileInView={"show"}
           viewport={{ once: false, amount: 0.3 }}
-          className="font-medium text-2xl lg:ps-[15rem] sm:p-6 sm:text-center"
+          className="font-medium lg:text-2xl sm:text-lg lg:ps-[15rem] sm:p-6 sm:text-center"
         >
           Aps keeps the clients’ priorities at the forefront of everything we
           do. We believe:
@@ -104,20 +104,20 @@ function WhyUs() {
           <img src="svg/1.svg" alt="1" className="pt-4 sm:hidden lg:block" />
           <div className="lg:w-[60vw] sm:w-full space-y-6 lg:ms-[-10rem] sm:ms-0 sm:px-6">
             <motion.h1
-              variants={fadeIn("left", 0.3)}
+              variants={fadeIn("up", 0.1)}
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: false, amount: 0.7 }}
-              className="text-[#1971F4] font-medium text-2xl sm:text-center"
+              className="text-[#1971F4] font-medium lg:text-2xl sm:text-xl sm:text-center"
             >
               THE BUDGET IS MEANT TO BE ADHERED TO.
             </motion.h1>
             <motion.p
-              variants={fadeIn("right", 0.1)}
+              variants={fadeIn("up", 0.3)}
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: false, amount: 0.7 }}
-              className="text-xl font-medium"
+              className="lg:text-xl sm:text-md font-medium"
             >
               Over the course of any project, unexpected hurdles happen. But
               these hurdles shouldn’t completely negate the budget. When these
@@ -135,20 +135,20 @@ function WhyUs() {
           <img src="svg/2.svg" alt="2" className="pt-4 sm:hidden lg:block" />
           <div className="lg:w-[60vw] sm:w-full space-y-6 lg:ms-[-10rem] sm:ms-0 sm:px-6">
             <motion.h1
-              variants={fadeIn("left", 0.3)}
+              variants={fadeIn("up", 0.1)}
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: false, amount: 0.7 }}
-              className="text-[#1971F4] font-medium text-2xl sm:text-center"
+              className="text-[#1971F4] font-medium lg:text-2xl sm:text-xl sm:text-center"
             >
               A PROJECT SCHEDULE IS NOT JUST A GUIDELINE.
             </motion.h1>
             <motion.p
-              variants={fadeIn("right", 0.1)}
+              variants={fadeIn("up", 0.3)}
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: false, amount: 0.7 }}
-              className="text-xl font-medium"
+              className="lg:text-xl sm:text-md font-medium"
             >
               When there are multiple vendors and regulatory agencies involved,
               timelines can get off track. As a result, engineers must be
@@ -163,20 +163,20 @@ function WhyUs() {
           <img src="svg/3.svg" alt="2" className="pt-4 sm:hidden lg:block" />
           <div className="lg:w-[60vw] sm:w-full space-y-6 lg:ms-[-10rem] sm:ms-0 sm:px-6">
             <motion.h1
-              variants={fadeIn("left", 0.3)}
+              variants={fadeIn("up", 0.1)}
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: false, amount: 0.7 }}
-              className="text-[#1971F4] font-medium text-2xl sm:text-center"
+              className="text-[#1971F4] font-medium lg:text-2xl sm:text-xl sm:text-center"
             >
               RESPONSIVENESS IS CRUCIAL.
             </motion.h1>
             <motion.p
-              variants={fadeIn("right", 0.1)}
+              variants={fadeIn("up", 0.3)}
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: false, amount: 0.7 }}
-              className="text-xl font-medium"
+              className="lg:text-xl sm:text-md font-medium"
             >
               How much time goes by before your engineer returns your call or
               email? Do you feel like you are chasing your engineer? In this day
@@ -189,13 +189,13 @@ function WhyUs() {
       </div>
       <div>
         <motion.div
-          variants={fadeIn("up", 0.2)}
+          variants={fadeIn("up", 0.1)}
           initial="hidden"
           whileInView={"show"}
           viewport={{ once: false, amount: 0.7 }}
           className=" py-12 space-y-6"
         >
-          <h2 className="text-2xl sm:text-center font-lato font-semibold lg:ps-[18rem] sm:p-6 tracking-wider">
+          <h2 className="lg:text-2xl sm:text-xl sm:text-center font-lato font-semibold lg:ps-[18rem] sm:p-6 tracking-wider">
             APS ‘s Track Record speaks for Itself
           </h2>
           <p className="tracking-widest text-xl lg:ps-[18rem] sm:text-center">
@@ -206,35 +206,37 @@ function WhyUs() {
           {Testimonials.map((item, index) => (
             <div
               key={index}
-              className="sm:px-6 py-6 flex lg:flex-row sm:flex-col items-center hover:translate-y-6 hover:text-black text-gray-200 duration-1000 hover:bg-[#F8F8F8] lg:w-[60%] sm:w-[100%] mx-auto  my-6 dark:text-black rounded-xl"
+              className="sm:px-6 py-6 flex lg:flex-row sm:flex-col items-center hover:translate-y-4 hover:text-black text-gray-200 duration-1000 hover:bg-[#F8F8F8] lg:w-[60%] sm:w-[90%] mx-auto  my-6 dark:text-black rounded-xl"
             >
               <div>
                 <img
                   src={item.Image}
                   alt=""
-                  className="lg:w-[60%] w-[40%] sm:mx-auto backdrop-blur-lg"
+                  className="lg:w-[60%] sm:w-[40%] sm:mx-auto backdrop-blur-lg"
                 />
               </div>
               <div className="rounded-xl lg:mx-auto">
-                <div className="flex text-xl pt-2">
+                <div className="flex lg:text-xl sm:text-md pt-2">
                   <p className="sm:px-2 lg:text-center">
                     <img
                       src="svg/quote.svg"
                       alt=""
-                      className="inline w-[60px] h-[20px]"
+                      className="inline lg:w-[60px] sm:w-[30px] lg:h-[20px] sm:h-[10px]"
                     />
                     {item.info}
                     <img
                       src="svg/quote.svg"
                       alt=""
-                      className="inline w-[60px] h-[20px]"
+                      className="inline lg:w-[60px] sm:w-[30px] lg:h-[20px] sm:h-[10px]"
                     />
                   </p>
                 </div>
-                <div className="py-6 px-10 flex gap-2">
+                <div className="py-6 flex gap-2">
                   <div>
-                    <p className="text-3xl font-lato ">{item.Name}</p>
-                    <p className="text-3xl font-bold font-lato ">{item.role}</p>
+                    <p className="lg:text-3xl sm:text-xl font-lato ">
+                      {item.Name}
+                    </p>
+                    <p className="lg:text-3xl sm:text-xl font-bold font-lato ">{item.role}</p>
                   </div>
                 </div>
               </div>
@@ -244,10 +246,10 @@ function WhyUs() {
       </div>
       <div className="bg-[#DEF2F9] dark:bg-gray-800 pt-12">
         <div className="lg:space-y-6 sm:space-y-0">
-          <h1 className="text-3xl font-lato font-bold text-shadow lg:ps-[18rem] sm:p-6">
+          <h1 className="lg:text-3xl sm:text-xl sm:text-center lg:text-start font-lato font-bold text-shadow lg:ps-[18rem] sm:p-6">
             The Company We Keep
           </h1>
-          <h1 className="lg:text-md sm:text-xl font-lato font-medium lg:ps-[3rem] sm:ps-6 text-[#1971F4] lg:tracking-[0.5rem] sm:tracking-widest sm:text-center">
+          <h1 className="lg:text-md sm:text-md font-lato font-medium lg:ps-[3rem] text-[#1971F4] lg:tracking-[0.5rem] sm:tracking-widest sm:text-center">
             PROUD TO PARTNER WITH ORGANIZATIONS ACROSS THE COUNTRY FOR 30 YEARS.
           </h1>
         </div>

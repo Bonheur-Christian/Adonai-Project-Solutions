@@ -12,7 +12,7 @@ export default function About() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 135) {
+      if (window.scrollY > 15) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -72,17 +72,21 @@ export default function About() {
       <div className="flex sm:flex-col-reverse md:flex-row p-6 md:p-12">
         <div className="md:w-1/2 md:pr-6 mb-8 md:mb-0 pt-16 sm:w-full">
           <motion.h1
-              variants={fadeIn("right", 0.3)}
-              initial="hidden"
-              whileInView={"show"}
-              viewport={{ once: false, amount: 0.7 }}
-               className="font-bold text-3xl mb-4">Who We Are</motion.h1>
+            variants={fadeIn("right", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.7 }}
+            className="font-bold lg:text-3xl sm:text-xl mb-4"
+          >
+            Who We Are
+          </motion.h1>
           <motion.p
-              variants={fadeIn("left", 0.1)}
-              initial="hidden"
-              whileInView={"show"}
-              viewport={{ once: false, amount: 0.2 }}
-          className="mb-8 text-lg font-lato lg:w-[40vw] sm:w-full">
+            variants={fadeIn("left", 0.1)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.2 }}
+            className="mb-8 lg:text-lg sm:text-md font-lato lg:w-[40vw] sm:w-full"
+          >
             Welcome to Adonai Project Solutions (APS) Ltd, a premier
             multidisciplinary engineering firm based in Rwanda since 2011. We
             deliver excellence in architectural design, consultancy,
@@ -92,34 +96,42 @@ export default function About() {
             APS Ltd for comprehensive and high-quality engineering and
             construction solutions.
           </motion.p>
-          <motion.h1 
-              variants={fadeIn("down", 0.3)}
-              initial="hidden"
-              whileInView={"show"}
-              viewport={{ once: false, amount: 0.7 }}
-          className="font-bold text-3xl mb-4">Our Mission</motion.h1>
-          <motion.p 
-              variants={fadeIn("up", 0.1)}
-              initial="hidden"
-              whileInView={"show"}
-              viewport={{ once: false, amount: 0.7 }}
-          className="mb-8 text-lg font-lato lg:w-[40vw] sm:w-full">
+          <motion.h1
+            variants={fadeIn("down", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.7 }}
+            className="font-bold lg:text-3xl sm:text-xl mb-4"
+          >
+            Our Mission
+          </motion.h1>
+          <motion.p
+            variants={fadeIn("up", 0.1)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.7 }}
+            className="mb-8 lg:text-lg sm:text-md font-lato lg:w-[40vw] sm:w-full"
+          >
             To provide comprehensive and innovative engineering solutions that
             meet the highest standards of quality and sustainability,
             contributing to the development and betterment of communities.
           </motion.p>
-          <motion.h1 
-              variants={fadeIn("left", 0.3)}
-              initial="hidden"
-              whileInView={"show"}
-              viewport={{ once: false, amount: 0.7 }}
-          className="font-bold text-3xl mb-4 ">Our Vision</motion.h1>
+          <motion.h1
+            variants={fadeIn("left", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.7 }}
+            className="font-bold lg:text-3xl sm:text-xl mb-4 "
+          >
+            Our Vision
+          </motion.h1>
           <motion.p
-              variants={fadeIn("right", 0.1)}
-              initial="hidden"
-              whileInView={"show"}
-              viewport={{ once: false, amount: 0.7 }}
-               className="text-lg font-lato lg:w-[40vw] sm:w-full">
+            variants={fadeIn("right", 0.1)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.7 }}
+            className="lg:text-lg sm:text-md font-lato lg:w-[40vw] sm:w-full"
+          >
             To be the leading engineering solutions provider in Rwanda and
             beyond, known for our commitment to quality, innovation, and
             sustainable practices.
@@ -134,7 +146,7 @@ export default function About() {
         </div>
       </div>
       <div>
-        <h1 className="flex justify-center font-bold text-3xl">
+        <h1 className="flex justify-center font-bold lg:text-3xl sm:text-2xl">
           Meet Our Team
         </h1>
       </div>

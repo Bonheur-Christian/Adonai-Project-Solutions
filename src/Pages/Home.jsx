@@ -88,13 +88,33 @@ function Home() {
     };
     fetchProjects();
   }, []);
+
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <div className="dark:text-white px-0 mx-0 overflow-x-hidden">
       <Intro />
-      <div className="py-12 space-y-6">
+      <p className="text-blue-800 font-lato pt-5 px-3 border-e-8 border-blue-700 font-extrabold text-3xl w-full text-end lg:hidden sm:block">The pathway to greatness is service</p>
+      <div className="lg:py-12 sm:py-0 space-y-6">
         <div className="flex justify-end items-end p-6 fixed lg:bottom-12 sm:bottom-0  z-50 ">
           <button
-            className={`px-4 py-2 rounded text-white font-medium ${
+            className={` ${
+              scrolled ? "block duration-500" : "hidden"
+            } px-4 py-2 rounded text-white font-medium ${
               status === "Open" ? "bg-green-500" : "bg-red-500"
             }`}
           >
@@ -107,10 +127,10 @@ function Home() {
           whileInView={"show"}
           viewport={{ once: false, amount: 0.7 }}
         >
-          <h1 className="text-4xl font-semibold font-lato text-gray-600 text-center">
+          <h1 className="lg:text-4xl sm:text-xl font-semibold font-lato text-gray-600 text-center">
             About Us
           </h1>
-          <p className="font-lato font-medium text-xl lg:text-center sm:text-start lg:w-[80%] sm:w-full sm:px-6 lg:px-0 mx-auto py-6 text-gray-400">
+          <p className="font-lato font-medium lg:text-xl sm:text-md lg:text-center sm:text-start lg:w-[80%] sm:w-full sm:px-6 lg:px-0 mx-auto py-6 text-gray-400">
             Welcome to Adonai Project Solutions (APS) Ltd, a premier
             multidisciplinary engineering firm based in Rwanda since 2011. We
             deliver excellence in architectural design, consultancy,
@@ -127,10 +147,10 @@ function Home() {
           whileInView={"show"}
           viewport={{ once: false, amount: 0.7 }}
         >
-          <h2 className="text-2xl font-lato font-semibold text-center text-gray-600 tracking-wider sm:py-6 lg:py-0">
+          <h2 className="lg:text-2xl sm:text-xl font-lato font-semibold text-center text-gray-600 tracking-wider lg:px-0 sm:px-6 sm:py-6 lg:py-0">
             APS ‘s Track Record speaks for Itself
           </h2>
-          <h2 className="text-2xl font-lato font-semibold text-center tracking-wider text-gray-600">
+          <h2 className="lg:text-2xl sm:text-xl font-lato font-semibold text-center tracking-wider text-gray-600">
             Services offered at Aps
           </h2>
         </motion.div>
@@ -149,7 +169,9 @@ function Home() {
         whileInView={"show"}
         viewport={{ once: false, amount: 0.7 }}
       >
-        <Dropdown title={"All Projects"} content={projects} />
+        <div className="mx-auto flex sm:justify-center lg:justify-start">
+          <Dropdown title={"All Projects"} content={projects} />
+        </div>
         <div className="flex justify-center my-12">
           <a href="#projects">
             <img src="svg/button.svg" alt="" className="w-auto h-auto" />
@@ -175,10 +197,10 @@ function Home() {
               whileInView={"show"}
               viewport={{ once: false, amount: 0.7 }}
             >
-              <h1 className="font-lato font-bold lg:text-white sm:text-gray-900 text-4xl text-center sm:py-4">
+              <h1 className="font-lato font-bold lg:text-white sm:text-gray-900 lg:text-4xl sm:text-xl text-center sm:py-4">
                 Our Vision
               </h1>
-              <p className="lg:w-[80%] sm:w-full sm:text-wrap lg:text-white sm:text-gray-900 text-xl mx-auto sm:px-4">
+              <p className="lg:w-[80%] sm:w-full sm:text-wrap lg:text-white sm:text-gray-900 lg:text-xl sm:text-md mx-auto sm:px-4">
                 To be the leading engineering solutions provider in Rwanda and
                 beyond, known for our commitment to quality, innovation, and
                 sustainable practices.
@@ -190,10 +212,10 @@ function Home() {
               whileInView={"show"}
               viewport={{ once: false, amount: 0.7 }}
             >
-              <h1 className="font-lato font-bold lg:text-white sm:text-gray-900 text-4xl text-center sm:py-4">
+              <h1 className="font-lato font-bold lg:text-white sm:text-gray-900 lg:text-4xl sm:text-xl text-center sm:py-4">
                 Our Mission
               </h1>
-              <p className="lg:w-[80%] sm:w-full sm:text-wrap lg:text-white sm:text-gray-900 text-xl mx-auto sm:px-4">
+              <p className="lg:w-[80%] sm:w-full sm:text-wrap lg:text-white sm:text-gray-900 lg:text-xl sm:text-md mx-auto sm:px-4">
                 To provide comprehensive and innovative engineering solutions
                 that meet the highest standards of quality and sustainability,
                 contributing to the development and betterment of communities.

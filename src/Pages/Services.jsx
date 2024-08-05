@@ -116,18 +116,18 @@ function Services() {
           viewport={{ once: false, amount: 0.7 }}
           className="md:w-1/2 sm:w-full md:pr-6 mb-8 md:mb-0 lg:pt-40 sm:pt-16 sm:space-y-12 lg:space-y-6  lg:pl-32 sm:pl-6"
         >
-          <h1 className="font-semibold text-[#B4A9A9] tracking-widest text-2xl mb-4 sm:text-center lg:text-start">
+          <h1 className="font-semibold text-[#B4A9A9] tracking-widest lg:text-2xl sm:text-xl mb-4 sm:text-center lg:text-start">
             VERSATILE. PROACTIVE.EXPERIENCED.
           </h1>
-          <h1 className="font-bold text-4xl mb-4 lg:w-1/2 sm:w-full tracking-wider lg:text-start sm:text-center">
+          <h1 className="font-bold lg:text-4xl sm:text-2xl mb-4 lg:w-1/2 sm:w-full tracking-wider lg:text-start sm:text-center">
             Aps Services
           </h1>
-          <p className="mb-6 text-xl font-lato lg:w-[40vw] sm:w-full sm:pe-2 lg:px-0">
+          <p className="mb-6 lg:text-xl sm:text-md font-lato lg:w-[40vw] sm:w-full sm:pe-2 lg:px-0">
             Our team understands the importance of shared knowledge and believes
             that all things must work together to create a cohesive and
             functional finished product.
           </p>
-          <p className="mb-8 text-xl font-lato lg:w-[40vw] sm:w-full">
+          <p className="mb-8 lg:text-xl sm:text-md font-lato lg:w-[40vw] sm:w-full">
             Explore Aps capabilities below to learn more about what our team can
             offer in each sector.
           </p>
@@ -156,15 +156,15 @@ function Services() {
               alt="property showcasing"
               className="w-32 h-32 rounded-full object-cover hover:shadow-gray-400 shadow-md"
             />
-            <h1 className="text-2xl pb-6 text-[#1971F4]">{item.title}</h1>
-            <p className="font-lato text-lg lg:w-[30vw] sm:w-full pb-6">
+            <h1 className="lg:text-2xl sm:text-lg  pb-6 text-[#1971F4]">{item.title}</h1>
+            <p className="font-lato lg:text-lg sm:text-md  lg:w-[30vw] sm:w-full pb-6">
               {item.description}
             </p>
           </motion.div>
         ))}
       </div>
       {showAll ? (
-        <div className="flex justify-end lg:me-[15rem] sm:mx-6 sm:m-6 lg:m-0">
+        <div className="flex justify-end lg:me-[15rem] sm:mx-6">
           <button
             onClick={() => setShowAll(false)}
             className="text-xl rounded-md flex items-center gap-4"
@@ -184,7 +184,7 @@ function Services() {
           </button>
         </div>
       )}
-      <div>
+      <div className="sm:py-12 lg:py-0">
         <h2 className="font-lato text-xl text-center">
           Want To Discuss Project?
         </h2>

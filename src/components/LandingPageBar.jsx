@@ -38,13 +38,13 @@ function LandingPageBar() {
       className={`lg:p-4 md:p-4 sm:p-2 z-50 transition-all duration-500 ${
         scrolled
           ? "bg-white dark:bg-gray-800 fixed top-0 shadow-md w-full"
-          : "bg-transparent fixed top-0 w-full"
+          : "lg:bg-transparent sm:bg-white fixed top-0 w-full"
       }`}
     >
       <nav className="flex justify-between lg:px-12 sm:px-2 sticky top-0 lg:w-[68vw] sm:w-full">
         <div>
-          <img src="svg/logo.svg" alt="aps"id="aps" width={90} height={10} />
-          <label htmlFor="aps" className="text-blue-900 font-bold text-2xl">Adonai Project Solutions</label>
+          <img src="svg/logo.svg" alt="aps" id="aps"  className="sm:w-1/6 sm:h-1/2 lg:w-1/12 lg:h-1/3" />
+          <label htmlFor="aps" className="text-blue-900 font-bold lg:text-2xl sm:text-sm">Adonai Project Solutions</label>
         </div>
         <div className="flex sm:flex-col-reverse lg:flex-row sm:justify-center lg:justify-between relative">
           <ul

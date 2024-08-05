@@ -66,7 +66,7 @@ function ServiceSwiper() {
   };
 
   return (
-    <div className="relative group my-12 mb-32">
+    <div className="relative group my-12 mb-12">
       <Swiper
         modules={[Navigation, Autoplay, Pagination]}
         pagination={{
