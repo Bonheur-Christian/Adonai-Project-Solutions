@@ -44,6 +44,8 @@ function WhyUs() {
       Image: "images/3.png",
     },
   ];
+
+  
   return (
     <div className="dark:text-white overflow-x-hidden">
       {scrolled && <LandingPageBar />}
