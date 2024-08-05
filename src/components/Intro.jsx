@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
 function Intro() {
   return (
-    <div className="bg-[url('/images/intro.jpg')] lg:h-screen sm:h-[80vh] bg-cover bg-no-repeat dark:text-black intro">
+    <div className="bg-[url('/images/intro.jpg')] lg:h-screen sm:h-[60vh] bg-cover bg-no-repeat dark:text-black intro">
       <LandingPageBar />
       <motion.div
         variants={fadeIn("left", 0.1)}

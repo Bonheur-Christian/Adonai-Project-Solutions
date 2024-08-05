@@ -108,7 +108,9 @@ function Home() {
   return (
     <div className="dark:text-white px-0 mx-0 overflow-x-hidden">
       <Intro />
-      <p className="text-blue-800 font-lato pt-5 px-3 border-e-8 border-blue-700 font-extrabold text-3xl w-full text-end lg:hidden sm:block">The pathway to greatness is service</p>
+      <p className="text-blue-800 font-lato pt-5 px-3 border-s-8 border-blue-700 font-extrabold text-3xl w-full text-start lg:hidden sm:block my-4">
+        The Pathway To Greatness Is Service
+      </p>
       <div className="lg:py-12 sm:py-0 space-y-6">
         <div className="flex justify-end items-end p-6 fixed lg:bottom-12 sm:bottom-0  z-50 ">
           <button
