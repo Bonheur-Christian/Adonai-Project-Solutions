@@ -37,21 +37,21 @@ function LandingPageBar() {
     <div
       className={`lg:p-4 md:p-4 sm:p-2 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white dark:bg-gray-800 fixed top-0 shadow-md w-full"
-          : "lg:bg-transparent sm:bg-white fixed top-0 w-full"
+          ? "bg-white dark:bg-gray-800 fixed top-0 shadow-md w-full font-semibold"
+          : "lg:bg-transparent sm:bg-white fixed top-0 w-full text-blue-700 font-extrabold"
       }`}
     >
-      <nav className="flex justify-between lg:px-12 sm:px-2 sticky top-0 lg:w-[68vw] sm:w-full">
+      <nav className="flex justify-between lg:px-12 sm:px-2 sticky top-0 lg:w-[65vw] sm:w-full">
         <div>
           <img
             src="svg/logo.svg"
             alt="aps"
             id="aps"
-            className="sm:w-1/6 sm:h-1/2 lg:w-1/12 lg:h-1/3"
+            className="sm:w-1/4 sm:h-1/2 lg:w-1/12 lg:h-1/3"
           />
           <label
             htmlFor="aps"
-            className="text-blue-900 font-bold lg:text-2xl sm:text-sm"
+            className="text-blue-900 font-bold lg:text-2xl sm:text-lg"
           >
             Adonai Project Solutions
           </label>
@@ -62,7 +62,7 @@ function LandingPageBar() {
               open
                 ? "bg-white sm:px-4 sm:ms-[-4rem] sm:py-4 w-[100vw] h-screen z-50"
                 : "hidden duration-1000"
-            } lg:flex lg:space-x-12 sm:space-y-4 lg:space-y-0 md:space-y-4 sm:top-[10vh] lg:top-6 absolute origin-top-left`}
+            } lg:flex lg:space-x-12 sm:space-y-4 lg:space-y-0 md:space-y-4 sm:top-[10vh] lg:top-5 absolute origin-top-left`}
           >
             {Links.map((link, index) => (
               <li key={index}>

@@ -98,9 +98,11 @@ function News() {
     <div className="dark:text-white overflow-x-hidden">
       {scrolled && <LandingPageBar />}
       <div className="bg-[url('/images/header.png')] h-[10rem] md:h-[15rem] bg-cover bg-center bg-no-repeat dark:text-black">
-        <Bar />
+      <div className="sm:hidden lg:block">
+          <Bar />
+        </div>
         <div className="flex items-center justify-end px-6 md:px-24">
-          <h1 className="text-right text-[#424242] font-bold text-2xl md:text-3xl lg:pt-12 lg:text-5xl">
+          <h1 className="text-right text-[#424242] font-bold text-2xl md:text-3xl sm:pt-24 lg:pt-[-12rem] lg:text-5xl">
             Company News
           </h1>
         </div>

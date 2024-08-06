@@ -6,9 +6,9 @@ function ServiceSwiper() {
   const services = [
     {
       svg: "images/engineering.jpg",
-      title: "CIVIL Engineering",
+      title: "Construction Of Buildings",
       description:
-        "Civil engineering projects present unique challenges, but APS has the practical knowledge and experience necessary to anticipate problems and quickly propose sound solutions.",
+        "APS Ltd delivers top-quality construction services with a focus on excellence, safety, and efficiency. We handle planning, design, site evaluation, budgeting, scheduling, project management, quality control, safety, and post-construction maintenance. Trust us for exceptional, tailored building projects.",
     },
     {
       svg: "images/property.jpg",
@@ -74,7 +74,7 @@ function ServiceSwiper() {
           clickable: true,
         }}
         navigation={{ prevEl: `#prev-btn`, nextEl: `#next-btn` }}
-        autoplay={{ delay: 10000, disableOnInteraction: true }}
+        autoplay={{ delay: 5000, disableOnInteraction: true }}
         loop={true}
         breakpoints={{
           640: { slidesPerView: 1, spaceBetween: 10, centeredSlides: false },
@@ -88,16 +88,16 @@ function ServiceSwiper() {
               className="flex sm:flex-col items-center w-[80%] mx-auto  dark:text-white rounded-xl"
             >
               <div key={index} className="lg:w-[40vw] sm:w-full sm:px-6">
-            <img
-              src={item.svg}
-              alt="property showcasing"
-              className="w-32 h-32 rounded-full object-cover hover:shadow-gray-400 shadow-md"
-            />
-            <h1 className="text-2xl pb-6 text-[#1971F4]">{item.title}</h1>
-            <p className="font-lato text-lg lg:w-[30vw] sm:w-full pb-6">
-              {item.description}
-            </p>
-          </div>
+                <img
+                  src={item.svg}
+                  alt="property showcasing"
+                  className="w-32 h-32 rounded-full object-cover hover:shadow-gray-400 shadow-md"
+                />
+                <h1 className="text-2xl pb-6 text-[#1971F4]">{item.title}</h1>
+                <p className="font-lato text-lg lg:w-[30vw] sm:w-full pb-6">
+                  {item.description}
+                </p>
+              </div>
             </div>
           </SwiperSlide>
         ))}

@@ -47,24 +47,19 @@ export default function About() {
       image: "/images/PM.jpg",
     },
   ];
-  const length = team.length;
 
-  const [current, setCurrent] = useState(0);
 
-  const next = () => {
-    setCurrent(current === length - 1 ? 0 : current + 1);
-  };
 
-  const previous = () => {
-    setCurrent(current === 0 ? length - 1 : current - 1);
-  };
+
   return (
     <div className="dark:text-white overflow-x-hidden">
       {scrolled && <LandingPageBar />}
       <div className="bg-[url('/images/header.png')] h-[10rem] md:h-[20rem] bg-cover bg-center bg-no-repeat dark:text-black">
-        <Bar />
+      <div className="sm:hidden lg:block">
+          <Bar />
+        </div>
         <div className="flex items-center justify-end lg:h-full px-6 pb-16 md:px-24">
-          <h1 className="text-right text-[#424242] font-bold text-xl md:text-3xl lg:text-5xl">
+          <h1 className="text-right text-[#424242] font-bold text-xl md:text-3xl sm:pt-24 lg:pb-36 lg:text-5xl">
             About Our Story
           </h1>
         </div>
