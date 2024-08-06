@@ -58,31 +58,31 @@ body {
 
     @keyframes animate {
         0% {
-            background-image: url(images/intro1.jpg);
+            background-image: url('/images/intro1.jpg');
         }
 
         10% {
-            background-image: url(images/intro2.jpg);
+            background-image: url('/images/intro2.jpg');
         }
 
         35% {
-            background-image: url(images/project3.jpg);
+            background-image: url('/images/project3.jpg');
         }
 
         50% {
-            background-image: url(images/intro3.jpg);
+            background-image: url('/images/intro3.jpg');
         }
 
         65% {
-            background-image: url(images/intro4.jpg);
+            background-image: url('/images/intro4.jpg');
         }
 
         80% {
-            background-image: url(images/team.png);
+            background-image: url('/images/team.png');
         }
 
         100% {
-            background-image: url(images/intro5.jpg);
+            background-image: url('/images/intro5.jpg');
         }
     }
 }
@@ -105,10 +105,10 @@ body {
 
     @keyframes animate {
         0% {
-            background-image: url(images/intro4.jpg);
+            background-image: url('/images/intro4.jpg');
         }
         100% {
-            background-image: url(images/intro5.jpg);
+            background-image: url('/images/intro5.jpg');
         }
     }
 }
