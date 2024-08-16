@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    overflow-x: hidden;
+}
+
+
+@layer components {
+    .underline-animation {
+        @apply relative
+    }
+
+    .underline-animation::after {
+        @apply absolute content-[''] w-full h-[1.5px] left-0 bottom-[-2px] bg-blue-500 scale-x-0 hover:scale-x-110 origin-bottom-left hover:origin-bottom-left transition-transform duration-300
+    }
+}
+
+
+.form {
+    background-image: url('/images/intro4.jpg');
+}
+
+.fixed-bottom-right {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 40px;
+    color: #25D366;
+}
+
+
+.text-shadow {
+    text-shadow: 2px 2px 4px #000000;
+}
+
+
+.group:hover .description {
+    top: 100%;
+    opacity: 1;
+    transition: top 0.3s ease, opacity 0.3s ease;
+}
+
+
+@media only screen and (max-width:640px) {
+    .intro {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: 10s;
+
+        animation-name: animate;
+        animation-direction: normal;
+        animation-duration: 50s;
+        animation-fill-mode: both;
+        animation-iteration-count: infinite;
+        animation-play-state: running;
+        animation-timing-function: ease;
+    }
+
+    @keyframes animate {
+        0% {
+            background-image: url('/images/intro1.jpg');
+        }
+
+        10% {
+            background-image: url('/images/intro2.jpg');
+        }
+
+        35% {
+            background-image: url('/images/project3.jpg');
+        }
+
+        50% {
+            background-image: url('/images/intro3.jpg');
+        }
+
+        65% {
+            background-image: url('/images/intro4.jpg');
+        }
+
+        80% {
+            background-image: url('/images/team.png');
+        }
+
+        100% {
+            background-image: url('/images/intro5.jpg');
+        }
+    }
+}
+
+@media only screen and (min-width:641px) {
+    .intro {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: 10s;
+
+        animation-name: animate;
+        animation-direction: normal;
+        animation-duration: 10s;
+        animation-fill-mode: both;
+        animation-iteration-count: infinite;
+        animation-play-state: running;
+        animation-timing-function: ease;
+    }
+
+    @keyframes animate {
+        0% {
+            background-image: url('/images/intro4.jpg');
+        }
+
+        100% {
+            background-image: url('/images/intro5.jpg');
+        }
+    }
+}
