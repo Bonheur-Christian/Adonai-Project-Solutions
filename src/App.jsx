@@ -15,6 +15,7 @@ import News from "./Pages/News";
 import Contacts from "./Pages/Contacts";
 import Signin from "./Pages/Signin";
 import Dashboard from "./Pages/Dashboard";
+import NotFound from "./Pages/NotFound";
 
 function App() {
   function ProtectedRoute() {
@@ -36,8 +37,9 @@ function App() {
           <Route element={<Contacts />} path="/contacts" />
           <Route element={<Signin />} path="/signin" />
           <Route element={<ProtectedRoute />}>
-          <Route element={<Dashboard />} path="/dashboard" />
+            <Route element={<Dashboard />} path="/dashboard" />
           </Route>
+          <Route element={<NotFound />} path="*" />
         </Routes>
       </Router>
     </div>
