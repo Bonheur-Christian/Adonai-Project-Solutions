@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { API_url } from "../constants";
+import bcrypt from "bcryptjs";
+import client from "../sanityClient";
 
 function Signin() {
   const navigate = useNavigate();
@@ -20,32 +21,54 @@ function Signin() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    toast.dismiss();
     try {
-      if (formData.email === "" || formData.password === "") {
-        toast.error("All fields are required");
-      } else {
-        console.log(API_url);
-        const response = await fetch(`${API_url}/login`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        });
-        if (!response.ok) {
-          toast.error("Invalid password or email!");
-        } else {
+      // const salt = await bcrypt.genSalt(10);
+      // const hashedPassword = await bcrypt.hash(formData.password, salt);
+
+      // const doc = {
+      //   _type: "admin",
+      //   email: formData.email,
+      //   password: hashedPassword,
+      // };
+
+      // const response = await client.create(doc);
+      // console.log(response);
+      // toast.success("success");
+
+      const query = `*[_type == "admin" && email == $email]`;
+      const params = { email: formData.email };
+      const admin = await client.fetch(query, params);
+
+      if (admin.length > 0) {
+        const passwordMatch = await bcrypt.compare(
+          formData.password,
+          admin[0].password
+        );
+
+        // if (passwordMatch) {
+        //   const token = jwt.sign(
+        //     { email: admin[0].email, adminId: admin[0]._id },
+        //     import.meta.env.VITE_SECRET_WORD,
+        //     { expiresIn: "1h" }
+        //   );
+        if (passwordMatch) {
+          const code = { email: admin[0].email };
+          localStorage.setItem("code", JSON.stringify(code));
           toast.success("Logged In");
-          const data = await response.json();
-          const token = data.token;
-          localStorage.setItem("token", token);
+
           navigate("/dashboard");
+        } else {
+          toast.error("invalid credentials");
         }
+        // } else {
+        //   toast.error("Incorrect Password");
+        // }
+      } else {
+        toast.error("Invalid Credentials.");
       }
     } catch (err) {
       console.log(err);
-      toast.error("An error occurred. Please try again.");
+      toast.error("Error Please Try Again.");
     }
   };
 

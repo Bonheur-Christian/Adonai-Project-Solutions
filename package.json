@@ -13,6 +13,7 @@
     "@ionic/react": "^8.2.2",
     "@sanity/client": "^6.21.1",
     "@sanity/image-url": "^1.0.2",
+    "bcryptjs": "^2.4.3",
     "framer-motion": "^11.3.21",
     "ionicons": "^7.4.0",
     "react": "^18.2.0",
@@ -23,6 +24,7 @@
     "react-slick": "^0.30.2",
     "react-toastify": "^10.0.5",
     "react-type-animation": "^3.2.0",
+    "safe-buffer": "^5.2.1",
     "slick-carousel": "^1.8.1",
     "swiper": "^11.1.4",
     "uuid": "^10.0.0"

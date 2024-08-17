@@ -5,8 +5,11 @@ import ServiceSection from "../components/NewService";
 import ProjectSection from "../components/NewProject";
 import AddressSection from "../components/EditAddress";
 import NewsSection from "../components/AddNews";
+import { IoMdLogOut } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
+  const navigate = useNavigate()
   useEffect(() => {
     const toastId = "logged in";
     toast.dismiss(toastId);
@@ -19,6 +22,11 @@ function Dashboard() {
     showDate.getHours() +
     ":" +
     showDate.getMinutes();
+
+  const handleLogOut = () => {
+    localStorage.removeItem("code");
+    navigate("/")
+  };
 
   return (
     <div className="flex">
@@ -49,6 +57,13 @@ function Dashboard() {
             Dashboard
           </h1>
           <p className="text-gray-500 font-semibold">{date}</p>
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-2 rounded-lg flex items-center gap-2"
+            onClick={handleLogOut}
+          >
+            Log out
+            <IoMdLogOut className="text-gray-50 font-extrabold" />
+          </button>
         </div>
         <div className="ps-6 space-y-2 py-12">
           <p className="text-2xl font-semibold font-lato">Analytic</p>

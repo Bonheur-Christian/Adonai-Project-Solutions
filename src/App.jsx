@@ -17,13 +17,13 @@ import Signin from "./Pages/Signin";
 import Dashboard from "./Pages/Dashboard";
 
 function App() {
-  // function ProtectedRoute() {
-  //   const token = localStorage.getItem("token");
-  //   if (!token) {
-  //     return <Navigate to={"/signin"} />;
-  //   }
-  //   return <Outlet />;
-  // }
+  function ProtectedRoute() {
+    const code = JSON.parse(localStorage.getItem("code"));
+    if (!code) {
+      return <Navigate to={"/signin"} />;
+    }
+    return <Outlet />;
+  }
   return (
     <div className="bg-white dark:bg-gray-800">
       <Router>
@@ -35,9 +35,9 @@ function App() {
           <Route element={<News />} path="/news" />
           <Route element={<Contacts />} path="/contacts" />
           <Route element={<Signin />} path="/signin" />
-          {/* <Route element={<ProtectedRoute />}> */}
-            <Route element={<Dashboard />} path="/dashboard" />
-          {/* </Route> */}
+          <Route element={<ProtectedRoute />}>
+          <Route element={<Dashboard />} path="/dashboard" />
+          </Route>
         </Routes>
       </Router>
     </div>
