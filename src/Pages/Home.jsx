@@ -183,7 +183,7 @@ function Home() {
         viewport={{ once: false, amount: 0.7 }}
       >
         <div className="mx-auto flex sm:justify-center lg:justify-start">
-          <Dropdown title={"All Projects"} content={projects} />
+          <Dropdown title={"Projects List"} content={projects} />
         </div>
         <div className="flex justify-center my-12">
           <a href="#projects">

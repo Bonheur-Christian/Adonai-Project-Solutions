@@ -100,7 +100,7 @@ function Services() {
           />
         </div>
       </div>
-      <Dropdown title={"All Services"} content={servicesList} />
+      <Dropdown title={"Services List"} content={servicesList} />
       <div className="flex flex-wrap  justify-evenly py-24">
         {servicesList.map((item, index) => (
           <motion.div
