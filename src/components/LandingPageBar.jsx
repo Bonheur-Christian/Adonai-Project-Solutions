@@ -38,7 +38,7 @@ function LandingPageBar() {
       className={`lg:p-4 md:p-4 sm:p-2 z-50 transition-all duration-500 ${
         scrolled
           ? "bg-white dark:bg-gray-800 fixed top-0  w-full font-semibold"
-          : "lg:bg-transparent sm:bg-white fixed top-0 w-full text-blue-700 font-extrabold"
+          : "lg:bg-transparent sm:bg-white fixed top-0 w-full  text-blue-700 font-semibold"
       }`}
     >
       <nav className="flex justify-between lg:px-12 sm:px-2 sticky top-0 lg:w-[65vw] sm:w-full">
