@@ -37,7 +37,7 @@ function LandingPageBar() {
     <div
       className={`lg:p-4 md:p-4 sm:p-2 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white dark:bg-gray-800 fixed top-0 shadow-md w-full font-semibold"
+          ? "bg-white dark:bg-gray-800 fixed top-0  w-full font-semibold"
           : "lg:bg-transparent sm:bg-white fixed top-0 w-full text-blue-700 font-extrabold"
       }`}
     >
