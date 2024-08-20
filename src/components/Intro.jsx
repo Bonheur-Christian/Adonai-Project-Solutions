@@ -14,7 +14,7 @@ function Intro() {
         viewport={{ once: false, amount: 0.7 }}
         className="sm:text-center lg:text-start sm:p-12"
       >
-        <div className="flex gap-4 lg:pt-12 lg:mt-40 lg:w-1/2 sm:mt-0 lg:px-6 sm:pt-32 py-6 lg:py-16  lg:bg-blue-200/30 lg:my-4 sm:my-0 sm:bg-none rounded">
+        <div className="flex gap-4 lg:pt-12 lg:mt-40 lg:w-1/2 sm:mt-0 lg:px-6 sm:pt-32 py-6 lg:py-8  lg:bg-blue-200/30 lg:my-4 sm:my-0 sm:bg-none rounded">
           <div>
             <img src="svg/intro1.svg" alt="" className="w-full h-auto " />
           </div>
@@ -22,17 +22,17 @@ function Intro() {
             <h1 className="lg:text-4xl sm:text-xl lg:text-blue-800 sm:text-white font-bold lg:tracking-wider sm:tracking-normal font-lato sm:w-full sm:flex sm:justify-center items-center">
               You Deserve a Different Kind of Engineering Firm.
             </h1>
-            <h1 className="font-lato font-extrabold text-4xl py-12 sm:hidden lg:block">
+            <h1 className="font-lato font-extrabold text-3xl py-12 sm:hidden lg:block">
               ONE THAT{" "}
               <AutoType
                 sequence={[
                   "ANSWERS YOUR CALL",
                   1000,
-                  " OFFERS GOOD SERVICES",
+                  "OFFERS GOOD SERVICES",
                   1000,
-                  " PUTS YOU IN FRONT",
+                  "PUTS YOU IN FRONT",
                   1000,
-                  "ENSURES GOOD COMMUNICATION",
+                  "ENSURE GOOD COMMUNICATION",
                   1000,
                 ]}
               />

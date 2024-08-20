@@ -7,7 +7,7 @@ function AutoType({sequence}) {
       wrapper="span"
       speed={10}
       repeat={Infinity}
-      className="font-lato text-4xl text-orange-700 pt-32"
+      className="font-lato text-3xl text-orange-700 pt-32"
     />
   );
 }
