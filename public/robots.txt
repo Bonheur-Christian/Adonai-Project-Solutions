@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Disallow: /login/
+
+Allow: /
+
+Sitemap: https://ww.apsltdrw.com/sitemap.xml
