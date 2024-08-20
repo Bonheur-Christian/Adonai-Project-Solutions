@@ -6,3 +6,6 @@ Disallow: /login/
 Allow: /
 
 Sitemap: https://ww.apsltdrw.com/sitemap.xml
+Sitemap: https://ww.apsltdrw.com/services.xml
+Sitemap: https://ww.apsltdrw.com/contacts.xml
+Sitemap: https://ww.apsltdrw.com/about.xml
