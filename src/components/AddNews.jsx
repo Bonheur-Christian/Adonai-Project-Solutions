@@ -5,9 +5,11 @@ import { API_url } from "../constants";
 import client from "../sanityClient";
 import { MdOutlineDeleteForever } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
+import { Backdrop, CircularProgress } from "@mui/material";
 function NewsSection({ children }) {
   const [visible, setVisible] = useState(false);
   const [completedProjects, setCompletedProjects] = useState([]);
+  const [loading, setLoading] = useState(false);
   const handleOpen = (e) => {
     e.preventDefault();
     setVisible(true);
@@ -21,6 +23,7 @@ function NewsSection({ children }) {
   }, []);
 
   const fetchCompletedProjects = () => {
+    setLoading(true);
     client
       .fetch(
         `*[_type=="news"]{
@@ -41,10 +44,14 @@ function NewsSection({ children }) {
       })
       .catch((err) => {
         toast.error("Error In getting Completed Projects.");
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
   const handleDelete = (id) => {
+    setLoading(true);
     client
       .delete(id)
       .then(() => {
@@ -53,6 +60,9 @@ function NewsSection({ children }) {
       })
       .catch((err) => {
         toast.error("Failed Try Again");
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
   return (
@@ -70,6 +80,7 @@ function NewsSection({ children }) {
         </div>
       </div>
       <hr className="mt-4" />
+
       <div className="py-6 space-y-4">
         {completedProjects.map((item, index) => (
           <div key={index} className="ps-6 flex items-center justify-between ">
@@ -92,6 +103,17 @@ function NewsSection({ children }) {
         ))}
       </div>
       <NewsModal visible={visible} handleClose={handleClose} />
+      {/* <div className="h-full"> */}
+        <Backdrop
+          sx={{ color: "#d3e2e8", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+          open={loading}
+        >
+          <CircularProgress color="inherit" />
+          <h1 className="text-white text-xl px-4 pb-2">
+            Please Wait <span className="text-4xl">...</span>
+          </h1>
+        </Backdrop>
+      {/* </div> */}
     </div>
   );
 }

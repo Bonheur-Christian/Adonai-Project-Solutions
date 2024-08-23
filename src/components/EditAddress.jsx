@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import AddressModal from "./AddressModal";
 import { toast, ToastContainer } from "react-toastify";
-import { API_url } from "../constants";
+import { Backdrop, CircularProgress } from "@mui/material";
 import client from "../sanityClient";
 
 function AddressSection({ children }) {
   const [visible, setVisible] = useState(false);
   const [address, setAddress] = useState([]);
+  const [loading, setLoading] = useState(false);
   const handleOpen = (e) => {
     e.preventDefault();
     setVisible(true);
@@ -20,6 +21,7 @@ function AddressSection({ children }) {
   }, []);
 
   const fetchAddress = () => {
+    setLoading(true);
     client
       .fetch(
         `*[_type=="address"]{
@@ -35,6 +37,9 @@ function AddressSection({ children }) {
       })
       .catch((err) => {
         toast.error("Error In Getting Address.");
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -72,6 +77,15 @@ function AddressSection({ children }) {
         ))}
       </div>
       <AddressModal visible={visible} handleClose={handleClose} />
+      <Backdrop
+        sx={{ color: "#d3e2e8", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={loading}
+      >
+        <CircularProgress color="inherit" />
+        <h1 className="text-white text-xl px-4 pb-2">
+          Please Wait <span className="text-4xl">...</span>
+        </h1>
+      </Backdrop>
     </div>
   );
 }

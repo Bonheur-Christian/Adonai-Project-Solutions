@@ -6,10 +6,12 @@ import { API_url } from "../constants";
 import client from "../sanityClient";
 import { MdOutlineDeleteForever } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
+import { Backdrop, CircularProgress } from "@mui/material";
 
 function ServiceSection({ children }) {
   const [visible, setVisible] = useState(false);
   const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(false);
   const handleOpen = (e) => {
     e.preventDefault();
     setVisible(true);
@@ -23,6 +25,7 @@ function ServiceSection({ children }) {
   }, []);
 
   const fetchServices = () => {
+    setLoading(true);
     client
       .fetch(
         `*[_type=="service"] | order(priority asc){
@@ -44,18 +47,25 @@ url
       .catch((err) => {
         toast.error("Error in Getting Services");
         console.log(err);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
   const handleDelete = (id) => {
+    setLoading(true);
     client
       .delete(id)
       .then(() => {
-        fetchServices();
         toast.success("Service Deleted");
+        fetchServices();
       })
       .catch((err) => {
         toast.error("Please Try again!");
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
   return (
@@ -94,6 +104,15 @@ url
         ))}
       </div>
       <ServiceModalComponent visible={visible} handleClose={handleClose} />
+      <Backdrop
+        sx={{ color: "#d3e2e8", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={loading}
+      >
+        <CircularProgress color="inherit" />
+        <h1 className="text-white text-xl px-4 pb-2">
+          Please Wait <span className="text-4xl">...</span>
+        </h1>
+      </Backdrop>
     </div>
   );
 }

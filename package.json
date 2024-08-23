@@ -10,7 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
     "@ionic/react": "^8.2.2",
+    "@mui/material": "^5.16.7",
     "@sanity/client": "^6.21.1",
     "@sanity/image-url": "^1.0.2",
     "bcryptjs": "^2.4.3",

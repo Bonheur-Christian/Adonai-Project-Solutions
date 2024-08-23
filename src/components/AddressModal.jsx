@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import { toast } from "react-toastify";
-import { API_url } from "../constants";
+import { Backdrop, CircularProgress } from "@mui/material";
 import client from "../sanityClient";
 
 function AddressModal({ visible, handleClose }) {
@@ -12,6 +12,7 @@ function AddressModal({ visible, handleClose }) {
     email: "",
     location: "",
   });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,6 +26,7 @@ function AddressModal({ visible, handleClose }) {
   }, []);
 
   const fetchAddress = () => {
+    setLoading(true);
     client
       .fetch(
         `*[_type=="address"]{
@@ -39,10 +41,14 @@ function AddressModal({ visible, handleClose }) {
       })
       .catch((err) => {
         toast.error("Please Try Again.");
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
   const updateAddress = () => {
+    setLoading(true);
     client
       .patch(address._id)
       .set({
@@ -57,12 +63,14 @@ function AddressModal({ visible, handleClose }) {
       })
       .catch((err) => {
         toast.error("Please Try Again!");
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     updateAddress();
   };
   return (
@@ -79,6 +87,7 @@ function AddressModal({ visible, handleClose }) {
             className="border-2 border-gray-400 px-3 py-2 w-full rounded-lg outline-none"
             onChange={handleChange}
             value={address.tel}
+            disabled={loading}
           />
           <label htmlFor="email" className="block font-lato font-medium">
             Email
@@ -89,6 +98,7 @@ function AddressModal({ visible, handleClose }) {
             className="w-full border-2 border-gray-400 rounded-lg px-3 py-2 outline-none"
             onChange={handleChange}
             value={address.email}
+            disabled={loading}
           />
           <label htmlFor="location" className="block font-lato font-medium">
             Location
@@ -99,6 +109,7 @@ function AddressModal({ visible, handleClose }) {
             className="w-full border-2 border-gray-400 rounded-lg px-3 py-2 outline-none"
             onChange={handleChange}
             value={address.location}
+            disabled={loading}
           />
           <div className="flex justify-center items-center">
             <button className="bg-blue-500 hover:bg-blue-700 rounded-lg text-white px-4 py-2">
@@ -112,6 +123,15 @@ function AddressModal({ visible, handleClose }) {
           onClick={handleClose}
         />
       </div>
+      <Backdrop
+        sx={{ color: "#d3e2e8", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={loading}
+      >
+        <CircularProgress color="inherit" />
+        <h1 className="text-white text-xl px-4 pb-2">
+          Please Wait <span className="text-4xl">...</span>
+        </h1>
+      </Backdrop>
     </div>
   );
 }

@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import { toast } from "react-toastify";
-import { API_url } from "../constants";
 import client from "../sanityClient";
+import { Backdrop, CircularProgress } from "@mui/material";
 
 function ProjectModalComponent({ visible, handleClose }) {
   if (!visible) return null;
 
   const [name, setName] = useState("");
   const [image, setImage] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setName(e.target.value);
@@ -20,7 +21,9 @@ function ProjectModalComponent({ visible, handleClose }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     if (name.trim() === "") {
+      setLoading(false);
       toast.error("All Fields Required");
       return;
     }
@@ -53,6 +56,8 @@ function ProjectModalComponent({ visible, handleClose }) {
     } catch (err) {
       toast.error("Error in saving Project!");
       console.log(err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -70,6 +75,7 @@ function ProjectModalComponent({ visible, handleClose }) {
             className="border-2 border-gray-400 px-3 py-2 w-full rounded-lg outline-none"
             placeholder="Enter project name"
             onChange={handleChange}
+            disabled={loading}
           />
           <label
             htmlFor=""
@@ -83,6 +89,7 @@ function ProjectModalComponent({ visible, handleClose }) {
             accept="image/*"
             className="border-2 border-gray-400 w-full py-2 px-3 rounded-lg outline-none"
             onChange={handleImageChange}
+            disabled={loading}
           />
           <div className="flex justify-center items-center">
             <button className="bg-blue-500 hover:bg-blue-700 rounded-lg text-white px-4 py-2">

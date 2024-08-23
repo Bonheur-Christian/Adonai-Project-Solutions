@@ -34,7 +34,7 @@ const Dropdown = ({ title, content }) => {
           <div className="py-1">
             {content.map((item, index) => (
               <ul key={index}>
-                <li className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                <li className="block px-4 py-4 text-gray-700 hover:bg-sky-100 hover:border-s-4 border-sky-800 duration-100">
                   {item.name}
                 </li>
               </ul>

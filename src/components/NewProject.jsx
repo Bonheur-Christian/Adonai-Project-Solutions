@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ModalComponent from "./ProjectModal";
 import { toast, ToastContainer } from "react-toastify";
-import { API_url } from "../constants";
+import { Backdrop, CircularProgress } from "@mui/material";
 import client from "../sanityClient";
 import { MdOutlineDeleteForever } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
@@ -9,6 +9,7 @@ import { CiEdit } from "react-icons/ci";
 function ProjectSection({ children }) {
   const [visible, setVisible] = useState(false);
   const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(false);
   const handleOpen = (e) => {
     e.preventDefault();
     setVisible(true);
@@ -22,6 +23,7 @@ function ProjectSection({ children }) {
   }, []);
 
   const fetchProjects = () => {
+    setLoading(true);
     client
       .fetch(
         `*[_type=="project"]{
@@ -41,18 +43,25 @@ function ProjectSection({ children }) {
       .catch((err) => {
         toast.error("Error in Getting Projects.");
         console.log(err);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
   const handleDelete = (id) => {
+    setLoading(true);
     client
       .delete(id)
       .then(() => {
-        fetchProjects();
         toast.success("Project Deleted!");
+        fetchProjects();
       })
       .catch((err) => {
         toast.error("Error in Deleting Project");
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -83,8 +92,8 @@ function ProjectSection({ children }) {
               <MdOutlineDeleteForever
                 size={20}
                 className="hover:bg-[#0B3757] hover:text-white text-gray-500 hover:rounded-full"
-                onClick={()=>{
-                  handleDelete(item._id)
+                onClick={() => {
+                  handleDelete(item._id);
                 }}
               />
             </div>
@@ -92,6 +101,15 @@ function ProjectSection({ children }) {
         ))}
       </div>
       <ModalComponent visible={visible} handleClose={handleClose} />
+      <Backdrop
+        sx={{ color: "#d3e2e8", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={loading}
+      >
+        <CircularProgress color="inherit" />
+        <h1 className="text-white text-xl px-4 pb-2">
+          Please Wait <span className="text-4xl">...</span>
+        </h1>
+      </Backdrop>
     </div>
   );
 }

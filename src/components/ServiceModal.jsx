@@ -3,6 +3,7 @@ import { IoCloseSharp } from "react-icons/io5";
 import { toast } from "react-toastify";
 import { API_url } from "../constants";
 import client from "../sanityClient";
+import { Backdrop, CircularProgress } from "@mui/material";
 
 function ServiceModalComponent({ visible, handleClose }) {
   if (!visible) return null;
@@ -11,6 +12,7 @@ function ServiceModalComponent({ visible, handleClose }) {
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
   const [priority, setPriority] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleImageChange = (e) => {
     setImage(e.target.files[0]);
@@ -18,8 +20,10 @@ function ServiceModalComponent({ visible, handleClose }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     if (name.trim() === "" || description.trim() === "") {
+      setLoading(false);
       toast.error("All fields are required");
       return;
     }
@@ -54,6 +58,8 @@ function ServiceModalComponent({ visible, handleClose }) {
     } catch (err) {
       toast.error("error in saving service");
       console.log(err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -65,7 +71,12 @@ function ServiceModalComponent({ visible, handleClose }) {
           <label htmlFor="name" className="block font-lato font-medium">
             Service Image
           </label>
-          <input type="file" accept="image/*" onChange={handleImageChange} />
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+            disabled={loading}
+          />
           <label htmlFor="name" className="block font-lato font-medium">
             Service Name
           </label>
@@ -75,6 +86,7 @@ function ServiceModalComponent({ visible, handleClose }) {
             className="border-2 border-gray-400 px-3 py-2 w-full rounded-lg outline-none"
             placeholder="Enter service name"
             value={name}
+            disabled={loading}
             onChange={(e) => setName(e.target.value)}
           />
           <label htmlFor="name" className="block font-lato font-medium">
@@ -86,6 +98,7 @@ function ServiceModalComponent({ visible, handleClose }) {
             className="border-2 border-gray-400 px-3 py-2 w-full rounded-lg outline-none"
             placeholder="Enter service priority"
             value={priority}
+            disabled={loading}
             onChange={(e) => setPriority(e.target.value)}
           />
           <label htmlFor="desc" className="block font-lato font-medium">
@@ -98,6 +111,7 @@ function ServiceModalComponent({ visible, handleClose }) {
             className="w-full border-2 border-gray-400 rounded-lg px-3 py-4 outline-none"
             placeholder="Enter service description"
             value={description}
+            disabled={loading}
             onChange={(e) => setDescription(e.target.value)}
           ></textarea>
           <div className="flex justify-center items-center">
@@ -112,6 +126,15 @@ function ServiceModalComponent({ visible, handleClose }) {
           onClick={handleClose}
         />
       </div>
+      <Backdrop
+        sx={{ color: "#d3e2e8", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={loading}
+      >
+        <CircularProgress color="inherit" />
+        <h1 className="text-white text-xl px-4 pb-2">
+          Please Wait <span className="text-4xl">...</span>
+        </h1>
+      </Backdrop>
     </div>
   );
 }

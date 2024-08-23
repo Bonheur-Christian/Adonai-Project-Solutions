@@ -3,6 +3,7 @@ import { IoCloseSharp } from "react-icons/io5";
 import { toast } from "react-toastify";
 import { API_url } from "../constants";
 import client from "../sanityClient";
+import { Backdrop, CircularProgress } from "@mui/material";
 
 function NewsModal({ visible, handleClose }) {
   if (!visible) return null;
@@ -11,6 +12,7 @@ function NewsModal({ visible, handleClose }) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleImageChange = (e) => {
     setImage(e.target.files[0]);
@@ -18,10 +20,11 @@ function NewsModal({ visible, handleClose }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     if (date.trim() === "" || name.trim() === "" || description.trim() === "") {
+      setLoading(false);
       toast.error("All fields are required.");
-
       return;
     }
     try {
@@ -54,6 +57,8 @@ function NewsModal({ visible, handleClose }) {
       handleClose();
     } catch (err) {
       toast.error("Error In saving Completed Project!");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -75,6 +80,7 @@ function NewsModal({ visible, handleClose }) {
             onChange={(e) => {
               setDate(e.target.value);
             }}
+            disabled={loading}
           />
           <label htmlFor="name" className="block">
             Project Name
@@ -88,6 +94,7 @@ function NewsModal({ visible, handleClose }) {
             onChange={(e) => {
               setName(e.target.value);
             }}
+            disabled={loading}
           />
           <label htmlFor="" className="block font-lato font-medium">
             Project Image
@@ -97,6 +104,7 @@ function NewsModal({ visible, handleClose }) {
             accept="image/*"
             className="border-2 border-gray-400 w-full py-2 px-3 rounded-lg outline-none"
             onChange={handleImageChange}
+            disabled={loading}
           />
           <label htmlFor="desc" className="block">
             Project Description
@@ -110,6 +118,7 @@ function NewsModal({ visible, handleClose }) {
             onChange={(e) => {
               setDescription(e.target.value);
             }}
+            disabled={loading}
           ></textarea>
           <div className="flex justify-center items-center">
             <button className="bg-blue-500 hover:bg-blue-700 rounded-lg text-white px-4 py-2">
@@ -123,6 +132,15 @@ function NewsModal({ visible, handleClose }) {
           onClick={handleClose}
         />
       </div>
+      <Backdrop
+        sx={{ color: "#d3e2e8", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={loading}
+      >
+        <CircularProgress color="inherit" />
+        <h1 className="text-white text-xl px-4 pb-2">
+          Please Wait <span className="text-4xl">...</span>
+        </h1>
+      </Backdrop>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import bcrypt from "bcryptjs";
 import client from "../sanityClient";
+import { Backdrop, CircularProgress } from "@mui/material";
 
 function Signin() {
   const navigate = useNavigate();
@@ -11,6 +12,12 @@ function Signin() {
     email: "",
     password: "",
   });
+
+  const [loading, setLoading] = useState(false);
+
+  const handleClose = () => {
+    setLoading(false);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,6 +28,7 @@ function Signin() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       // const salt = await bcrypt.genSalt(10);
       // const hashedPassword = await bcrypt.hash(formData.password, salt);
@@ -55,19 +63,21 @@ function Signin() {
           const code = { email: admin[0].email };
           localStorage.setItem("code", JSON.stringify(code));
           toast.success("Logged In");
-
+          setLoading(false);
           navigate("/dashboard");
         } else {
+          setLoading(false);
           toast.error("invalid credentials");
         }
         // } else {
         //   toast.error("Incorrect Password");
         // }
       } else {
-        toast.error("Invalid Credentials.");
+        setLoading(false);
+        toast.error("Admin not found.");
       }
     } catch (err) {
-      console.log(err);
+      setLoading(false);
       toast.error("Error Please Try Again.");
     }
   };
@@ -107,6 +117,7 @@ function Signin() {
                   className="border-2 border-[#DDDDDD2] outline-none px-2 py-4 rounded-xl text-xl text-gray-400 w-[80%]"
                   name="email"
                   onChange={handleChange}
+                  disabled={loading}
                 />
               </div>
               <div className="space-y-4">
@@ -118,14 +129,24 @@ function Signin() {
                   className="border-2 border-[#DDDDDD2] outline-none px-2 py-4 rounded-xl text-xl text-gray-500 w-[80%]"
                   name="password"
                   onChange={handleChange}
+                  disabled={loading}
                 />
               </div>
               <button className="bg-[#4327F4] hover:bg-blue-800 px-6 py-6 rounded-xl text-white font-medium text-xl tracking-wider w-[80%]">
                 Signin
               </button>
             </div>
+            <div className="h-full">
+              <Backdrop
+                sx={{ color: "#d3e2e8", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                open={loading}
+              >
+                <CircularProgress color="inherit" />
+                <h1 className="text-white text-xl px-4 pb-2">Please Wait <span className="text-4xl">...</span></h1>
+              </Backdrop>
+            </div>
             <div className="flex items-center gap-4 fixed bottom-0 pb-4 hover:underline">
-              <a href="aps.rw" className="text-xl">
+              <a href="/" className="text-xl">
                 Back To Website
               </a>
               <img src="/svg/upwardArrow.svg" alt="back to website" />
