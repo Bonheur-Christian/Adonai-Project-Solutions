@@ -91,7 +91,7 @@ function Contacts() {
               {address.map((item, index) => (
                 <div key={index} className="space-y-2 py-6">
                   <div className="flex gap-4">
-                    <h1 className="text-xl font-medium">Tel: +250</h1>
+                    <h1 className="text-xl font-medium">Tel:</h1>
                     <p className="text-xl">{item.tel}</p>
                   </div>
                   <div className="flex gap-4">
@@ -144,7 +144,7 @@ function Contacts() {
           We Will Love To Hear From You
         </h1>
         <p className="text-gray-700 text-center text-xl">
-          we are here to help you and respons in time!
+          we are here to help you and respond in time!
         </p>
         <div className="flex justify-center py-6">
           <form className="lg:shadow-xl sm:shadow-none px-12 py-12 rounded-lg">

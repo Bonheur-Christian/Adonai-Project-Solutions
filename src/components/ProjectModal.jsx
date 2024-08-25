@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import { toast } from "react-toastify";
 import client from "../sanityClient";
 import { Backdrop, CircularProgress } from "@mui/material";
+import { ProjectContext } from "../contexts/projectContext";
 
 function ProjectModalComponent({ visible, handleClose }) {
   if (!visible) return null;
@@ -10,6 +11,7 @@ function ProjectModalComponent({ visible, handleClose }) {
   const [name, setName] = useState("");
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
+  const { setProjects } = useContext(ProjectContext);
 
   const handleChange = (e) => {
     setName(e.target.value);
@@ -58,6 +60,7 @@ function ProjectModalComponent({ visible, handleClose }) {
       console.log(err);
     } finally {
       setLoading(false);
+      setProjects((projects) => [...projects, { name, image }]);
     }
   };
 
@@ -103,6 +106,15 @@ function ProjectModalComponent({ visible, handleClose }) {
           onClick={handleClose}
         />
       </div>
+      <Backdrop
+        sx={{ color: "#d3e2e8", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={loading}
+      >
+        <CircularProgress color="inherit" />
+        <h1 className="text-white text-xl px-4 pb-2">
+          Please Wait <span className="text-4xl">...</span>
+        </h1>
+      </Backdrop>
     </div>
   );
 }

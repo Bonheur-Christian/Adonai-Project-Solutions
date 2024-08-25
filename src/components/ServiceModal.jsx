@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import { toast } from "react-toastify";
 import { API_url } from "../constants";
 import client from "../sanityClient";
 import { Backdrop, CircularProgress } from "@mui/material";
+import { ServiceContext } from "../contexts/ServiceContext";
 
 function ServiceModalComponent({ visible, handleClose }) {
   if (!visible) return null;
-
+  const { setServices } = useContext(ServiceContext);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
@@ -60,6 +61,10 @@ function ServiceModalComponent({ visible, handleClose }) {
       console.log(err);
     } finally {
       setLoading(false);
+      setServices((services) => [
+        ...services,
+        { name, description, priority, image },
+      ]);
     }
   };
 

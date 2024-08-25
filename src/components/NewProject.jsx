@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ModalComponent from "./ProjectModal";
 import { toast, ToastContainer } from "react-toastify";
 import { Backdrop, CircularProgress } from "@mui/material";
 import client from "../sanityClient";
 import { MdOutlineDeleteForever } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
+import { ProjectContext } from "../contexts/projectContext";
 
 function ProjectSection({ children }) {
   const [visible, setVisible] = useState(false);
-  const [projects, setProjects] = useState([]);
+  const { projects, setProjects } = useContext(ProjectContext);
   const [loading, setLoading] = useState(false);
   const handleOpen = (e) => {
     e.preventDefault();
@@ -55,7 +56,9 @@ function ProjectSection({ children }) {
       .delete(id)
       .then(() => {
         toast.success("Project Deleted!");
-        fetchProjects();
+        setProjects((projects) =>
+          projects.slice().filter((item) => item._id !== id)
+        );
       })
       .catch((err) => {
         toast.error("Error in Deleting Project");

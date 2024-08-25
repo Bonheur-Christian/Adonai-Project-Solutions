@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 // import ModalComponent from "./ProjectModal";
 import ServiceModalComponent from "./ServiceModal";
 import { toast, ToastContainer } from "react-toastify";
@@ -7,10 +7,11 @@ import client from "../sanityClient";
 import { MdOutlineDeleteForever } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 import { Backdrop, CircularProgress } from "@mui/material";
+import { ServiceContext } from "../contexts/ServiceContext";
 
 function ServiceSection({ children }) {
   const [visible, setVisible] = useState(false);
-  const [services, setServices] = useState([]);
+  const { services, setServices } = useContext(ServiceContext);
   const [loading, setLoading] = useState(false);
   const handleOpen = (e) => {
     e.preventDefault();
@@ -59,7 +60,9 @@ url
       .delete(id)
       .then(() => {
         toast.success("Service Deleted");
-        fetchServices();
+        setServices((services) =>
+          services.slice().filter((item) => item._id !== id)
+        );
       })
       .catch((err) => {
         toast.error("Please Try again!");
