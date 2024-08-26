@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import NewsModal from "./NewsModal";
 import { API_url } from "../constants";
@@ -6,9 +6,12 @@ import client from "../sanityClient";
 import { MdOutlineDeleteForever } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 import { Backdrop, CircularProgress } from "@mui/material";
+import { CompletedProjectContext } from "../contexts/completedProjectContext";
 function NewsSection({ children }) {
   const [visible, setVisible] = useState(false);
-  const [completedProjects, setCompletedProjects] = useState([]);
+  const { completedProjects, setCompletedProjects } = useContext(
+    CompletedProjectContext
+  );
   const [loading, setLoading] = useState(false);
   const handleOpen = (e) => {
     e.preventDefault();
@@ -55,7 +58,10 @@ function NewsSection({ children }) {
     client
       .delete(id)
       .then(() => {
-        fetchCompletedProjects();
+        setCompletedProjects((projects) =>
+          projects.slice().filter((item) => item._id !== id)
+        );
+        
         toast.success("Project Deleted");
       })
       .catch((err) => {
@@ -65,6 +71,8 @@ function NewsSection({ children }) {
         setLoading(false);
       });
   };
+  console.log(completedProjects);
+    
   return (
     <div className="bg-[#F8FBFC] w-[40%] py-12 px-6">
       <div className="flex  justify-between px-6">
@@ -104,15 +112,15 @@ function NewsSection({ children }) {
       </div>
       <NewsModal visible={visible} handleClose={handleClose} />
       {/* <div className="h-full"> */}
-        <Backdrop
-          sx={{ color: "#d3e2e8", zIndex: (theme) => theme.zIndex.drawer + 1 }}
-          open={loading}
-        >
-          <CircularProgress color="inherit" />
-          <h1 className="text-white text-xl px-4 pb-2">
-            Please Wait <span className="text-4xl">...</span>
-          </h1>
-        </Backdrop>
+      <Backdrop
+        sx={{ color: "#d3e2e8", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={loading}
+      >
+        <CircularProgress color="inherit" />
+        <h1 className="text-white text-xl px-4 pb-2">
+          Please Wait <span className="text-4xl">...</span>
+        </h1>
+      </Backdrop>
       {/* </div> */}
     </div>
   );

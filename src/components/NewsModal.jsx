@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import { toast } from "react-toastify";
 import { API_url } from "../constants";
 import client from "../sanityClient";
 import { Backdrop, CircularProgress } from "@mui/material";
+import { CompletedProjectContext } from "../contexts/completedProjectContext";
 
 function NewsModal({ visible, handleClose }) {
   if (!visible) return null;
@@ -13,6 +14,7 @@ function NewsModal({ visible, handleClose }) {
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
+  const { setCompletedProjects } = useContext(CompletedProjectContext);
 
   const handleImageChange = (e) => {
     setImage(e.target.files[0]);
@@ -58,6 +60,10 @@ function NewsModal({ visible, handleClose }) {
     } catch (err) {
       toast.error("Error In saving Completed Project!");
     } finally {
+      setCompletedProjects((projects) => [
+        ...projects,
+        { date, name, description, image },
+      ]);
       setLoading(false);
     }
   };

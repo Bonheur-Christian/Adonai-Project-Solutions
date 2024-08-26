@@ -28,22 +28,26 @@ export default function About() {
     {
       name: "Ndahiro Evode",
       role: "CEO",
+      number:"0788348991",
       image: "/images/Ndahiro.jpeg",
     },
     {
       name: "SINDAYIGAYA Moise",
-      role: "Project Manager",
+      role: "Chair Person",
+      number:"0781709025",
       image: "/images/PM.jpg",
     },
 
     {
       name: "Ndahiro Evode",
       role: "CEO",
+      number:"0788348991",
       image: "/images/Ndahiro.jpeg",
     },
     {
       name: "SINDAYIGAYA Moise",
-      role: "Project Manager",
+      role: "Chair Person",
+      number:"0781709025",
       image: "/images/PM.jpg",
     },
   ];
@@ -152,7 +156,7 @@ export default function About() {
             dynamicMainBullets: true,
             clickable: true,
           }}
-          autoplay={{ delay: 5000, disableOnInteraction: true }}
+          autoplay={{ delay: 7000, disableOnInteraction: true }}
           loop={true}
           breakpoints={{
             320: { slidesPerView: 1, spaceBetween: 10 },
@@ -180,6 +184,9 @@ export default function About() {
                   </div>
                   <div className="text-md md:text-lg text-gray-500">
                     {item.role}
+                  </div>
+                  <div className="text-md md:text-lg text-gray-500">
+                    <span className="font-medium">Tel: </span>{item.number}
                   </div>
                 </div>
               </div>
