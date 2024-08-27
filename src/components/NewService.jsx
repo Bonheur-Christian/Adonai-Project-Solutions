@@ -8,11 +8,15 @@ import { MdOutlineDeleteForever } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 import { Backdrop, CircularProgress } from "@mui/material";
 import { ServiceContext } from "../contexts/ServiceContext";
+import EditServiceModal from "./EditServiceModal";
 
 function ServiceSection({ children }) {
   const [visible, setVisible] = useState(false);
   const { services, setServices } = useContext(ServiceContext);
   const [loading, setLoading] = useState(false);
+  const [selectedServiceId, setSelectedServiceId] = useState(null);
+  const [editVisible, setEditVisible] = useState(false);
+
   const handleOpen = (e) => {
     e.preventDefault();
     setVisible(true);
@@ -21,6 +25,15 @@ function ServiceSection({ children }) {
     setVisible(false);
   };
 
+  const handleEditOpen = (id) => {
+    setEditVisible(true);
+    setSelectedServiceId(id);
+  };
+
+  const handleEditClose = () => {
+    setEditVisible(false);
+    setSelectedServiceId(null);
+  };
   useEffect(() => {
     fetchServices();
   }, []);
@@ -94,6 +107,9 @@ url
               <CiEdit
                 size={20}
                 className="hover:bg-[#0B3757] hover:text-white text-gray-500 hover:rounded-full"
+                onClick={() => {
+                  handleEditOpen(item._id);
+                }}
               />
               <MdOutlineDeleteForever
                 size={20}
@@ -107,6 +123,11 @@ url
         ))}
       </div>
       <ServiceModalComponent visible={visible} handleClose={handleClose} />
+      <EditServiceModal
+        visible={editVisible}
+        handleClose={handleEditClose}
+        serviceId={selectedServiceId}
+      />
       <Backdrop
         sx={{ color: "#d3e2e8", zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open={loading}

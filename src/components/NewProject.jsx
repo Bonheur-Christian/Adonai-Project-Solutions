@@ -1,22 +1,36 @@
 import { useContext, useEffect, useState } from "react";
 import ModalComponent from "./ProjectModal";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { Backdrop, CircularProgress } from "@mui/material";
 import client from "../sanityClient";
 import { MdOutlineDeleteForever } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 import { ProjectContext } from "../contexts/projectContext";
+import EditProjectModal from "./EditProjectModal";
 
 function ProjectSection({ children }) {
   const [visible, setVisible] = useState(false);
   const { projects, setProjects } = useContext(ProjectContext);
   const [loading, setLoading] = useState(false);
-  const handleOpen = (e) => {
-    e.preventDefault();
+  const [selectedProjectId, setSelectedProjectId] = useState(null);
+  const [editVisible, setEditVisible] = useState(false);
+  
+  const handleOpen = () => {
     setVisible(true);
   };
+
   const handleClose = () => {
     setVisible(false);
+  };
+
+  const handleEditOpen = (id) => {
+    setSelectedProjectId(id);
+    setEditVisible(true);
+  };
+
+  const handleEditClose = () => {
+    setSelectedProjectId(null);
+    setEditVisible(false);
   };
 
   useEffect(() => {
@@ -91,6 +105,9 @@ function ProjectSection({ children }) {
               <CiEdit
                 size={20}
                 className="hover:bg-[#0B3757] hover:text-white text-gray-500 hover:rounded-full"
+                onClick={() => {
+                  handleEditOpen(item._id);
+                }}
               />
               <MdOutlineDeleteForever
                 size={20}
@@ -104,6 +121,11 @@ function ProjectSection({ children }) {
         ))}
       </div>
       <ModalComponent visible={visible} handleClose={handleClose} />
+      <EditProjectModal
+        visible={editVisible}
+        handleClose={handleEditClose}
+        projectId={selectedProjectId}
+      />
       <Backdrop
         sx={{ color: "#d3e2e8", zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open={loading}

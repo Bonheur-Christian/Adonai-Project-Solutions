@@ -7,12 +7,16 @@ import { MdOutlineDeleteForever } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 import { Backdrop, CircularProgress } from "@mui/material";
 import { CompletedProjectContext } from "../contexts/completedProjectContext";
+import EditNewsModal from "./EditNews";
 function NewsSection({ children }) {
   const [visible, setVisible] = useState(false);
   const { completedProjects, setCompletedProjects } = useContext(
     CompletedProjectContext
   );
   const [loading, setLoading] = useState(false);
+  const [editVisible, setEditVisible] = useState(false);
+  const [selectedNewsId, setSelectedNewsId] = useState(null);
+
   const handleOpen = (e) => {
     e.preventDefault();
     setVisible(true);
@@ -21,6 +25,15 @@ function NewsSection({ children }) {
     setVisible(false);
   };
 
+  const handleEditOpen = (id) => {
+    setEditVisible(true);
+    setSelectedNewsId(id);
+  };
+
+  const handleEditClose = () => {
+    setEditVisible(false);
+    setSelectedNewsId(null);
+  };
   useEffect(() => {
     fetchCompletedProjects();
   }, []);
@@ -61,7 +74,7 @@ function NewsSection({ children }) {
         setCompletedProjects((projects) =>
           projects.slice().filter((item) => item._id !== id)
         );
-        
+
         toast.success("Project Deleted");
       })
       .catch((err) => {
@@ -71,8 +84,7 @@ function NewsSection({ children }) {
         setLoading(false);
       });
   };
-  console.log(completedProjects);
-    
+
   return (
     <div className="bg-[#F8FBFC] w-[40%] py-12 px-6">
       <div className="flex  justify-between px-6">
@@ -98,6 +110,9 @@ function NewsSection({ children }) {
               <CiEdit
                 size={20}
                 className="hover:bg-[#0B3757] hover:text-white text-gray-500 hover:rounded-full"
+                onClick={() => {
+                  handleEditOpen(item._id);
+                }}
               />
               <MdOutlineDeleteForever
                 size={20}
@@ -111,7 +126,7 @@ function NewsSection({ children }) {
         ))}
       </div>
       <NewsModal visible={visible} handleClose={handleClose} />
-      {/* <div className="h-full"> */}
+      <EditNewsModal visible={editVisible} handleClose={handleEditClose} newsId={selectedNewsId}/>
       <Backdrop
         sx={{ color: "#d3e2e8", zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open={loading}
@@ -121,7 +136,6 @@ function NewsSection({ children }) {
           Please Wait <span className="text-4xl">...</span>
         </h1>
       </Backdrop>
-      {/* </div> */}
     </div>
   );
 }
