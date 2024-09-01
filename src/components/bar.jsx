@@ -21,7 +21,7 @@ function Bar() {
   };
   return (
     <div className="lg:p-4 md:p-4 sm:p-2  z-1 transition-all duration-300 dark:text-dark bg-transparent">
-      <nav className="flex justify-between lg:px-12 sm:px-2 w-[83vw] ">
+      <nav className="flex justify-between lg:px-12 sm:px-2 w-[75vw] ">
         <div>
           <img
             src="svg/logo.svg"

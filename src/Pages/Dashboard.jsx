@@ -7,6 +7,7 @@ import AddressSection from "../components/EditAddress";
 import NewsSection from "../components/AddNews";
 import { IoMdLogOut } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import TestimonialSection from "../components/AddTestimonials";
 
 function Dashboard() {
   const navigate = useNavigate()
@@ -74,6 +75,7 @@ function Dashboard() {
           <ServiceSection children={"Services"} />
           <AddressSection children={"Address"} />
           <NewsSection children={"Completed Projects"} />
+          <TestimonialSection children={"Testimonials"}/>
         </div>
       </div>
       <ToastContainer

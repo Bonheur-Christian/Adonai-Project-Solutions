@@ -31,11 +31,15 @@ function NewsModal({ visible, handleClose }) {
     }
     try {
       let imageAsset = null;
-      if (image) {
+      if (image && typeof image !== "string") {
         imageAsset = await client.assets.upload("image", image, {
           contentType: image.type,
           filename: image.name,
         });
+      } else if (!image) {
+        setLoading(false);
+        toast.error("Select image");
+        return;
       }
 
       const doc = {

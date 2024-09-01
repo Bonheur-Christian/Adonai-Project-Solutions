@@ -1,21 +1,17 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
+import { Backdrop, CircularProgress } from "@mui/material";
 import { toast } from "react-toastify";
 import client from "../sanityClient";
-import { Backdrop, CircularProgress } from "@mui/material";
-import { ProjectContext } from "../contexts/projectContext";
 
-function ProjectModalComponent({ visible, handleClose }) {
+function TestimonialModal({ visible, handleClose }) {
   if (!visible) return null;
 
-  const [name, setName] = useState("");
   const [image, setImage] = useState(null);
+  const [name, setName] = useState("");
+  const [role, setRole] = useState("");
+  const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
-  const { setProjects } = useContext(ProjectContext);
-
-  const handleChange = (e) => {
-    setName(e.target.value);
-  };
 
   const handleImageChange = (e) => {
     setImage(e.target.files[0]);
@@ -24,11 +20,13 @@ function ProjectModalComponent({ visible, handleClose }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    if (name.trim() === "") {
+
+    if (name.trim() === "" || role.trim() === "" || description.trim() === "") {
       setLoading(false);
-      toast.error("All Fields Required");
+      toast.error("All Fields Are Required!");
       return;
     }
+
     try {
       let imageAsset = null;
       if (image && typeof image !== "string") {
@@ -43,8 +41,10 @@ function ProjectModalComponent({ visible, handleClose }) {
       }
 
       const doc = {
-        _type: "project",
+        _type: "testimonials",
         name: name,
+        role: role,
+        description: description,
         ...(imageAsset && {
           image: {
             _type: "image",
@@ -57,50 +57,62 @@ function ProjectModalComponent({ visible, handleClose }) {
       };
 
       const response = await client.create(doc);
-      toast.success("Project saved");
+      toast.success("Testimonial saved");
       handleClose();
     } catch (err) {
-      toast.error("Error in saving Project!");
       console.log(err);
     } finally {
       setLoading(false);
-      setProjects((projects) => [...projects, { name, image }]);
     }
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-      <div className="relative bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
-        <h1 className="text-xl font-semibold mb-4">Add New Project</h1>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <label htmlFor="name" className="block">
-            Project Name
+    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 ">
+      <div className="relative bg-white rounded-lg shadow-lg p-6  w-[30vw]">
+        <h1 className="text-xl font-semibold mb-4">Add New Testimonial</h1>
+        <form className="space-y-4" onSubmit={handleSubmit}>
+          <label htmlFor="image" className="block font-lato font-medium">
+            Image of Client
+          </label>
+          <input type="file" accept="image/*" onChange={handleImageChange} />
+          <label htmlFor="name" className="block font-lato font-medium">
+            Client Name
           </label>
           <input
             type="text"
             name="name"
             className="border-2 border-gray-400 px-3 py-2 w-full rounded-lg outline-none"
-            placeholder="Enter project name"
-            onChange={handleChange}
+            placeholder="Enter client name"
+            onChange={(e) => setName(e.target.value)}
             disabled={loading}
           />
-          <label
-            htmlFor=""
-            className="block font-lato font-medium"
-            onChange={handleImageChange}
-          >
-            Project Image
+          <label htmlFor="name" className="block font-lato font-medium">
+            Client Role (Job title)
           </label>
           <input
-            type="file"
-            accept="image/*"
-            className="border-2 border-gray-400 w-full py-2 px-3 rounded-lg outline-none"
-            onChange={handleImageChange}
+            type="text"
+            name="role"
+            className="border-2 border-gray-400 px-3 py-2 w-full rounded-lg outline-none"
+            placeholder="Enter client role"
             disabled={loading}
+            onChange={(e) => setRole(e.target.value)}
           />
+
+          <label htmlFor="desc" className="block font-lato font-medium">
+            Feedback (description)
+          </label>
+          <textarea
+            name="description"
+            id="desc"
+            rows={4}
+            disabled={loading}
+            className="w-full border-2 border-gray-400 rounded-lg px-3 py-4 outline-none"
+            placeholder="Enter feedback description"
+            onChange={(e) => setDescription(e.target.value)}
+          ></textarea>
           <div className="flex justify-center items-center">
             <button className="bg-blue-500 hover:bg-blue-700 rounded-lg text-white px-4 py-2">
-              Save Project
+              Save Service
             </button>
           </div>
         </form>
@@ -123,4 +135,4 @@ function ProjectModalComponent({ visible, handleClose }) {
   );
 }
 
-export default ProjectModalComponent;
+export default TestimonialModal;

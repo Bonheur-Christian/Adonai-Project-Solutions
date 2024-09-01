@@ -5,6 +5,8 @@ import { MdEmail } from "react-icons/md";
 import Bar from "../components/bar";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
+import Testimonials from "../components/Testimonials";
+
 
 function WhyUs() {
   const [scrolled, setScrolled] = useState(false);
@@ -24,28 +26,27 @@ function WhyUs() {
     };
   }, []);
 
-  const Testimonials = [
-    {
-      Name: "Jean Chrisostom",
-      info: "Adonai Project Solutions exceeded our expectations with their attention to detail and commitment to quality. Our new office building is both functional and aesthetically pleasing. We couldn't be happier with the results!",
-      role: "CEO",
-      Image: "images/1.png",
-    },
-    {
-      Name: "Hirwa Justin",
-      info: "Working with APS was a fantastic experience. They delivered our project on time and within budget. The team was professional, communicative, and truly cared about our vision.",
-      role: "Engineer",
-      Image: "images/2.png",
-    },
-    {
-      Name: "John David ",
-      info: "Choosing APS for our construction project was the best decision we made. Their team was knowledgeable, reliable, and worked tirelessly to ensure our project was completed to perfection. We highly recommend them.",
-      role: "Minister",
-      Image: "images/3.png",
-    },
-  ];
+  // const Testimonials = [
+  //   {
+  //     Name: "Jean Chrisostom",
+  //     info: "Adonai Project Solutions exceeded our expectations with their attention to detail and commitment to quality. Our new office building is both functional and aesthetically pleasing. We couldn't be happier with the results!",
+  //     role: "CEO",
+  //     Image: "images/1.png",
+  //   },
+  //   {
+  //     Name: "Hirwa Justin",
+  //     info: "Working with APS was a fantastic experience. They delivered our project on time and within budget. The team was professional, communicative, and truly cared about our vision.",
+  //     role: "Engineer",
+  //     Image: "images/2.png",
+  //   },
+  //   {
+  //     Name: "John David ",
+  //     info: "Choosing APS for our construction project was the best decision we made. Their team was knowledgeable, reliable, and worked tirelessly to ensure our project was completed to perfection. We highly recommend them.",
+  //     role: "Minister",
+  //     Image: "images/3.png",
+  //   },
+  // ];
 
-  
   return (
     <div className="dark:text-white overflow-x-hidden">
       {scrolled && <LandingPageBar />}
@@ -204,47 +205,7 @@ function WhyUs() {
             SEE WHAT OUR CLIENT SAID
           </p>
         </motion.div>
-        <div>
-          {Testimonials.map((item, index) => (
-            <div
-              key={index}
-              className="sm:px-6 py-6 flex lg:flex-row sm:flex-col items-center hover:translate-y-4 hover:text-black text-gray-200 duration-1000 hover:bg-[#F8F8F8] lg:w-[60%] sm:w-[90%] mx-auto  my-6 dark:text-black rounded-xl"
-            >
-              <div>
-                <img
-                  src={item.Image}
-                  alt=""
-                  className="lg:w-[60%] sm:w-[40%] sm:mx-auto backdrop-blur-lg"
-                />
-              </div>
-              <div className="rounded-xl lg:mx-auto">
-                <div className="flex lg:text-xl sm:text-md pt-2">
-                  <p className="sm:px-2 lg:text-center">
-                    <img
-                      src="svg/quote.svg"
-                      alt=""
-                      className="inline lg:w-[60px] sm:w-[30px] lg:h-[20px] sm:h-[10px]"
-                    />
-                    {item.info}
-                    <img
-                      src="svg/quote.svg"
-                      alt=""
-                      className="inline lg:w-[60px] sm:w-[30px] lg:h-[20px] sm:h-[10px]"
-                    />
-                  </p>
-                </div>
-                <div className="py-6 flex gap-2">
-                  <div>
-                    <p className="lg:text-3xl sm:text-xl font-lato ">
-                      {item.Name}
-                    </p>
-                    <p className="lg:text-3xl sm:text-xl font-bold font-lato ">{item.role}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+       <Testimonials/>
       </div>
       <div className="bg-[#DEF2F9] dark:bg-gray-800 pt-12">
         <div className="lg:space-y-6 sm:space-y-0">

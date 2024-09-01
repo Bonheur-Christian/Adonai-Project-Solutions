@@ -2,42 +2,24 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, Pagination } from "swiper/modules";
 import { useState } from "react";
 
-function Test() {
+function Testimonials() {
   const Testimonials = [
     {
       Name: "Jean Chrisostom",
-      info: "APS is the greatest company I've ever worked with. They accomplish what they promised. After working with them, I found There Quality of service and Uniqueness.",
+      info: "Adonai Project Solutions exceeded our expectations with their attention to detail and commitment to quality. Our new office building is both functional and aesthetically pleasing. We couldn't be happier with the results!",
       role: "CEO",
       Image: "images/1.png",
     },
     {
       Name: "Hirwa Justin",
-      info: "They accomplish what they promised. After working with them, I found There Quality of service and Uniqueness.",
+      info: "Working with APS was a fantastic experience. They delivered our project on time and within budget. The team was professional, communicative, and truly cared about our vision.",
       role: "Engineer",
       Image: "images/2.png",
     },
     {
       Name: "John David ",
-      info: "They have better team work and Innovations. There are really great! ",
+      info: "Choosing APS for our construction project was the best decision we made. Their team was knowledgeable, reliable, and worked tirelessly to ensure our project was completed to perfection. We highly recommend them.",
       role: "Minister",
-      Image: "images/3.png",
-    },
-    {
-      Name: "Kim Adams",
-      info: "If you have property never wonder in all the country, APS is only company you can entrust with your property.",
-      role: "CEO",
-      Image: "images/1.png",
-    },
-    {
-      Name: "Mike Nzirorera ",
-      info: "This company is amazing in water management, land survey, property management and other various services. They are great Entrepreneur I've ever seen.",
-      role: "Architect",
-      Image: "images/2.png",
-    },
-    {
-      Name: "Assoumpta IGIRANEZA",
-      info: "I like this company. It provide good services and I encourage whover who want them not to hesitate to reach out.",
-      role: "Entrepreneur",
       Image: "images/3.png",
     },
   ];
@@ -53,7 +35,7 @@ function Test() {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
   return (
-    <div className="relative group">
+    <div className="relative group lg:py-32 sm:py-12">
       <Swiper
         modules={[Navigation, Autoplay, Pagination]}
         pagination={{
@@ -72,35 +54,23 @@ function Test() {
           <SwiperSlide key={index}>
             <div
               key={index}
-              className="py-12 flex sm:flex-col items-center bg-[#F8F8F8] w-[90%] mx-auto  my-12 dark:text-black rounded-xl"
+              className="sm:px-6 py-6  flex  sm:flex-col items-center hover:translate-y-4 hover:text-black duration-1000 bg-[#F8F8F8] lg:w-[50% ] sm:w-[90%] mx-auto  my-6 dark:text-black rounded-xl py-12"
             >
-              <div>
-                <img
-                  src={item.Image}
-                  alt=""
-                  className="ms-6 sm:w-1/2 lg:w-1/3 sm:mx-auto "
-                />
-              </div>
-              <div className="rounded-xl lg:mx-auto w-full">
-                <div className="flex text-xl pt-4">
-                  <p className="lg:px-6 sm:px-2 text-center">
-                    <img
-                      src="svg/quote.svg"
-                      alt=""
-                      className="inline w-[60px] h-[20px]"
-                    />
-                    {item.info}
-                    <img
-                      src="svg/quote.svg"
-                      alt=""
-                      className="inline w-[60px] h-[20px]"
-                    />
-                  </p>
+              <div className="rounded-xl lg:mx-auto">
+                <div className="flex lg:text-xl sm:text-md pt-2">
+                  <p className="sm:px-2 lg:text-center">{item.info}</p>
                 </div>
-                <div className="py-6 px-10 flex gap-2">
-                  <div>
-                    <p className="lg:text-3xl sm:text-2xl font-lato">{item.Name}</p>
-                    <p className="lg:text-3xl sm:text-xl font-bold font-lato ">{item.role}</p>
+                <div className="py-4 flex gap-2">
+                  <div className="flex items-center justify-around">
+                    <img src={item.Image} alt="" className="w-1/6" />
+                    <div>
+                      <p className="lg:text-2xl sm:text-xl font-lato ">
+                        {item.Name}
+                      </p>
+                      <p className="lg:text-xl sm:text-xl font-bold font-lato ">
+                        {item.role}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -110,7 +80,7 @@ function Test() {
       </Swiper>
       <div className="absolute top-[45%] z-10 w-full group-hover:flex justify-between px-6 hidden">
         <div
-          className="bg-slate-200 rounded-full p-2"
+          className="bg-slate-200 rounded-full p-2 sm:hidden lg:block"
           onClick={previous}
           id="prev-btn"
         >
@@ -125,7 +95,7 @@ function Test() {
           </svg>
         </div>
         <div
-          className="bg-slate-200 rounded-full p-2"
+          className="bg-slate-200 rounded-full p-2 sm:hidden lg:block"
           onClick={next}
           id="next-btn"
         >
@@ -143,4 +113,4 @@ function Test() {
     </div>
   );
 }
-export default Test;
+export default Testimonials;

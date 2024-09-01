@@ -75,8 +75,8 @@ function EditProjectModal({ visible, handleClose, projectId }) {
           filename: image.name,
         });
       } else if (!image) {
-        toast.error("Please select an image");
         setLoading(false);
+        toast.error("Please select an image");
         return;
       }
 
