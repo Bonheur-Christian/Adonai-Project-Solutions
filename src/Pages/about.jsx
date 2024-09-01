@@ -28,38 +28,35 @@ export default function About() {
     {
       name: "Ndahiro Evode",
       role: "CEO",
-      number:"0788348991",
+      number: "0788348991",
       image: "/images/Ndahiro.jpeg",
     },
     {
       name: "SINDAYIGAYA Moise",
       role: "Chair Person",
-      number:"0781709025",
+      number: "0781709025",
       image: "/images/PM.jpg",
     },
 
     {
       name: "Ndahiro Evode",
       role: "CEO",
-      number:"0788348991",
+      number: "0788348991",
       image: "/images/Ndahiro.jpeg",
     },
     {
       name: "SINDAYIGAYA Moise",
       role: "Chair Person",
-      number:"0781709025",
+      number: "0781709025",
       image: "/images/PM.jpg",
     },
   ];
-
-
-
 
   return (
     <div className="dark:text-white overflow-x-hidden">
       {scrolled && <LandingPageBar />}
       <div className="bg-[url('/images/header.png')] h-[10rem] md:h-[20rem] bg-cover bg-center bg-no-repeat dark:text-black">
-      <div className="sm:hidden lg:block">
+        <div className="sm:hidden lg:block">
           <Bar />
         </div>
         <div className="flex items-center justify-end lg:h-full px-6 pb-16 md:px-24">
@@ -186,7 +183,8 @@ export default function About() {
                     {item.role}
                   </div>
                   <div className="text-md md:text-lg text-gray-500">
-                    <span className="font-medium">Tel: </span>{item.number}
+                    <span className="font-medium">Tel: </span>
+                    {item.number}
                   </div>
                 </div>
               </div>
