@@ -98,7 +98,7 @@ function Contacts() {
                     <h1 className="text-xl font-medium">Email:</h1>
                     <p className="text-xl">{item.email}</p>
                   </div>
-                  <div className="flex gap-4">
+                  <div className="flex lg:flex-row sm:flex-col sm gap-4">
                     <h1 className="text-xl font-medium">Location:</h1>
                     <p className="text-xl">{item.location}</p>
                   </div>
