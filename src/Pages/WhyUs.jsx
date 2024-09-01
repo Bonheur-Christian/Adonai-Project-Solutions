@@ -55,7 +55,7 @@ function WhyUs() {
           <Bar />
         </div>
         <div className="flex items-center justify-end px-6 md:px-24">
-          <h1 className="text-right text-[#424242] font-bold sm:text-xl md:text-3xl lg:text-5xl">
+          <h1 className="text-right text-[#424242] font-bold sm:text-xl sm:pt-24 md:text-3xl lg:text-5xl">
             Why APS .Ltd ?
           </h1>
         </div>
