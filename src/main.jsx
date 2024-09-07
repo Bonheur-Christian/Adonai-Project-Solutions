@@ -8,13 +8,16 @@ import "swiper/css/pagination";
 import { ServiceContextProvider } from "./contexts/ServiceContext.jsx";
 import { ProjectContextProvider } from "./contexts/projectContext.jsx";
 import { CompletedProjectContextProvider } from "./contexts/completedProjectContext.jsx";
+import { TestimonialContextProvider } from "./contexts/TestimonialContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ServiceContextProvider>
       <ProjectContextProvider>
         <CompletedProjectContextProvider>
-          <App />
+          <TestimonialContextProvider>
+            <App />
+          </TestimonialContextProvider>
         </CompletedProjectContextProvider>
       </ProjectContextProvider>
     </ServiceContextProvider>

@@ -24,7 +24,7 @@ function LandingPageBar() {
   const Links = [
     { link: "Home", dest: "/" },
     { link: "About", dest: "/about" },
-    { link: "Why APS?", dest: "/whyus" },
+    { link: "WhyAPS?", dest: "/whyus" },
     { link: "Services", dest: "/services" },
     { link: "News", dest: "/news" },
     { link: "Contacts", dest: "/contacts" },
@@ -62,7 +62,7 @@ function LandingPageBar() {
               open
                 ? "bg-white sm:px-4 sm:ms-[-4rem] sm:py-4 w-[100vw] h-screen z-50"
                 : "hidden duration-1000"
-            } lg:flex lg:space-x-12 sm:space-y-4 lg:space-y-0 md:space-y-4 sm:top-[10vh] lg:top-5 absolute origin-top-left`}
+            } lg:flex lg:space-x-12 sm:space-y-4 lg:space-y-0 md:space-y-4 sm:top-[10vh] lg:top-5 absolute`}
           >
             {Links.map((link, index) => (
               <li key={index}>

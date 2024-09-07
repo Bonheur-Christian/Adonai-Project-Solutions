@@ -10,7 +10,7 @@ function Bar() {
   const Links = [
     { link: "Home", dest: "/" },
     { link: "About", dest: "/about" },
-    { link: "Why APS?", dest: "/whyus" },
+    { link: "WhyAPS?", dest: "/whyus" },
     { link: "Services", dest: "/services" },
     { link: "News", dest: "/news" },
     { link: "Contacts", dest: "/contacts" },

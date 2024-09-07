@@ -182,7 +182,7 @@ function Home() {
         whileInView={"show"}
         viewport={{ once: false, amount: 0.7 }}
       >
-        <div className="mx-auto flex sm:justify-center lg:justify-start">
+        <div className="mx-auto flex sm:justify-start lg:justify-start">
           <Dropdown title={"Projects List"} content={projects} />
         </div>
         <div className="flex justify-center my-12">

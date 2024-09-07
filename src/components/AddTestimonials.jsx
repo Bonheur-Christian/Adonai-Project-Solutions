@@ -1,14 +1,19 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import TestimonialModal from "./TestimonialModal";
 import { Backdrop, CircularProgress } from "@mui/material";
 import client from "../sanityClient";
 import { MdOutlineDeleteForever } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
+import { TestimonialContext } from "../contexts/TestimonialContext";
+import { toast } from "react-toastify";
+import EditTestimonialModal from "./EditTestimonialModal";
 
 function TestimonialSection({ children }) {
   const [visible, setVisible] = useState(false);
-  const [testimonials, setTestimonials] = useState([]);
+  const [editVisible, setEditVisible] = useState(false);
+  const { testimonials, setTestimonials } = useContext(TestimonialContext);
   const [loading, setLoading] = useState(false);
+  const [selectedTestimonialId, setSelectedTestimonialId] = useState(null);
 
   useEffect(() => {
     fetchTestimonials();
@@ -45,8 +50,37 @@ function TestimonialSection({ children }) {
       });
   };
 
+  const handleDelete = (id) => {
+    setLoading(true);
+    client
+      .delete(id)
+      .then(() => {
+        setTestimonials((testimonials) =>
+          testimonials.slice().filter((item) => item._id !== id)
+        );
+        toast.success("Testimonial Deleted");
+      })
+      .catch((err) => {
+        toast.error("Failed to Delete Testimonial, Try again");
+        console.log(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
   const handleOpen = () => {
     setVisible(true);
+  };
+
+  const handleEditOpen = (id) => {
+    setSelectedTestimonialId(id);
+    setEditVisible(true);
+  };
+
+  const handleEditClose = () => {
+    setSelectedTestimonialId(null);
+    setEditVisible(false);
   };
   const handleClose = () => {
     setVisible(false);
@@ -69,22 +103,27 @@ function TestimonialSection({ children }) {
               <CiEdit
                 size={20}
                 className="hover:bg-[#0B3757] hover:text-white text-gray-500 hover:rounded-full"
-                // onClick={() => {
-                //   handleEditOpen(item._id);
-                // }}
+                onClick={() => {
+                  handleEditOpen(item._id);
+                }}
               />
               <MdOutlineDeleteForever
                 size={20}
                 className="hover:bg-[#0B3757] hover:text-white text-gray-500 hover:rounded-full"
-                // onClick={() => {
-                //   handleDelete(item._id);
-                // }}
+                onClick={() => {
+                  handleDelete(item._id);
+                }}
               />
             </div>
           </div>
         ))}
       </div>
       <TestimonialModal handleClose={handleClose} visible={visible} />
+      <EditTestimonialModal
+        handleClose={handleEditClose}
+        visible={editVisible}
+        testimonialId={selectedTestimonialId}
+      />
       <Backdrop
         sx={{ color: "#d3e2e8", zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open={loading}

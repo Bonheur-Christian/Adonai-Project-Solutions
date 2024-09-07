@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
 import Testimonials from "../components/Testimonials";
 
-
 function WhyUs() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -51,11 +50,11 @@ function WhyUs() {
     <div className="dark:text-white overflow-x-hidden">
       {scrolled && <LandingPageBar />}
       <div className="bg-[url('/images/header.png')] h-[10rem] md:h-[15rem] bg-cover bg-center bg-no-repeat dark:text-black">
-      <div className="sm:hidden lg:block">
+        <div className="sm:hidden lg:block">
           <Bar />
         </div>
         <div className="flex items-center justify-end px-6 md:px-24">
-          <h1 className="text-right text-[#424242] font-bold sm:text-xl sm:pt-24 md:text-3xl lg:text-5xl">
+          <h1 className="text-right text-[#424242] font-bold sm:text-xl sm:pt-24 lg:pt-0 md:text-3xl lg:text-5xl">
             Why APS .Ltd ?
           </h1>
         </div>
@@ -207,7 +206,7 @@ function WhyUs() {
             SEE WHAT OUR CLIENT SAID
           </p>
         </motion.div>
-       <Testimonials/>
+        <Testimonials />
       </div>
       <div className="bg-[#DEF2F9] dark:bg-gray-800 pt-12">
         <div className="lg:space-y-6 sm:space-y-0">
@@ -219,7 +218,7 @@ function WhyUs() {
           </h1>
         </div>
         <div>
-          <h2 className="font-lato text-xl text-center">
+          <h2 className="font-lato text-xl text-center pt-24">
             Want To Discuss Project?
           </h2>
           <div className="flex justify-center">

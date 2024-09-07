@@ -16,7 +16,7 @@ function Services() {
   const [servicesList, setServicesList] = useState([]);
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 140) {
+      if (window.scrollY > 15) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -61,9 +61,11 @@ function Services() {
     <div overflow-x-hidden>
       {scrolled && <LandingPageBar />}
       <div className="bg-[url('/images/header.png')] h-[10rem] md:h-[15rem] bg-cover bg-center bg-no-repeat dark:text-black">
-        <Bar />
+        <div className="sm:hidden lg:block">
+          <Bar />
+        </div>
         <div className="flex items-center justify-end px-6 md:px-24">
-          <h1 className="text-right text-[#424242] font-bold text-2xl md:text-3xl lg:text-5xl">
+          <h1 className="text-right text-[#424242] font-bold text-2xl sm:pt-24 lg:pt-0 md:text-3xl lg:text-5xl">
             Services ....
           </h1>
         </div>

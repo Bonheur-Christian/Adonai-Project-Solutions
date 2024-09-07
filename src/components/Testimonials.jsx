@@ -1,29 +1,59 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, Pagination } from "swiper/modules";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import client from "../sanityClient";
 
 function Testimonials() {
-  const Testimonials = [
-    {
-      Name: "Jean Chrisostom",
-      info: "Adonai Project Solutions exceeded our expectations with their attention to detail and commitment to quality. Our new office building is both functional and aesthetically pleasing. We couldn't be happier with the results!",
-      role: "CEO",
-      Image: "images/1.png",
-    },
-    {
-      Name: "Hirwa Justin",
-      info: "Working with APS was a fantastic experience. They delivered our project on time and within budget. The team was professional, communicative, and truly cared about our vision.",
-      role: "Engineer",
-      Image: "images/2.png",
-    },
-    {
-      Name: "John David ",
-      info: "Choosing APS for our construction project was the best decision we made. Their team was knowledgeable, reliable, and worked tirelessly to ensure our project was completed to perfection. We highly recommend them.",
-      role: "Minister",
-      Image: "images/3.png",
-    },
-  ];
-  const length = Testimonials.length;
+  const [testimonials, setTestimonials] = useState([]);
+
+  useEffect(() => {
+    fetchTestimonials();
+  }, []);
+
+  const fetchTestimonials = () => {
+    client
+      .fetch(
+        `*[_type == "testimonials"]{
+      _id, 
+      description, 
+      name, 
+      role, 
+      image{
+      asset->{
+      _id,
+      url
+      }
+      }
+      }`
+      )
+      .then((data) => {
+        setTestimonials(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  // const Testimonials = [
+  //   {
+  //     Name: "Jean Chrisostom",
+  //     info: "Adonai Project Solutions exceeded our expectations with their attention to detail and commitment to quality. Our new office building is both functional and aesthetically pleasing. We couldn't be happier with the results!",
+  //     role: "CEO",
+  //     Image: "images/1.png",
+  //   },
+  //   {
+  //     Name: "Hirwa Justin",
+  //     info: "Working with APS was a fantastic experience. They delivered our project on time and within budget. The team was professional, communicative, and truly cared about our vision.",
+  //     role: "Engineer",
+  //     Image: "images/2.png",
+  //   },
+  //   {
+  //     Name: "John David ",
+  //     info: "Choosing APS for our construction project was the best decision we made. Their team was knowledgeable, reliable, and worked tirelessly to ensure our project was completed to perfection. We highly recommend them.",
+  //     role: "Minister",
+  //     Image: "images/3.png",
+  //   },
+  // ];
+  const length = testimonials.length;
 
   const [current, setCurrent] = useState(0);
 
@@ -50,33 +80,41 @@ function Testimonials() {
           1024: { slidesPerView: 2, spaceBetween: 20, centeredSlides: false },
         }}
       >
-        {Testimonials.map((item, index) => (
-          <SwiperSlide key={index}>
-            <div
-              key={index}
-              className="sm:px-6 py-6  flex  sm:flex-col items-center hover:translate-y-4 hover:text-black duration-1000 bg-[#F8F8F8] lg:w-[50% ] sm:w-[90%] mx-auto  my-6 dark:text-black rounded-xl py-12"
-            >
-              <div className="rounded-xl lg:mx-auto">
-                <div className="flex lg:text-xl sm:text-md pt-2">
-                  <p className="sm:px-2 lg:text-center">{item.info}</p>
-                </div>
-                <div className="py-4 flex gap-2">
-                  <div className="flex items-center justify-around">
-                    <img src={item.Image} alt="" className="w-1/6" />
-                    <div>
-                      <p className="lg:text-2xl sm:text-xl font-lato ">
-                        {item.Name}
-                      </p>
-                      <p className="lg:text-xl sm:text-xl font-bold font-lato ">
-                        {item.role}
-                      </p>
+        {testimonials.length > 0 ? (
+          testimonials.map((item, index) => (
+            <SwiperSlide key={index}>
+              <div
+                key={index}
+                className="sm:px-6 py-6  flex  sm:flex-col items-center hover:translate-y-4 hover:text-black duration-1000 bg-[#F8F8F8] lg:w-[50% ] sm:w-[90%] mx-auto  my-6 dark:text-black rounded-xl py-12"
+              >
+                <div className="rounded-xl lg:mx-auto">
+                  <div className="flex lg:text-xl sm:text-md pt-2">
+                    <p className="sm:px-2 lg:text-center">{item.description}</p>
+                  </div>
+                  <div className="py-4 flex gap-2">
+                    <div className="flex items-center justify-around">
+                      <img
+                        src={item.image.asset.url}
+                        alt=""
+                        className="w-1/6"
+                      />
+                      <div>
+                        <p className="lg:text-2xl sm:text-xl font-lato ">
+                          {item.name}
+                        </p>
+                        <p className="lg:text-xl sm:text-xl font-bold font-lato ">
+                          {item.role}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
+            </SwiperSlide>
+          ))
+        ) : (
+          <h1 className="text-xl text-center text-red-300">No Testimonials Yet!</h1>
+        )}
       </Swiper>
       <div className="absolute top-[45%] z-10 w-full group-hover:flex justify-between px-6 hidden">
         <div

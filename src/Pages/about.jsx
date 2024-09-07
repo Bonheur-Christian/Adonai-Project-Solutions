@@ -60,7 +60,7 @@ export default function About() {
           <Bar />
         </div>
         <div className="flex items-center justify-end lg:h-full px-6 pb-16 md:px-24">
-          <h1 className="text-right text-[#424242] font-bold text-xl md:text-3xl sm:pt-24 lg:pb-36 lg:text-5xl">
+          <h1 className="text-right text-[#424242] font-bold text-xl md:text-3xl sm:pt-24 lg:pt-0 lg:pb-36 lg:text-5xl">
             About Our Story
           </h1>
         </div>
