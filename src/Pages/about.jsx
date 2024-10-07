@@ -29,27 +29,27 @@ export default function About() {
       name: "Ndahiro Evode",
       role: "CEO",
       number: "0788348991",
-      image: "/images/Ndahiro.jpeg",
+      image: "/images/ndahiro.jpg",
     },
     {
       name: "SINDAYIGAYA Moise",
       role: "Chair Person",
       number: "0781709025",
-      image: "/images/PM.jpg",
+      image: "/images/PM.png",
     },
 
-    {
-      name: "Ndahiro Evode",
-      role: "CEO",
-      number: "0788348991",
-      image: "/images/Ndahiro.jpeg",
-    },
-    {
-      name: "SINDAYIGAYA Moise",
-      role: "Chair Person",
-      number: "0781709025",
-      image: "/images/PM.jpg",
-    },
+    // {
+    //   name: "Ndahiro Evode",
+    //   role: "CEO",
+    //   number: "0788348991",
+    //   image: "/images/ndahiro.jpg",
+    // },
+    // {
+    //   name: "SINDAYIGAYA Moise",
+    //   role: "Chair Person",
+    //   number: "0781709025",
+    //   image: "/images/PM.png",
+    // },
   ];
 
   return (
@@ -146,7 +146,7 @@ export default function About() {
           Meet Our Team
         </h1>
       </div>
-      <div className="relative group flex justify-center" id="team">
+      <div className="relative group flex justify-center" id="team" >
         <Swiper
           modules={[Autoplay, Pagination]}
           pagination={{
@@ -158,21 +158,21 @@ export default function About() {
           breakpoints={{
             320: { slidesPerView: 1, spaceBetween: 10 },
             480: { slidesPerView: 1, spaceBetween: 10 },
-            640: { slidesPerView: 1, spaceBetween: 10 },
-            1024: { slidesPerView: 1, spaceBetween: 10 },
+            640: { slidesPerView: 2, spaceBetween: 10 },
+            1024: { slidesPerView: 3, spaceBetween: 10 },
           }}
         >
           {team.map((item, index) => (
             <SwiperSlide key={index}>
               <div
                 key={index}
-                className="py-8 flex flex-col space-y-4 items-center w-[90%] mx-auto my-8 dark:text-black rounded-xl justify-center"
+                className="py-32 flex items-center w-[80%] mx-auto my-8 dark:text-black rounded-xl justify-center"
               >
                 <div className="mb-4 md:mb-0">
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="w-24 h-24 md:w-32 md:h-32 rounded-full"
+                    className="w-24 h-24 md:w-64 md:h-64 rounded"
                   />
                 </div>
                 <div className="text-center md:text-left md:ml-8">
