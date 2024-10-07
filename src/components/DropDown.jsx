@@ -8,7 +8,7 @@ const Dropdown = ({ title, content }) => {
   };
 
   return (
-    <div className="relative inline-block text-left lg:ms-32 sm:ms-6 sm:mt-12 lg:mt-12 z-10">
+    <div className="relative inline-block text-left lg:ms-20 sm:ms-6 sm:mt-12 lg:mt-12 z-10">
       <button
         className="inline-flex justify-center w-full px-4 py-2 bg-blue-600 text-white font-medium hover:bg-blue-700 focus:outline-none rounded-lg items-center"
         onClick={toggleDropdown}

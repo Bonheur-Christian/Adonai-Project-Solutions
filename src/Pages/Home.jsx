@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
 import Dropdown from "../components/DropDown";
-import { API_url } from "../constants";
+import { HiOutlineOfficeBuilding } from "react-icons/hi";
 import client from "../sanityClient";
 
 const openingHours = {
@@ -127,10 +127,11 @@ function Home() {
           <button
             className={` ${
               scrolled ? "block duration-500" : "hidden"
-            } px-4 py-2 rounded text-white font-medium ${
+            } lg:px-4 md:px-2 sm:px-2 md:py-4 sm:py-3 lg:py-4 rounded-full text-white font-medium flex items-center lg:gap-6 md:gap-4 sm:gap-2 ${
               status === "Open" ? "bg-green-500" : "bg-red-500"
             }`}
           >
+            <HiOutlineOfficeBuilding size={20}/>
             Office: {status}
           </button>
         </div>
@@ -182,7 +183,7 @@ function Home() {
         whileInView={"show"}
         viewport={{ once: false, amount: 0.7 }}
       >
-        <div className="mx-auto flex sm:justify-start lg:justify-start">
+        <div className="flex sm:justify-start lg:justify-start">
           <Dropdown title={"Projects List"} content={projects} />
         </div>
         <div className="flex justify-center my-12">
@@ -192,7 +193,7 @@ function Home() {
         </div>
         <Projects />
       </motion.div>
-      <div className="flex lg:flex-row sm:flex-col-reverse lg:justify-between  lg:h-screen lg:py-24 sm:py-6 lg:ps-12 sm:ps-2">
+      <div className="flex lg:flex-row sm:flex-col-reverse lg:justify-between md:items-center md:justify-center  lg:h-screen lg:py-24 sm:py-6 lg:ps-12 sm:ps-2">
         <motion.div
           variants={fadeIn("right", 0.1)}
           initial="hidden"
@@ -202,44 +203,28 @@ function Home() {
         >
           <img src="svg/mission1.svg" alt="" />
         </motion.div>
-        <div className="lg:bg-[url('/images/mission.png')] lg:w-1/2 bg-no-repeat lg:mt-24 sm:mt-0">
-          <div className="lg:ps-48 space-y-12 lg:py-12 sm:py-6">
-            <motion.div
-              variants={fadeIn("up", 0.8)}
-              initial="hidden"
-              whileInView={"show"}
-              viewport={{ once: false, amount: 0.7 }}
-            >
-              <h1 className="font-lato font-bold lg:text-white sm:text-gray-900 lg:text-4xl sm:text-xl text-center sm:py-4">
+        <div className="lg:bg-[url('/images/mission.png')] lg:w-[50%] bg-no-repeat lg:h-full lg:mt-12 sm:mt-0">
+          <div className="w-[100%] md:px-24 md:py-12 space-y-6 lg:pt-30 lg:ms-20 sm:py-6">
+            <div>
+              <h1 className="font-lato font-bold lg:text-white sm:text-gray-900 lg:text-4xl md:text-3xl sm:text-xl text-center  sm:py-4">
                 Our Vision
               </h1>
-              <p className="lg:w-[80%] sm:w-full sm:text-wrap lg:text-white sm:text-gray-900 lg:text-xl sm:text-md mx-auto sm:px-4">
+              <p className="lg:w-[90%] md:w-full md:mx-auto sm:w-full sm:text-wrap lg:text-white sm:text-gray-900 lg:text-xl md:text-xl sm:text-md sm:px-4">
                 To be the leading engineering solutions provider in Rwanda and
                 beyond, known for our commitment to quality, innovation, and
                 sustainable practices.
               </p>
-            </motion.div>
-            <motion.div
-              variants={fadeIn("down", 0.8)}
-              initial="hidden"
-              whileInView={"show"}
-              viewport={{ once: false, amount: 0.7 }}
-            >
-              <h1 className="font-lato font-bold lg:text-white sm:text-gray-900 lg:text-4xl sm:text-xl text-center sm:py-4">
-                Our Mission
-              </h1>
-              <p className="lg:w-[80%] sm:w-full sm:text-wrap lg:text-white sm:text-gray-900 lg:text-xl sm:text-md mx-auto sm:px-4">
-                To provide comprehensive and innovative engineering solutions
-                that meet the highest standards of quality and sustainability,
-                contributing to the development and betterment of communities.
-              </p>
-            </motion.div>
-            <div className="flex justify-center lg:my-32 sm:my-12">
-              <a href="/services">
-                <button className="bg-transparent border-2 border-blue-700 py-2 px-4 lg:text-white sm:font-lato sm:text-lg hover:bg-blue-700 sm:hover:text-white duration-500 dark:hover:bg-blue-400 dark:border-blue-400 rounded-xl">
-                  View Our Work
-                </button>
-              </a>
+            </div>
+            <div>
+              <div className="lg:ps-32 sm:ps-0">
+                <h1 className="font-lato font-bold lg:text-white sm:text-gray-900 lg:text-4xl sm:text-xl md:text-3xl text-center sm:py-4">
+                  Our Mission
+                </h1>
+                <p className="lg:w-[90%] md:w-full md:mx-auto sm:w-full sm:text-wrap lg:text-white sm:text-gray-900 lg:text-xl md:text-xl sm:text-md sm:px-4">
+                  To provide comprehensive and innovative engineering solutions
+                  that meet the highest standards of quality and sustainability.
+                </p>
+              </div>
             </div>
           </div>
         </div>

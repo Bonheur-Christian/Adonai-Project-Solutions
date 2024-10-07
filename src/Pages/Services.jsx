@@ -58,7 +58,7 @@ function Services() {
   };
 
   return (
-    <div overflow-x-hidden>
+    <div>
       {scrolled && <LandingPageBar />}
       <div className="bg-[url('/images/header.png')] h-[10rem] md:h-[15rem] bg-cover bg-center bg-no-repeat dark:text-black">
         <div className="sm:hidden lg:block">
@@ -103,7 +103,7 @@ function Services() {
         </div>
       </div>
       <Dropdown title={"Services List"} content={servicesList} />
-      <div className="flex flex-wrap  justify-evenly py-24 space-y-12">
+      <div className="flex flex-wrap lg:grid lg:grid-cols-3 lg:px-12 md:grid md:grid-cols-2 md:justify-center md:items-center justify-evenly py-24 space-y-12">
         {servicesList.map((item, index) => (
           <motion.div
             variants={fadeIn("up", 0.3)}

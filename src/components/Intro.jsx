@@ -14,12 +14,12 @@ function Intro() {
         viewport={{ once: false, amount: 0.7 }}
         className="sm:text-center lg:text-start sm:p-12"
       >
-        <div className="flex gap-4 lg:pt-12 lg:mt-40 lg:w-1/2 sm:mt-0 lg:px-6 sm:pt-32 py-6 lg:py-8  lg:bg-blue-200/30 lg:my-4 sm:my-0 sm:bg-none rounded">
+        <div className="flex gap-4 lg:pt-12 md:pt-44 lg:mt-40 lg:w-[70%] sm:mt-0 lg:px-6 sm:pt-32 py-6 lg:py-8  lg:bg-blue-200/30 lg:my-4 sm:my-0 sm:bg-none rounded">
           <div>
             <img src="svg/intro1.svg" alt="" className="w-full h-auto " />
           </div>
           <div>
-            <h1 className="lg:text-4xl sm:text-xl lg:text-blue-800 sm:text-white font-bold lg:tracking-wider sm:tracking-normal font-lato sm:w-full sm:flex sm:justify-center items-center">
+            <h1 className="lg:text-4xl sm:text-xl md:text-4xl md:text-blue-600 lg:text-blue-800 sm:text-white font-bold lg:tracking-wider sm:tracking-normal font-lato sm:w-full sm:flex sm:justify-center items-center">
               You Deserve a Different Kind of Engineering Firm.
             </h1>
             <h1 className="font-lato font-extrabold text-3xl py-12 sm:hidden lg:block">
@@ -39,7 +39,7 @@ function Intro() {
             </h1>
           </div>
         </div>
-        <div className="flex lg:gap-12 sm:gap-6">
+        <div className="flex lg:gap-12 sm:gap-6 md:mt-[-4rem] lg:mt-0 sm:mt-0">
           <a href="/contacts">
             <button className="bg-blue-500 hover:bg-blue-700 px-4 py-3 rounded-full font-medium text-white">
               GET FREE QUOTE

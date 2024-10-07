@@ -71,7 +71,7 @@ function ServiceSwiper() {
                 <img
                   src={item.image.asset.url}
                   alt="property showcasing"
-                  className="w-32 h-32 rounded-full object-cover hover:shadow-gray-400 shadow-md"
+                  className="w-32 h-32 rounded-full object-cover hover:shadow-gray-400 md:flex md:justify-center shadow-md"
                 />
                 <h1 className="text-2xl pb-6 text-[#1971F4]">{item.name}</h1>
                 <p className="font-lato text-lg lg:w-[30vw] sm:w-full pb-6">

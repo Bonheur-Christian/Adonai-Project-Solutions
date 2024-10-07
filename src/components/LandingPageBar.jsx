@@ -42,12 +42,12 @@ function LandingPageBar() {
       }`}
     >
       <nav className="flex justify-between lg:px-12 sm:px-2 sticky top-0 lg:w-[50vw] sm:w-full">
-        <div>
+        <div className="md:h-[10rem] lg:h-[7rem]">
           <img
             src="svg/logo.svg"
             alt="aps"
             id="aps"
-            className="sm:w-1/4 sm:h-1/2 lg:w-1/12 lg:h-1/3"
+            className="sm:w-1/4 sm:h-1/2 md:h-1/2 lg:w-[4rem] lg:h-1/3 lg:mt-2"
           />
           <label
             htmlFor="aps"
@@ -56,13 +56,13 @@ function LandingPageBar() {
             Adonai Project Solutions
           </label>
         </div>
-        <div className="flex sm:flex-col-reverse lg:flex-row sm:justify-center lg:justify-between relative">
+        <div className="flex sm:flex-col-reverse lg:flex-row md:flex-col-reverse md:justify-end sm:justify-center lg:justify-between relative">
           <ul
             className={`${
               open
-                ? "bg-white sm:px-4 sm:ms-[-4rem] sm:py-4 w-[100vw] h-screen z-50"
+                ? "bg-white sm:px-4 sm:ms-[-4rem] md:ms-[12rem] md:bg-white md:w-[100vw] sm:py-4  lg:w-[100vw] h-screen  z-50"
                 : "hidden duration-1000"
-            } lg:flex lg:space-x-12 sm:space-y-4 lg:space-y-0 md:space-y-4 sm:top-[10vh] lg:top-5 absolute`}
+            } lg:flex lg:space-x-12 sm:space-y-4 lg:space-y-0 md:space-y-4 sm:top-[10vh]  lg:top-5 absolute`}
           >
             {Links.map((link, index) => (
               <li key={index}>
@@ -74,13 +74,13 @@ function LandingPageBar() {
           </ul>
         </div>
         <div
-          className="sm:block lg:hidden sm:pb-6 sm:pt-4 "
+          className="sm:block lg:hidden sm:pb-6 sm:pt-4 duration-700"
           onClick={toggleMenu}
         >
           {open ? (
-            <IoCloseSharp className="text-4xl" />
+            <IoCloseSharp className="text-4xl duration-700" />
           ) : (
-            <IoMdMenu className="text-4xl" />
+            <IoMdMenu className="text-4xl duration-700" />
           )}
         </div>
       </nav>
