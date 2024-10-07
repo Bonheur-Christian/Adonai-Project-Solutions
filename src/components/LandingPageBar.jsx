@@ -41,7 +41,7 @@ function LandingPageBar() {
           : "lg:bg-transparent sm:bg-white fixed top-0 w-full  text-blue-700 font-semibold"
       }`}
     >
-      <nav className="flex justify-between lg:px-12 sm:px-2 sticky top-0 lg:w-[60vw] sm:w-full">
+      <nav className="flex justify-between lg:px-12 sm:px-2 sticky top-0 lg:w-[50vw] sm:w-full">
         <div>
           <img
             src="svg/logo.svg"

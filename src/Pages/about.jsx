@@ -161,21 +161,22 @@ export default function About() {
             640: { slidesPerView: 2, spaceBetween: 10 },
             1024: { slidesPerView: 2, spaceBetween: 10 },
           }}
+      
         >
           {team.map((item, index) => (
             <SwiperSlide key={index}>
               <div
                 key={index}
-                className="py-24 flex items-center w-[90%] mx-auto my-8 dark:text-black rounded-xl justify-center"
+                className="py-24 flex lg:space-y-4 sm:space-y-0 space-x-6 items-center w-[90%] lg:w-[40%] mx-auto my-8 dark:text-black rounded-xl justify-center hover:bg-gray-100 hover:translate-y-[-1rem] duration-1000"
               >
-                <div className="mb-4 md:mb-0">
+                <div className="mb-4 sm:mb-0 md:mb-0">
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="w-24 h-24 md:w-64 md:h-64 rounded-md"
+                    className="w-24 h-24 lg:w-32 lg:h-32 rounded-full "
                   />
                 </div>
-                <div className="text-center md:text-left md:ml-8">
+                <div className="text-center sm:ml-0 md:text-left sm:text-left md:ml-8">
                   <div className="text-lg md:text-xl font-bold">
                     {item.name}
                   </div>
