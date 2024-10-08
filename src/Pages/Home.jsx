@@ -55,6 +55,7 @@ const isOpen = (currentDay, currentTime) => {
 function Home() {
   const [status, setStatus] = useState("Closed");
   const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const checkStatus = () => {
@@ -96,6 +97,7 @@ function Home() {
   }, []);
 
   const fetchProjects = () => {
+    setLoading(true);
     client
       .fetch(
         `*[_type=="project"]{
@@ -114,22 +116,105 @@ function Home() {
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        setLoading(false);
+        console.log(projects);
+        
       });
   };
   return (
     <div>
-      {projects ? (
+      {loading ?  (
+        <div className="flex justify-center items-center h-screen">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="xMidYMid"
+            width="200"
+            height="200"
+            style={{
+              shapeRendering: "auto",
+              background: "rgb(255, 255, 255)",
+            }}
+           
+          >
+            <g>
+              <circle
+                stroke-width="21"
+                stroke="#d2d9f7"
+                fill="none"
+                r="0"
+                cy="50"
+                cx="50"
+              >
+                <animate
+                  begin="0s"
+                  calcMode="spline"
+                  keySplines="0 0.2 0.8 1"
+                  keyTimes="0;1"
+                  values="0;43"
+                  dur="2.083333333333333s"
+                  repeatCount="indefinite"
+                  attributeName="r"
+                />
+                <animate
+                  begin="0s"
+                  calcMode="spline"
+                  keySplines="0.2 0 0.8 1"
+                  keyTimes="0;1"
+                  values="1;0"
+                  dur="2.083333333333333s"
+                  repeatCount="indefinite"
+                  attributeName="opacity"
+                />
+              </circle>
+              <circle
+                stroke-width="21"
+                stroke="#d2d9f7"
+                fill="none"
+                r="0"
+                cy="50"
+                cx="50"
+              >
+                <animate
+                  begin="-1.0416666666666665s"
+                  calcMode="spline"
+                  keySplines="0 0.2 0.8 1"
+                  keyTimes="0;1"
+                  values="0;43"
+                  dur="2.083333333333333s"
+                  repeatCount="indefinite"
+                  attributeName="r"
+                />
+                <animate
+                  begin="-1.0416666666666665s"
+                  calcMode="spline"
+                  keySplines="0.2 0 0.8 1"
+                  keyTimes="0;1"
+                  values="1;0"
+                  dur="2.083333333333333s"
+                  repeatCount="indefinite"
+                  attributeName="opacity"
+                />
+              </circle>
+              <g />
+            </g>
+          </svg>
+        </div>
+      ):(
         <div className="dark:text-white px-0 mx-0 overflow-x-hidden">
           <Intro />
           <p className="text-blue-800 font-lato pt-5 px-3 border-s-8 border-blue-700 font-extrabold text-3xl w-full text-start lg:hidden sm:block my-4">
             The Pathway To Greatness Is Service
           </p>
           <div className="lg:py-12 sm:py-0 space-y-6">
-            <div className="flex justify-end items-end p-6 fixed lg:bottom-12 sm:bottom-0  z-50 ">
+            <div className="flex justify-end items-end p-6 fixed lg:bottom-[-0.5rem] sm:bottom-0  z-50 ">
               <button
                 className={` ${
                   scrolled ? "block duration-500" : "hidden"
-                } lg:px-4 md:px-2 sm:px-2 md:py-4 sm:py-3 lg:py-4 rounded-full text-white font-medium flex items-center lg:gap-6 md:gap-4 sm:gap-2 ${
+                } lg:px-4 md:px-2 sm:px-2 md:py-4 sm:py-3 lg:py-3 rounded-full text-white font-medium flex items-center lg:gap-6 md:gap-4 sm:gap-2 ${
                   status === "Open" ? "bg-green-500" : "bg-red-500"
                 }`}
               >
@@ -248,78 +333,6 @@ function Home() {
           </div>
           <Footer />
         </div>
-      ) : (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="xMidYMid"
-          width="200"
-          height="200"
-          style="shape-rendering: auto; display: block; background: rgb(255, 255, 255);"
-        >
-          <g>
-            <circle
-              stroke-width="21"
-              stroke="#d2d9f7"
-              fill="none"
-              r="0"
-              cy="50"
-              cx="50"
-            >
-              <animate
-                begin="0s"
-                calcMode="spline"
-                keySplines="0 0.2 0.8 1"
-                keyTimes="0;1"
-                values="0;43"
-                dur="2.083333333333333s"
-                repeatCount="indefinite"
-                attributeName="r"
-              />
-              <animate
-                begin="0s"
-                calcMode="spline"
-                keySplines="0.2 0 0.8 1"
-                keyTimes="0;1"
-                values="1;0"
-                dur="2.083333333333333s"
-                repeatCount="indefinite"
-                attributeName="opacity"
-              />
-            </circle>
-            <circle
-              stroke-width="21"
-              stroke="#d2d9f7"
-              fill="none"
-              r="0"
-              cy="50"
-              cx="50"
-            >
-              <animate
-                begin="-1.0416666666666665s"
-                calcMode="spline"
-                keySplines="0 0.2 0.8 1"
-                keyTimes="0;1"
-                values="0;43"
-                dur="2.083333333333333s"
-                repeatCount="indefinite"
-                attributeName="r"
-              />
-              <animate
-                begin="-1.0416666666666665s"
-                calcMode="spline"
-                keySplines="0.2 0 0.8 1"
-                keyTimes="0;1"
-                values="1;0"
-                dur="2.083333333333333s"
-                repeatCount="indefinite"
-                attributeName="opacity"
-              />
-            </circle>
-            <g />
-          </g>
-        </svg>
       )}
     </div>
   );
