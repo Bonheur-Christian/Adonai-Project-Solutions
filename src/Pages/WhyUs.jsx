@@ -25,26 +25,6 @@ function WhyUs() {
     };
   }, []);
 
-  // const Testimonials = [
-  //   {
-  //     Name: "Jean Chrisostom",
-  //     info: "Adonai Project Solutions exceeded our expectations with their attention to detail and commitment to quality. Our new office building is both functional and aesthetically pleasing. We couldn't be happier with the results!",
-  //     role: "CEO",
-  //     Image: "images/1.png",
-  //   },
-  //   {
-  //     Name: "Hirwa Justin",
-  //     info: "Working with APS was a fantastic experience. They delivered our project on time and within budget. The team was professional, communicative, and truly cared about our vision.",
-  //     role: "Engineer",
-  //     Image: "images/2.png",
-  //   },
-  //   {
-  //     Name: "John David ",
-  //     info: "Choosing APS for our construction project was the best decision we made. Their team was knowledgeable, reliable, and worked tirelessly to ensure our project was completed to perfection. We highly recommend them.",
-  //     role: "Minister",
-  //     Image: "images/3.png",
-  //   },
-  // ];
 
   return (
     <div className="dark:text-white overflow-x-hidden">
@@ -59,18 +39,18 @@ function WhyUs() {
           </h1>
         </div>
       </div>
-      <div className="flex lg:flex-row sm:flex-col-reverse md:flex-row">
+      <div className="flex lg:flex-row sm:flex-col-reverse md:flex-row lg:pb-32 lg:py-12">
         <motion.div
           variants={fadeIn("up", 0.2)}
           initial="hidden"
           whileInView={"show"}
           viewport={{ once: false, amount: 0.7 }}
-          className="md:w-1/2 md:pr-6 mb-8 md:mb-0 lg:pt-40 sm:pt-0 lg:pl-12 sm:px-4 sm:w-full"
+          className="md:w-[100%] md:pr-6 mb-8 md:mb-0 lg:pt-6 md:pt-0 sm:pt-0 lg:pl-12 sm:px-4 sm:w-full lg:space-y-16"
         >
           <h1 className="font-semibold text-blue-500 text-lg mb-4">
             IT MATTERS ....
           </h1>
-          <h1 className="font-bold lg:text-3xl sm:text-xl mb-4 lg:w-1/4 sm:w-full">
+          <h1 className="font-bold lg:text-3xl sm:text-xl mb-4 lg:w-full sm:w-full">
             Who Does Your Engineering.
           </h1>
           <p className="mb-6 lg:text-xl sm:text-md font-lato lg:w-[40vw] sm:w-full">
@@ -93,7 +73,7 @@ function WhyUs() {
           />
         </div>
       </div>
-      <div className="bg-[#DEF2F9]/30 dark:bg-gray-800 lg:py-12 sm:py-6 lg:mt-[-12rem] sm:mt-0 lg:space-y-16 sm:space-y-10">
+      <div className="bg-[#DEF2F9]/30 dark:bg-gray-800 lg:py-20 sm:py-6 lg:mt-[-4rem] sm:mt-0 lg:space-y-16 sm:space-y-10">
         <motion.p
           variants={fadeIn("up", 0.1)}
           initial="hidden"
