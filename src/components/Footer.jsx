@@ -28,7 +28,7 @@ function Footer() {
 
   return (
     <div>
-      <div className="flex lg:flex-row md:flex-row md:flex-wrap sm:flex-col sm:mx-auto lg:mx-0 sm:justify-center sm:items-center sm:space-y-6 md:space-y-0 lg:justify-evenly md:justify-evenly lg:py-12 bg-[#D9D9D9] dark:bg-gray-700 sm:flex-wrap">
+      <div className="flex lg:flex-row md:flex-row md:flex-wrap sm:flex-col sm:mx-auto lg:mx-0 sm:justify-center sm:items-center sm:space-y-6 md:space-y-0 lg:justify-evenly md:justify-evenly lg:py-20 bg-[#D9D9D9] dark:bg-gray-700 sm:flex-wrap">
         <div className="py-6">
           <div className="pb-4">
             <img src="svg/logo.svg" alt="logo" width={90} height={20} />
@@ -80,7 +80,7 @@ function Footer() {
           </ul>
         </div>
       </div>
-      <div className="bg-[#979797]">
+      <div className="bg-[#a0a0a0]">
         <p className="text-xl text-white text-center py-4 sm:px-6">
           @copyright APL 2024. All rights reserved
         </p>

@@ -42,7 +42,7 @@ function LandingPageBar() {
       }`}
     >
       <nav className="flex justify-between lg:px-12 sm:px-2 sticky top-0 lg:w-[50vw] sm:w-full">
-        <div className="md:h-[10rem] lg:h-[7rem]">
+        <div className="md:h-[10rem] lg:h-[5rem]">
           <img
             src="svg/logo.svg"
             alt="aps"
