@@ -18,13 +18,13 @@ import Dashboard from "./Pages/Dashboard";
 import NotFound from "./Pages/NotFound";
 
 function App() {
-  function ProtectedRoute() {
-    const code = JSON.parse(localStorage.getItem("code"));
-    if (!code) {
-      return <Navigate to={"/signin"} />;
-    }
-    return <Outlet />;
-  }
+  // function ProtectedRoute() {
+  //   const code = JSON.parse(localStorage.getItem("code"));
+  //   if (!code) {
+  //     return <Navigate to={"/signin"} />;
+  //   }
+  //   return <Outlet />;
+  // }
   return (
     <div className="bg-white dark:bg-gray-800">
       <Router>
@@ -35,10 +35,10 @@ function App() {
           <Route element={<Services />} path="/services" />
           <Route element={<News />} path="/news" />
           <Route element={<Contacts />} path="/contacts" />
-          <Route element={<Signin />} path="/signin" />
+          {/* <Route element={<Signin />} path="/signin" />
           <Route element={<ProtectedRoute />}>
             <Route element={<Dashboard />} path="/dashboard" />
-          </Route>
+          </Route> */}
           <Route element={<NotFound />} path="*" />
         </Routes>
       </Router>

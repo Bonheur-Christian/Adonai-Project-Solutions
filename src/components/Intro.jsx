@@ -45,7 +45,7 @@ function Intro() {
               GET FREE QUOTE
             </button>
           </a>
-          <a href="/signin" className="lg:block sm:hidden">
+          <a href="/signin" className="hidden">
             <button className="bg-blue-500 hover:bg-blue-700 lg:px-12 sm:px-6 py-3 rounded-full font-medium text-white">
               Sign In
             </button>
