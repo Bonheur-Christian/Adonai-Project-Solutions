@@ -104,7 +104,7 @@ function Services() {
       <div className="flex px-12 py-12">
         <Dropdown title={"Services List"} content={servicesList} />
       </div>
-      <div className="grid lg:grid-cols-2 sm:grid lg:justify-center lg:px-12 lg:w-[90%] lg:mx-auto md:grid md:grid-cols-2 md:items-center py-24">
+      <div className="grid lg:grid-cols-2 sm:grid lg:justify-center lg:px-12 lg:w-[90%] lg:mx-auto md:grid md:grid-cols-2 md:items-center py-24 lg:space-y-20">
         {servicesList.map((item, index) => (
           <motion.div
             variants={fadeIn("up", 0.3)}
@@ -112,7 +112,7 @@ function Services() {
             whileInView={"show"}
             viewport={{ once: false, amount: 0.5 }}
             key={index}
-            className="lg:w-[40vw] lg:h-[40vh] p-4 sm:w-full sm:px-6 lg:hover:bg-sky-100  lg:hover:rounded-lg lg:hover:shadow-lg shadow-gray-700 duration-500 my-4"
+            className="lg:w-[40vw] lg:h-[40vh] p-4 sm:w-full sm:px-6 lg:hover:rounded-lg my-4"
           >
             <img
               src={item.image.asset.url}
