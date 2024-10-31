@@ -38,8 +38,8 @@ function Projects() {
   return (
     <div className="w-[80%] flex justify-evenly mx-auto" id="projects">
       <Swiper
-        modules={[EffectCoverflow,Navigation, Autoplay]}
-        autoplay={{ delay: 2000, disableOnInteraction: false }}
+        modules={[Navigation, Autoplay]}
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
         loop={true}
         breakpoints={{
           640: { slidesPerView: 2, spaceBetween: 10, centeredSlides: false },
